@@ -18,7 +18,7 @@
             "dark": "#073252"
         }
     },
-    "font": {
+    "fonts": {
         "family": "GT-Pressura",
         "weight": 400,
         "source": "fonts/GT-Pressura-Extended-Regular.woff2"
