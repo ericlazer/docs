@@ -6,10 +6,6 @@
     "primary": "#288DFE",
     "light": "#288DFE",
     "dark": "#073252",
-    "background": {
-      "light": "#288DFE",
-      "dark": "#073252"
-    }
   },
   "favicon": "/favicon.svg",
   "navigation": {
