@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Nexio Docs",
   "colors": {
     "primary": "#288DFE",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "light": "#288DFE",
+    "dark": "#073252"
   },
   "favicon": "/favicon.svg",
   "navigation": {
