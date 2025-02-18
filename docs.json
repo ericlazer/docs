@@ -20,7 +20,8 @@
     },
     "font": {
         "family": "GT-Pressura",
-        "weight": 400
+        "weight": 400,
+        "source": "fonts/GT-Pressura-Extended-Regular.woff2"
     },
     "favicon": "/favicon.svg",
     "navigation": {
