@@ -4,7 +4,8 @@
   "name": "Nexio Docs",
   "colors": {
       "primary": "#FFFFFF",
-      "light": "#288DFE"
+      "light": "#288DFE",
+      "dark": "#073252",
   },
   "background": {
     "color": {
