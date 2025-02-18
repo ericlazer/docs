@@ -2,6 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
   "name": "Nexio Docs",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.nexio.xyz/"
+  },
   "colors": {
       "primary": "#FFFFFF",
       "light": "#288DFE",
@@ -13,6 +18,10 @@
        "dark": "#073252"
     }
   },
+  "font": {
+    "family": "GT Pressura"
+    "weight": 400,
+  }
   "favicon": "/favicon.svg",
   "navigation": {
       "tabs": [
@@ -79,10 +88,6 @@
               }
           ]
       }
-  },
-  "logo": {
-      "light": "/logo/light.svg",
-      "dark": "/logo/dark.svg"
   },
   "navbar": {
       "links": [
