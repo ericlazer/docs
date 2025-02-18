@@ -19,7 +19,8 @@
         }
     },
     "font": {
-        "family": "GT-Pressura"
+        "family": "GT-Pressura",
+        "weight": 400
     },
     "favicon": "/favicon.svg",
     "navigation": {
