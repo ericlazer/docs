@@ -13,6 +13,7 @@
         "dark": "#073252"
     },
     "background": {
+        "decoration": "grid",
         "color": {
             "light": "#288DFE",
             "dark": "#073252"
