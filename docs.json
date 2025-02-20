@@ -19,6 +19,19 @@
             "dark": "#073252"
         }
     },
+    {
+    "style": {
+      "theme": {
+        "typography": {
+          "text": {
+            "default": "#ffffff",
+            "light": "#ffffff",
+            "medium": "#ffffff",
+            "strong": "#ffffff"
+          }
+        }
+      }
+    },
     "appearance":{
       "strict": true
     },
