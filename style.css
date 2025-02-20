@@ -14,16 +14,11 @@
   --icon-default: #ffffff !important;
 }
 
-@font-face {
-  font-family: 'GT-Pressura';
-  src: url('/fonts/GT-Pressura-Extended-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 
 p, h1, h2, h3, h4, h5, h6, span, a {
   color: #ffffff !important;
-  font-family: 'GT-Pressura', sans-serif !important;
+  font-family: 'Merriweather', serif !important;
 }
 
 svg {
