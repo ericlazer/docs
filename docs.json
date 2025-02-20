@@ -10,8 +10,7 @@
     "colors": {
         "primary": "#288DFE",
         "light": "#288DFE",
-        "dark": "#073252",
-        "text": "#ffffff"
+        "dark": "#073252"
     },
     "background": {
         "decoration": "grid",
@@ -21,12 +20,7 @@
         }
     },
     "style": {
-        "theme": {
-            "text": "#ffffff",
-            "typography": {
-                "color": "#ffffff"
-            }
-        }
+      "css": "style.css"
     },
     "appearance": {
         "strict": true
