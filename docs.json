@@ -10,7 +10,8 @@
     "colors": {
         "primary": "#288DFE",
         "light": "#288DFE",
-        "dark": "#073252"
+        "dark": "#073252",
+        "text": "#ffffff"
     },
     "background": {
         "decoration": "grid",
@@ -19,23 +20,18 @@
             "dark": "#073252"
         }
     },
-    {
     "style": {
-      "theme": {
-        "typography": {
-          "text": {
-            "default": "#ffffff",
-            "light": "#ffffff",
-            "medium": "#ffffff",
-            "strong": "#ffffff"
-          }
+        "theme": {
+            "text": "#ffffff",
+            "typography": {
+                "color": "#ffffff"
+            }
         }
-      }
     },
-    "appearance":{
-      "strict": true
+    "appearance": {
+        "strict": true
     },
-    "font":{
+    "font": {
         "family": "GT-Pressura",
         "weight": 400,
         "source": "fonts/GT-Pressura-Extended-Regular.woff2"
