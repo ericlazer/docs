@@ -8,12 +8,11 @@
         "href": "https://www.nexio.xyz/"
     },
     "colors": {
-        "primary": "#288DFE",
-        "light": "#288DFE",
+        "primary": "#FC5C21",
+        "light": "#FC5C21",
         "dark": "#073252"
     },
     "background": {
-        "decoration": "grid",
         "color": {
             "light": "#288DFE",
             "dark": "#073252"
@@ -23,12 +22,8 @@
       "css": "style.css"
     },
     "appearance": {
-        "strict": true
-    },
-    "font": {
-        "family": "GT-Pressura",
-        "weight": 400,
-        "source": "fonts/GT-Pressura-Extended-Regular.woff2"
+        "strict": true,
+        "default": "light"
     },
     "favicon": "/favicon.svg",
     "navigation": {
@@ -37,22 +32,10 @@
                 "tab": "Guides",
                 "groups": [
                     {
-                        "group": "Get Started",
+                        "group": "introduction",
                         "pages": [
                             "introduction",
-                            "quickstart",
-                            "development"
-                        ]
-                    },
-                    {
-                        "group": "Essentials",
-                        "pages": [
-                            "essentials/markdown",
-                            "essentials/code",
-                            "essentials/images",
-                            "essentials/settings",
-                            "essentials/navigation",
-                            "essentials/reusable-snippets"
+                            "quickstart"
                         ]
                     }
                 ]
