@@ -54,10 +54,10 @@ body::after {
   --tw-backdrop-blur: none !important
 }
 
-/* Social media icons */
+/* Social media icons
 li a svg {
   background-color: #ffffff !important;
-}
+} */
 
 .border-gray-950\/5 {
   border-color: rgba(255, 255, 255, 0.25) !important;
@@ -111,7 +111,7 @@ h3 {
 
 svg {
   color: #ffffff !important;
-  fill: #ffffff !important;
+  /* fill: #ffffff !important; */
 }
 
 /* Target specific Tailwind icon classes */
@@ -269,4 +269,91 @@ svg {
 
 .zinc-box {
   border: 1px solid #073252  !important;
+}
+
+.rounded-xl {
+  border-radius: .25rem !important;
+}
+
+.rounded-2xl {
+  border-radius: .25rem !important;
+}
+
+button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]) {
+  -webkit-appearance: button !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #073252 !important;
+}
+
+button .dark\:text-gray-200 {
+  color: #ffffff !important; /* Override for buttons */
+}
+
+#content-area button svg {
+  background-color: #ffffff !important;
+}
+
+/* Fix for search bar button SVG */
+#search-bar-entry button svg {
+  background-color: transparent !important;
+}
+
+.p-1 {
+  padding: 1px !important;
+}
+
+.prose :where(strong):not(:where([class~=not-prose],[class~=not-prose] *)) {
+  color: #ffffff !important;
+}
+
+ul, ol, li::marker {
+  color: #ffffff !important;
+} 
+
+.prose ul>li:before {
+  background-color: #ffffff !important;
+}
+
+table {
+  color: #ffffff !important;
+}
+
+table th {
+  color: #ffffff !important;
+}
+
+.border-standard {
+  border-color: #ffffff !important;
+}
+
+.border-standard:hover {
+  border-color: #ffffff !important;
+}
+
+.bg-sky-50\/50 {
+  background-color: #FC5C21 !important;
+}
+
+.bg-amber-50\/50 {
+  background-color: #FC5C21 !important;
+}
+
+.bg-emerald-50\/50 {
+  background-color: #FC5C21 !important;
+}
+
+.bg-zinc-50\/50 {
+  background-color: #FC5C21 !important;
+}
+
+.p-2 {
+  padding: 0rem !important;
+}
+
+.bg-gray-50\/50 {
+  background-color: transparent !important;
+}
+.bg-grid-neutral-200\/20 {
+  background-image: none !important;
 }

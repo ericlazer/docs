@@ -35,7 +35,8 @@
                         "group": "introduction",
                         "pages": [
                             "introduction",
-                            "quickstart"
+                            "quickstart",
+                            "all-elements"
                         ]
                     }
                 ]
