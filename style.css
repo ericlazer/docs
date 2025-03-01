@@ -179,7 +179,9 @@ svg {
   color: #073252 !important;
   transition: all .2s cubic-bezier(.39, .575, .565, 1) !important;
 }
-
+.card svg{
+  color: #FC5C21 !important;
+}
 /* Card headings */
 .card.block h1,
 .card.block h2,
@@ -209,6 +211,11 @@ svg {
 .card.block:hover {
   background: none !important;
   border-color: #ffffff !important;
+}
+
+/* Add hover state for cards */
+.card.block:hover svg {
+  color: #ffffff !important;
 }
 
 .card.block:hover h1,
