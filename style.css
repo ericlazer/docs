@@ -58,8 +58,9 @@ body::before {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-color: rgba(255, 0, 0, 0.5) !important; /* Temporary test */
+  background-image: url('/images/bg-tile.svg') !important;
   z-index: -1 !important;
+
 }
 
 #navbar-transition, #navbar-transition-maple {
