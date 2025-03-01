@@ -85,13 +85,13 @@
         "links": [
             {
                 "label": "Support",
-                "href": "mailto:hi@mintlify.com"
+                "href": "mailto:charlie@buildnexio.xyz"
             }
         ],
         "primary": {
             "type": "button",
-            "label": "Dashboard",
-            "href": "https://dashboard.mintlify.com"
+            "label": "Website",
+            "href": "https://www.nexio.xyz"
         }
     },
     "footer": {
