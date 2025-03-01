@@ -58,13 +58,8 @@ body::before {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-image: url('/images/bg-tile.svg') !important;
-  background-repeat: repeat !important;
-  background-size: 16px 16px !important;
-  background-position: center center !important;
-  opacity: 0.04 !important;
+  background-color: rgba(255, 0, 0, 0.5) !important; /* Temporary test */
   z-index: -1 !important;
-  pointer-events: none !important;
 }
 
 #navbar-transition, #navbar-transition-maple {
