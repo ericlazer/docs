@@ -35,7 +35,8 @@ body {
     font-family: 'GT Pressura Extended', sans-serif !important;
 }
 
-body::after {
+
+.bg-background-light::after {
     content: '' !important;
     position: fixed !important;
     top: 0 !important;
@@ -46,8 +47,8 @@ body::after {
     background-repeat: repeat !important;
     background-size: 16px 16px !important;
     background-position: center center !important;
-    opacity: 0.05 !important;
-    z-index: 2 !important;
+    opacity: 0.0175 !important;
+    z-index: -1 !important;
     pointer-events: none !important;
 }
 
