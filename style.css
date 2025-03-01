@@ -440,3 +440,31 @@ blockquote {
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
 }
+
+.rounded-search {
+  border-radius: 0.25rem !important;
+}
+
+.text-grey-950, .text-grey-700{
+  color: #ffffff !important;
+}
+
+#headlessui-combobox-option-\:ra\:[data-headlessui-state="active"] {
+  background-color: transparent !important;
+}
+
+.bg-gray-50{
+  background-color: #ffffff25 !important;
+}
+
+.bg-gray-950\/5 {
+  background-color: #ffffff25 !important;
+}
+
+.text-zinc-950\/70 {
+  color: #ffffff !important;
+}
+
+.opacity-50 {
+  opacity: 1 !important;
+}
