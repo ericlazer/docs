@@ -35,7 +35,7 @@ body {
 }
 
 
-#__next::after {
+#__next {
     content: '' !important;
     position: fixed !important;
     top: 0 !important;
