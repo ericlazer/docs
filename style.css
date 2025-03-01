@@ -35,7 +35,7 @@ body {
 }
 
 
-.inset-0.bg-background-light.dark\:bg-background-dark.-z-10::after {
+#__next::after {
     content: '' !important;
     position: fixed !important;
     top: 0 !important;
