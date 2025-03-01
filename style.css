@@ -84,15 +84,16 @@ p, span, a {
   transition: opacity 0.2s cubic-bezier(.39, .575, .565, 1) !important;
 }
 
-#headlessui-dialog-\:r4\: .bg-white {
+/* Target headlessui dialogs with any ending character */
+[id^="headlessui-dialog-:r"] .bg-white {
   background-color: #073252 !important;
 }
 
-#headlessui-dialog-\:r0\: a {
+[id^="headlessui-dialog-:r"] a {
   color: #ffffff !important;
 }
 
-#headlessui-dialog-\:r0\: svg, #headlessui-dialog-\:r4\: svg {  
+[id^="headlessui-dialog-:r"] svg {  
   fill: #ffffff !important;
   color: #ffffff !important;
 }
