@@ -478,9 +478,6 @@ blockquote {
   color: #ffffff !important;
 }
 
-#headlessui-combobox-input-\:rm\: {
-  margin-top: -1px !important;
-}
 
 .\[\&_mark_b\]\:text-primary mark b {
   --tw-text-opacity: 1;
