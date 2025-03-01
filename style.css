@@ -445,7 +445,7 @@ blockquote {
   border-radius: 0.25rem !important;
 }
 
-.text-gray-950, .text-gray-700{
+.text-gray-950{
   color: #ffffff !important;
 }
 
@@ -463,4 +463,26 @@ blockquote {
 
 .opacity-50 {
   opacity: 1 !important;
+}
+
+.focus\:border-slate-950:focus {
+  border-color: #ffffff75 !important;
+}
+
+::placeholder {
+  color: #ffffff !important;
+  opacity: .5 !important; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #ffffff !important;
+}
+
+#headlessui-combobox-input-\:rm\: {
+  margin-top: -1px !important;
+}
+
+.\[\&_mark_b\]\:text-primary mark b {
+  --tw-text-opacity: 1;
+  color: #ffffff75;
 }
