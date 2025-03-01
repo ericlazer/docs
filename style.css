@@ -36,7 +36,7 @@ body {
 }
 
 
-.bg-background-light::after {
+.inset-0.bg-background-light.dark\:bg-background-dark.-z-10::after {
     content: '' !important;
     position: fixed !important;
     top: 0 !important;
@@ -47,7 +47,7 @@ body {
     background-repeat: repeat !important;
     background-size: 16px 16px !important;
     background-position: center center !important;
-    opacity: 0.0175 !important;
+    opacity: 0.04 !important;
     z-index: -1 !important;
     pointer-events: none !important;
 }
