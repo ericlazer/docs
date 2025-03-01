@@ -21,10 +21,15 @@
     "style": {
       "css": "style.css"
     },
+    "scripts": {
+        "js": "index.js"
+      },
     "appearance": {
         "strict": true,
         "default": "light"
     },
+
+
     "favicon": "/favicon.svg",
     "navigation": {
         "tabs": [
