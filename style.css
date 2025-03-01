@@ -214,7 +214,7 @@ svg {
 }
 
 /* Add hover state for cards */
-.card.block:hover svg {
+.card.block:hover svg.lucide-arrow-up-right{
   color: #ffffff !important;
 }
 
