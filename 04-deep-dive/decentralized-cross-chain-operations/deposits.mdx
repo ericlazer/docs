@@ -1,0 +1,54 @@
+---
+title: 'Deposits'
+---
+
+A deposit occurs when a user transfers assets from an external network into the Nexio ecosystem. This process enables users to leverage Bitcoin's liquidity within Nexio's ecosystem for applications such as smart contracts, decentralized finance (DeFi), and other advanced blockchain use cases. Below is a step-by-step breakdown of how the deposit process works.
+
+The Deposit Process work as follows:
+
+**Step 1: User Deposit**
+
+When a user deposits BTC into the Nexio bridge, the Bitcoin is locked in an MPC-TSS network-owned vault. This vault is secured by multiple parties within the MPC network, ensuring that no single participant can unilaterally access or move the funds, providing a trust-minimized and decentralized security model.
+
+**Step 2: UTXO Generation**
+
+Each deposit creates an **Unspent Transaction Output (UTXO)**, which is a fundamental component of Bitcoin transactions. The UTXO represents the amount of BTC deposited and specifies the destination address within the Nexio ecosystem. This output is crucial for accurately tracking and verifying funds on the Bitcoin network.
+
+**Step 3: Proof Generation**
+
+A cryptographic proof is generated from the Bitcoin address associated with the UTXO. This proof validates the ownership and legitimacy of the deposited BTC, ensuring that only verified funds are processed within Nexio.
+
+**Step 4: Verification Layer**
+
+The generated cryptographic proof is sent to Nexio's verification layer, where it undergoes a thorough validation process. This layer uses the MPC-TSS network to verify the proof's accuracy and authenticity. By leveraging Multi-Party Computation (MPC), the verification process is decentralized, secure, and resistant to manipulation.
+
+**Step 5: Data Availability (DA) Layer**
+
+Once verified, proofs and transaction data are stored in the **Data Availability (DA) layer**. This ensures that all transaction data remains accessible, transparent, and auditable, preserving the system's integrity and providing a reliable source of truth for users and developers alike.
+
+**Step 6: Minting on Nexio Chain**
+
+After the proof is verified and securely stored, the equivalent amount of BTC is minted as a token on the Nexio chain. This newly minted BTC mirrors the locked Bitcoin and enables users to utilize it within Nexio's ecosystem for various operations. These operations include deploying and interacting with smart contracts, participating in DeFi applications, and accessing decentralized services built on Nexio.
+
+This newly minted BTC represents the locked BTC in the Nexio ecosystem, allowing it to be used within Nexio's blockchain environment for various operations, including smart contracts and decentralized applications.
+
+## Visualizing This Flow
+
+The graphic below illustrates depositing Bitcoin into the Nexio bridge (also called "Peg-In") and minting the equivalent amount on Nexio.
+
+<Frame>
+  <img src="/images/image-8.png" alt="" />
+</Frame>
+
+Below is a step-by-step explanation of the flow:
+
+1. **User Deposit**: Alice initiates the process by sending 5 BTC to the **BTC Vault**. This vault is part of the MPC-TSS network, ensuring decentralized control over the deposited Bitcoin.
+2. **BTC Vault and Peg-In UTXO:** The deposited Bitcoin is locked in the BTC Vault, generating a **Peg-In UTXO**. This UTXO represents the ownership and amount of BTC Alice has deposited within the Nexio ecosystem.
+3. **Proof Generation**: The Peg-In UTXO triggers the generation of a cryptographic **Peg-In Proof** by the MPC-TSS network, which operates under a decentralized validator set using an \{m, n\} structure to ensure security and trustlessness.
+4. **Proof Validation**: The generated proof is sent to the **Verification Layer**, where it undergoes validation. This ensures the proof's accuracy and legitimacy, confirming that the Bitcoin has been securely deposited.
+5. **Data Availability (DA) Layer**: Verified proofs and associated transaction data are securely stored in the **Data Availability Layer (DA)** to maintain transparency, integrity, and auditability.
+6. **Minting on Nexio**: Once validation is complete, an equivalent amount of Bitcoin (in this case, 5 BTC) is minted on  **Nexio.**&#x20;
+
+Alice can now use this BTC within Nexio's ecosystem for activities such as DeFi, smart contracts, or other applications.
+
+Although we covered many steps that must occur, in practice, they all occur exceptionally fast.

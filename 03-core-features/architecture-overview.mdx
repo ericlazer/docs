@@ -1,0 +1,50 @@
+---
+title: 'Architecture Overview'
+---
+
+Nexio's key advantages over other BTC DeFi ecosystems stem from its integrated architecture that combines advanced components into a unified system.
+## Transaction Flow
+
+The transaction lifecycle follows these key steps:
+
+1. Transactions are submitted to Nexio's Shared Sequencer
+2. Data is published to the DA Layer
+3. The Move Executor processes transactions through either:
+   - EVM Interpreter (for Ethereum-based transactions)
+   - MoveVM (for Move-based transactions)
+4. State roots are updated and published
+5. Two-layer settlement provides both fast finality and Bitcoin-backed security
+
+<Frame caption={<i>Transactions flow through the M1 Sequencer, Move Executor, state root publication, settlement, and Bitcoin network data availability.</i>}>
+  <img src="/images/image-4.png" alt="Architecture Overview" />
+</Frame>
+
+## Key Components
+
+### 1. Transaction Submission & Sequencing
+
+Transactions are sent to the M1 Sequence**,** a decentralized sequencer that organizes and publishes the data to Nexio's DA layer to ensure data availability for execution and state updates.
+
+We cover this in the [Nexio's Shared Sequencer](/03-core-features/nexios-shared-sequencer) section.
+
+### 2. Execution
+
+Transactions are passed to the Move Executor, where they are interpreted by either the EVM Interpreter (Geth) for Ethereum-based transactions or the MoveVM Interpreter for Move-based transactions.
+
+We cover this in the [Move Executor and MoveVM](/03-core-features/move-executor-and-movevm) section.
+
+### 3. State Root Publication
+
+After processing, the updated state roots are published. This ensures that all validators in the system have access to consistent and up-to-date information.
+
+### 4. Settlement Mechanism
+
+The settlement mechanism incorporates a two-layered finality system, which we cover in [Fast Consensus with Bitcoin-Grade Security](/03-core-features/fast-consensus-with-bitcoin-grade-security)
+
+* **Fast Finality Settlement (FFS):** Consensus is achieved quickly through staked validators.
+* **Bitcoin-backed Finality (ZK Proofs):** Transactions are cryptographically anchored to Bitcoin for immutable and trust-minimized security.
+
+### 5. Data Availability and Validation
+
+Transaction data is available and secured on Bitcoin, ensuring transparency and resilience. This is managed through staking and verification contracts that confirm the correctness of state transitions and zk-proofs.
+

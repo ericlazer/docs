@@ -1,0 +1,53 @@
+---
+title: 'UTXO Indexer'
+---
+
+The UTXO Indexer actively monitors Bitcoin's blockchain to trace and verify UTXOs linked to Nexio transactions.
+
+Within this system, each UTXO is mathematically represented as a tuple `u = (pk, v, σ, d)`, where:
+
+* pk represents the recipient's public key,&#x20;
+* v denotes value in satoshis,&#x20;
+* σ represents the signature, and&#x20;
+* d encompasses additional data like script structures.&#x20;
+
+The complete UTXO set U at any block height h can be expressed as `U(h) = {u₁, u₂, ..., uₙ}`. The Indexer meticulously catalogs all zk-proofs and state changes validated by Nexio's decentralized signers, ensuring they are securely indexed and fully traceable within Bitcoin's immutable ledger.
+
+## Real-Time Blockchain Monitoring and Validation
+
+The UTXO Indexer connects to a Bitcoin node to process each new block 𝐵 , scanning for transactions with Nexio-specific markers. For each transaction 𝑡𝑥 , the Indexer extracts the zk-proof 𝜋 , verifies it, and updates the blockchain state if valid. This process ensures that only verified zk-proofs contribute to state transitions, maintaining the ledger’s integrity.
+
+The core logic for this operation is as follows:
+
+1. **Indexing Transactions**: The Indexer scans each transaction in a new block:
+   * If a Nexio marker is found, the zk-proof is extracted and verified.
+   * Verified transactions are added to the Indexer's dataset.
+2. **Proof Verification**: zk-proofs are validated using: \
+   \
+   $$Verify(pk,msg,σ)=true if g  H(msg)  =pk  σ  modp, false otherwise$$\
+   \
+   where g is the generator point and p is the field prime.
+3. **State Validation**: State transitions are validated using: \
+   \
+   $$S′=T(S,tx)$$\
+   \
+   where TTT maps the current state SSS and transaction tx to a new state S′. The Indexer ensures that:
+
+* The zk-proof π\piπ is valid.
+* The resulting state S′S'S′ satisfies all defined conditions for a valid transition.
+
+This streamlined process establishes a secure audit trail, enhancing indexing efficiency (EEE) defined as:
+
+$$E = \left( \frac{n_{\text{relevant}}}{n_{\text{total}}} \right) \times 100\%$$\
+\
+where n relevant is the number of relevant transactions processed, and n total​ is the total transactions scanned.
+
+By combining real-time monitoring, proof validation, and state transitions, the UTXO Indexer ensures secure and efficient indexing of Nexio-related transactions within Bitcoin’s immutable ledger.
+
+### Efficient Proofs & Secure Finality
+
+The UTXO Listener employs sophisticated pattern matching to identify zk-proof data, with a security guarantee expressed as `P(attack) = 1 - (1 - (h/H))^k`, where H represents Bitcoin's hash rate, h represents attacker hash rate, and k represents the number of confirmation blocks. This mathematical foundation ensures robust security while maintaining efficient operation.
+
+The system also establishes a finality threshold `F = ⌈-log(ε)/log(1-p)⌉`, where ε represents acceptable error probability and p represents the probability of successful block reversion. This threshold, combined with the dual-layer security model, creates a robust environment for all zk-proof-linked operations.
+
+By anchoring zk-proofs directly to Bitcoin, the UTXO Listener leverages Bitcoin's security to create a trusted environment where each proof maintains its integrity with a mathematically verifiable guarantee. The layered anchoring approach supports Nexio's objective to offer reliable cross-chain finality, ensuring that each transaction and state transition is secure and correct.

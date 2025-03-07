@@ -27,37 +27,64 @@
     },
 
 
-    "favicon": "/favicon.svg",
+    "favicon": "/images/favicon.svg",
     "navigation": {
         "tabs": [
             {
                 "tab": "Guides",
                 "groups": [
                     {
-                        "group": "introduction",
+                        "group": "Introduction",
                         "pages": [
-                            "introduction",
-                            "quickstart",
-                            "all-elements"
-                        ]
-                    }
-                ]
-            },
-            {
-                "tab": "API Reference",
-                "groups": [
-                    {
-                        "group": "API Documentation",
-                        "pages": [
-                            "api-reference/introduction"
+                            "01-introduction/what-is-nexio",
+                            "01-introduction/vision-and-mission"
                         ]
                     },
                     {
-                        "group": "Endpoint Examples",
+                        "group": "The Problem and Solution",
                         "pages": [
-                            "api-reference/endpoint/get",
-                            "api-reference/endpoint/create",
-                            "api-reference/endpoint/delete"
+                            "02-the-problem-and-solution/bitcoin-defi-limitations",
+                            "02-the-problem-and-solution/nexios-approach-to-solving-bitcoin-defi"
+                        ]
+                    },
+                    {
+                        "group": "Core Features",
+                        "pages": [
+                            "03-core-features/architecture-overview",
+                            "03-core-features/nexios-shared-sequencer",
+                            "03-core-features/move-executor-and-movevm",
+                            "03-core-features/mpc-tss-bridge",
+                            "03-core-features/fast-consensus-with-bitcoin-grade-security"
+                        ]
+                    },
+                    {
+                        "group": "Deep Dive",
+                        "pages": [
+                            {
+                                "group": "Decentralized Cross-Chain Operations",
+                                "pages": [
+                                    "04-deep-dive/decentralized-cross-chain-operations/introduction",
+                                    "04-deep-dive/decentralized-cross-chain-operations/threshold-based-security-m-of-n",
+                                    "04-deep-dive/decentralized-cross-chain-operations/deposits",
+                                    "04-deep-dive/decentralized-cross-chain-operations/withdrawals"
+                                ]
+                            },
+                            "04-deep-dive/utxo-indexer"
+                            
+                        ]
+                    },
+                    {
+                        "group": "Build on Nexio",
+                        "pages": [
+                            "05-build-on-nexio/use-cases",
+                            "05-build-on-nexio/developer-tools-coming-soon"
+                        ]
+                    },
+                    {
+                        "group": "Community",
+                        "pages": [
+                            "06-community/community-links",
+                            "06-community/faq"
                         ]
                     }
                 ]
@@ -66,18 +93,23 @@
         "global": {
             "anchors": [
                 {
-                    "anchor": "Documentation",
-                    "href": "https://mintlify.com/docs",
-                    "icon": "book-open-cover"
+                    "anchor": "Twitter",
+                    "href": "https://x.com/buildnexio",
+                    "icon": "twitter"
                 },
                 {
-                    "anchor": "Community",
-                    "href": "https://mintlify.com/community",
-                    "icon": "slack"
+                    "anchor": "Discord",
+                    "href": "https://discord.gg/nexio",
+                    "icon": "discord"
+                },
+                {
+                    "anchor": "Website",
+                    "href": "https://www.nexio.xyz/",
+                    "icon": "globe"
                 },
                 {
                     "anchor": "Blog",
-                    "href": "https://mintlify.com/blog",
+                    "href": "https://www.nexio.xyz/blog",
                     "icon": "newspaper"
                 }
             ]
@@ -89,18 +121,12 @@
                 "label": "Support",
                 "href": "mailto:charlie@buildnexio.xyz"
             }
-        ],
-        "primary": {
-            "type": "button",
-            "label": "Website",
-            "href": "https://www.nexio.xyz"
-        }
+        ]
     },
     "footer": {
         "socials": {
-            "x": "https://x.com/mintlify",
-            "github": "https://github.com/mintlify",
-            "linkedin": "https://linkedin.com/company/mintlify"
+            "x": "https://x.com/buildnexio",
+            "discord": "https://discord.gg/nexio"
         }
     }
 }

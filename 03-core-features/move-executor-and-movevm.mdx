@@ -1,0 +1,48 @@
+---
+title: 'Move Executor & MoveVM'
+---
+
+Both the Move Executor and MoveVM play a critical role in executing transactions efficiently and securely on the rollup.
+
+* **The MoveVM:** Built around the [Move programming language](https://move-language.github.io/move/) and at the heart of the execution layer, offering a high-performance environment for processing smart contracts and transactions.
+* **The Move Executor:** Supports both MoveVM bytecode and EVM bytecode, making it possible to execute both types of transactions within the same system.
+
+Both have significant advantages, including _formal verification and object-oriented programming._ Formal verification provides mathematical guarantees about the correctness of the code, reducing risks of bugs and exploits, while object-oriented programming enhances modularity and reusability, allowing developers to create more efficient and maintainable smart contracts.
+
+## 1. The MoveVM
+
+The Move programming language was originally developed by Meta’s team for their Diem (formerly Libra) blockchain project. One of its standout features is the introduction of a resource-oriented programming paradigm, which means that digital assets are treated as unique, immutable resources with strict rules governing their creation, transfer, and destruction.
+
+Additionally, Move is optimized for parallel execution, enabling significantly higher throughput compared to Ethereum’s EVM, making it ideal for scalable blockchain environments.
+
+Nexio’s **MoveVM** brings this parallel transaction processing to Bitcoin DeFi, with transactions categorized and prioritized so that they can be executed simultaneously. Nexio’s architecture also supports concurrent operations: validating transactions, building blocks, and committing transactions in parallel. This approach increases transaction throughput, reduces processing time, and ensures the integrity and security of the blockchain
+
+<Frame caption={<i>Users interact through the Mempool and Movement SDK, while transactions are processed using the parallelized BlockSTM engine. Key components like the MPC-TSS Bridge and Verifier Network ensure security and trustlessness, with final validation and anchoring on Bitcoin L1.</i>}>
+  <img src="/images/image-6.png" alt="MoveVM" />
+</Frame>
+
+The MoveVM executes smart contracts written in Move and includes a parallel execution engine called BlockSTM. By parallelizing transaction execution, MoveVM overcomes one of the most significant limitations of Ethereum’s EVM, which is constrained by sequential execution.
+
+The MoveVM is purpose-built for blockchain environments, offering several key advantages:
+
+1. **Resource-Oriented Execution:** Treating assets as first-class citizens to prevent accidental duplication or loss and enhance security in financial applications. With static typing and verification, errors are caught at compile-time, reducing runtime errors and vulnerabilities.
+2. **Parallel Execution:** Leveraging BlockSTM, MoveVM enables concurrent transaction processing, which drastically improves throughput and is behind Nexio's high throughput.
+3. **Efficient Global Storage:** An optimized data storage model that reduces gas costs by creating a compact representation of bytecode, resulting in faster execution, lower storage costs, and enhanced efficiency in on-chain operations.
+
+Other advantages also exist, including formal verification, enhanced developer experience, and an intuitive language design. Move's support for formal verification allows developers to mathematically prove the correctness of smart contracts, reducing the risk of vulnerabilities and exploits. Additionally, its clean and developer-friendly syntax, combined with extensive tooling for debugging and testing, ensures a smooth development process, empowering both new and experienced blockchain developers.
+
+That being said, while MoveVM provides the foundation for scalable and secure blockchain applications, it is the Move Executor that enables seamless interaction between MoveVM and Nexio’s broader ecosystem.
+
+## 2. The Move Executor
+
+The Move Executor is a critical component of Nexio’s architecture, enabling the execution of transactions and supporting both the Move-based and EVM-based ecosystems.
+
+The two key components of the Move Executor are:
+
+* **MoveVM:** Serves as the secure and efficient execution engine, providing a resource-oriented and tightly controlled environment for running smart contracts, aligning with Move’s safety and efficiency principles.
+* **Fractal:** An interpreter that allows Ethereum developers to deploy Solidity-based contracts to the platform, benefitting from the MoveVM’s forementioned features without having to rewrite contracts.
+
+<Frame caption={<i>Solidity code is interpreted through Fractal to generate MoveVM-compatible bytecode, while Move code is directly compiled into MoveVM bytecode, enabling seamless execution within the MoveVM environment.</i>}>
+  <img src="/images/image-3.png" alt="Move Executor" />
+</Frame>
+
