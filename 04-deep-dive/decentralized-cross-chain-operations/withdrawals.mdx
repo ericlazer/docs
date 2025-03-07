@@ -1,0 +1,60 @@
+---
+title: 'Withdrawals'
+---
+
+A withdrawal occurs when a user requests to transfer assets from the Nexio ecosystem back to the Bitcoin network or another external network. This process ensures the secure and efficient release of Bitcoin locked within the MPC-TSS network vault. Below is a detailed breakdown of how the withdrawal process works:
+
+**Step 1: Initiation of Withdrawal**
+
+A user initiates a withdrawal request on the Nexio platform, specifying the amount of BTC they wish to withdraw. This request sets the withdrawal process in motion, ensuring the user's BTC is securely returned to the desired external Bitcoin address.
+
+**Step 2: Verification of Withdrawal Request**
+
+The withdrawal request is sent to Nexio's **Verification Layer**, which leverages the decentralized MPC-TSS network. This layer validates the withdrawal request by checking:
+
+* The user's BTC balance on the Nexio chain.
+* The authenticity and legitimacy of the withdrawal request.
+
+This ensures that only users with sufficient BTC balance and valid requests can proceed with the withdrawal process.
+
+**Step 3: Proof Generation and Submission**
+
+Upon successful validation, a cryptographic proof is generated to represent the withdrawal transaction. This proof confirms the user's ownership of the BTC and authorizes the movement of funds from the Nexio ecosystem back to the Bitcoin network.
+The proof is submitted to the Bitcoin network for verification, ensuring that the withdrawal aligns with Bitcoin's protocol rules.
+
+**Step 4: UTXO Proof Verification**
+
+The Bitcoin network verifies the submitted cryptographic proof against the corresponding UTXO (Unspent Transaction Output). This step ensures:
+
+* The legitimacy of the transaction.
+* The integrity and accuracy of the withdrawal proof.
+
+The decentralized nature of the MPC-TSS network ensures that no single entity can manipulate or control the transaction during this verification process.
+
+**Step 5: Approval and Execution**
+
+Once the UTXO proof is verified by the Bitcoin network, the withdrawal transaction is approved. The MPC-TSS network generates the necessary threshold signatures (m of n participants) to authorize the release of the Bitcoin.
+This decentralized approach ensures that the transaction remains secure and trust-minimized throughout the process.
+
+**Step 6: BTC Release**
+
+Following approval, the Bitcoin is released from the MPC-TSS network-owned vault and sent to the user's specified Bitcoin address. The transaction is finalized, and the user's BTC balance is updated both on the Nexio chain and the Bitcoin network. This completes the withdrawal process, securely transferring the user's Bitcoin from Nexio's ecosystem back to the Bitcoin network.
+
+## Visualizing the Withdrawal Flow
+
+The graphic below illustrates withdrawing Bitcoin via the Nexio bridge (also called "Peg-In") and minting the equivalent amount on the Bitcoin Network. Below is a step-by-step explanation of the flow:
+
+<Frame>
+  <img src="/images/image-9.png" alt="" />
+</Frame>
+
+Below is a summary of the withdrawal process, mapped step-by-step:
+
+1. **Withdrawal Request**: User specifies the amount of BTC to withdraw and the target Bitcoin address.
+2. **Verification Layer**: Request is validated using the MPC-TSS network.
+3. **Proof Generation**: Cryptographic proof is created to authorize the withdrawal.
+4. **Bitcoin Verification**: UTXO proof is verified by the Bitcoin network.
+5. **Approval and Execution**: Withdrawal is authorized via threshold signatures (m of n) from the MPC-TSS network.
+6. **BTC Release**: Funds are securely released to the user's specified Bitcoin address.
+
+Although multiple steps occur during the withdrawal process, the system is designed for speed and security, ensuring users can retrieve their Bitcoin without delays or risks. Nexio’s withdrawal system reflects its commitment to trust-minimized operations, decentralization, and efficiency.

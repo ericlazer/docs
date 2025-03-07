@@ -1,0 +1,44 @@
+---
+title: 'Fast Consensus with Bitcoin-Grade Security'
+---
+
+Nexio's has extremely high throughput that's backed by BTC-grade security. This is due to its fast-finality mechanisms that enable high throughput, with data sent to the Bitcoin network as ZK Proofs for immutable settlement.
+
+This entails two distinct layers of finality:
+
+1. **Fast-Finality Settlement:** Near-instant confirmation of transactions by having network validators sign attestations verifying state transitions, and as soon as two-thirds of validators approve, the transition is considered final.
+2. **ZK Finality:** Provides ultimate security by anchoring all state transitions to the Bitcoin blockchain. Nexio uses Zero-Knowledge Proofs (ZKPs) to cryptographically verify and immutably record each state transition as a Bitcoin transaction.
+
+<Frame caption={<i>Nexio's fast-finality mechanism ensures near-instant confirmation of transactions, while ZK finality provides ultimate security by anchoring all state transitions to the Bitcoin blockchain.</i>}>
+  <img src="/images/image-5.png" alt="Fast Consensus with Bitcoin-Grade Security" />
+</Frame>
+
+## 1. Fast-Finality Settlement
+
+Nexio’s Fast-Finality Settlement mechanism leverages a network of validators to provide rapid, economically-backed confirmation of transactions that support 30,000+ transactions per second. This system is powered by a Proof-of-Stake (PoS) protocol, where validators stake native tokens to participate in the validation process. Validators confirm state transitions (bundles of transactions) and are incentivized to behave honestly through mechanisms like staking rewards and economic penalties, including slashing for incorrect approvals.
+
+There are a few steps to this:
+
+* **Attestation Signing**: Validators begin the process by signing attestations that verify the correctness of state transitions (bundles of transactions).
+* **2/3 Consensus Threshold**: Once two-thirds (2/3) of validators approve a state transition, it reaches the required consensus threshold.
+* **Attestation Submission**: Validators submit to Nexio's verification system, which performs cryptographic verification to validate the correctness and authenticity of the attestations.
+
+At this point, the state transition is marked as final, providing rapid settlement within seconds.
+
+Validators are economically incentivized to act honestly, as dishonest behavior results in slashing. In addition to validation, the staking, slashing, and rewarding processes are executed on the verification layer, bolstered by Bitcoin’s security. For example, if a validator reuses a signature ("double signing"), their secret key is exposed, ensuring consequences for dishonest behavior.
+
+The network’s verification system rigorously checks each signature and proof, significantly minimizing the chances of fraudulent activity.
+
+## 2. ZK Finality for Bitcoin-Grade Security
+
+Nexio anchors its state transitions to Bitcoin to provide ultimate security and tamper-proof guarantees.
+
+State transitions, which represent updates to the network’s ledger after transactions are processed, are fundamental to maintaining accurate and trustworthy records of all activity on the network. By anchoring these transitions to Bitcoin, Nexio ensures that altering a Nexio state transition would require altering the corresponding Bitcoin transaction, which is effectively impossible without compromising Bitcoin itself.
+
+This is done in a few ways:
+
+1. **Decentralized Threshold Signature Scheme (TSS):** Nexio uses TSS to distribute the signing process among multiple participants, ensuring that no single entity has complete control over private keys. This reduces the risk of compromise and enhances trust in the system.
+2. **Bitcoin Inscription of zk-Proofs:** Nexio records zk-proof data directly onto the Bitcoin blockchain. By inscribing these proofs immutably, Nexio ensures that the state transitions are verifiable and securely tied to Bitcoin’s ledger.
+3. **Integration of Bitcoin Block Headers:** Each Nexio rollup block includes Bitcoin block headers to establish synchronization and strengthen security. This ensures that Nexio’s state transitions are linked to Bitcoin’s proof-of-work finality.
+
+By anchoring state transitions to Bitcoin, Nexio leverages the increasing depth of confirmed Bitcoin blocks to minimize the likelihood of reorgs. Each additional block increases the security of anchored transactions.

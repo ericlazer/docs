@@ -1,0 +1,46 @@
+---
+title: 'Nexio’s Shared Sequencer'
+---
+
+Sequencers are responsible for ordering and bundling transactions within a blockchain network, ensuring they are processed efficiently and in the correct sequence.
+
+While centralized sequencers are common in many scaling solutions, they introduce significant vulnerabilities such as:
+
+1. **Single Points of Failure**: Centralized sequencers are susceptible to outages, hacks, or malicious behavior, which can compromise the reliability and security of the entire system.
+2. **Censorship Risks**: A centralized entity controlling transaction ordering can censor specific transactions, undermining trust and fairness in the network.
+3. **Limited Interoperability**: Centralized sequencers are often designed to work within isolated ecosystems, making it difficult to coordinate transactions or synchronize states across multiple rollups or blockchains.
+
+## Nexio's Shared Sequencer
+
+Nexio leverages the **Movement Labs M1 decentralized and shared sequencer**, which operates across multiple rollups and maintains a unified transaction ordering system, ensuring consistent state synchronization across interconnected chains.
+
+The M1 shared sequencer offers several key benefits:
+
+* **Elimination of Single Points of Failure**: By decentralizing transaction ordering, the sequencer avoids the vulnerabilities of centralized systems.
+* **Fairness and Censorship Resistance**: Ensures that all transactions are processed fairly and cannot be censored by any single participant.
+* **Enabling Permissionless Participation**: Opens access to participants without requiring centralized gatekeepers, aligning with Nexio's decentralized ethos.
+
+Nexio's shared sequencer is a critical component for achieving true decentralization and cross-chain interoperability in rollup ecosystems, as most scaling solutions today rely on centralized sequencers.
+
+While the MPC-TSS bridge facilitates the secure transfer of assets between different blockchain ecosystems, the shared sequencer also supports cross-chain interactions but instead relates transaction ordering, synchronization, and execution across interconnected blockchains.
+
+### How Does It Work?
+
+The sequencer uses Byzantine Fault Tolerant (BFT), a common consensus protocol, which assumes that up to 1/3 of participating nodes can act maliciously or fail without compromising the network's overall functionality.&#x20;
+
+This means that even in the presence of malicious or faulty nodes, the system remains resilient and continues to operate effectively. BFT ensures that all honest participants in the network agree on the transaction order by validating and propagating transactions in a decentralized manner, maintaining the integrity and reliability of the network while preventing tampering or manipulation.
+
+The diagram below further illustrates how the decentralized shared sequencer processes incoming transactions and routes them to the appropriate execution environment within Nexio. Transactions are accepted from multiple sources, including EVM-compatible and Move-compatible networks, and then sequenced to ensure proper ordering and synchronization across the system.
+
+<Frame caption={<i>Nexio’s mempool forwards transactions to the shared sequencer, which ensures a unified transaction order across chains across Chain A, Chain B, and other rollups. All state transitions are then anchored to Bitcoin using zk-verification as covered in the <strong>Fast Consensus with Bitcoin-Grade Security</strong> section.</i>}>
+  <img src="/images/image-2.png" alt="Nexio's Shared Sequencer" />
+</Frame>
+
+
+The sequencer assigns each transaction to the appropriate execution pathway (either the MoveVM or EVM interpreter) based on the transaction type. Transactions targeting Ethereum-based contracts are directed to the EVM, while MoveVM processes transactions leveraging Nexio’s Move-based infrastructure.&#x20;
+
+Once sequenced, these transactions are executed by the Move Executor, which applies the changes to the global state.&#x20;
+
+<Frame caption={<i> Transaction are assigned to the appropriate execution pathway (either the MoveVM or EVM interpreter) based on the transaction type. Transactions targeting Ethereum-based contracts are directed to the EVM, while the MoveVM processes transactions leveraging Nexio’s Move-based infrastructure. </i>}>
+  <img src="/images/image-7.png" alt="Nexio's Shared Sequencer" />
+</Frame>
