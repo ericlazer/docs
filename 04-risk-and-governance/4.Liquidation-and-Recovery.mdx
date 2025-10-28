@@ -1,0 +1,31 @@
+---
+title: "Liquidations & Recovery"
+---
+
+Liquidations protect lenders when a borrower’s position breaches covenants or collateral thresholds.
+
+Instead of manual intervention or opaque OTC calls, the system executes predefined recovery logic directly on-chain
+
+Losses, if any, remain isolated to the affected Series, while all other Series continue operating normally to reduce any systemic risk.
+
+### **How It Works**
+
+Each liquidation follows five standardized steps:
+
+1. **Trigger**: A covenant breach (e.g., under-collateralization, missed coupon, or hard-halt) activates the liquidation module for that Series.
+2. **Freeze and Price:** The borrower’s Series allocation is frozen. The pricing engine retrieves reference prices from approved exchanges to determine the market value of the collateral.
+3. **Liquidate Collateral to BTC**: The collateral is liquidated and converted to BTC through whitelisted venues or counterparties. All proceeds are returned directly to the Series vault.
+4. **Record Recovery:** The vault records total recovered BTC, realized costs, and any shortfall. These figures update Series metrics (NAV, coupon pool, loss counters) automatically.
+5. **Report and Audit:** Every liquidation event emits on-chain logs with timestamps and recovery ratios, allowing lenders, auditors, and governance to verify results in real time.
+
+The liquidation sequence is entirely automated and visible on-chain, meaning the lender can verify what occurred and when.
+
+To see how this process functions in practice, consider the following example:
+
+### Example: BTC Liquidation
+
+If a Tier 2 borrower’s collateral ratio drops below the 120% requirement after a sudden market move, Nexio’s engine immediately halts new draws and prices collateral using oracle data.
+
+Assets are sold to restore vault solvency; for instance, 9.8 BTC is recovered from a 10 BTC exposure.
+
+The 0.2 BTC loss is recorded in the Series’ loss counter and reflected in dashboards.

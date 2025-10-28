@@ -1,0 +1,33 @@
+---
+title: "4.2 Concentration Limits"
+description: "Description of your new file."
+---
+
+Concentration limits refer to the guardrails Nexio enforces to prevent overexposure to any single borrower, strategy, or geography.
+
+For instance, if one trading firm borrowed across several Series or if most Series funded the same strategy, a market shock affecting that firm or strategy could impact the whole platform — concentration limits prevent that.
+
+### **How Concentration Limits Work**
+
+Nexio applies multiple independent concentration layers, each continuously monitored by the risk engine and the governance committee.
+
+These include:
+
+- **Borrower Caps:** Restrict the maximum share of any Series a single borrower can hold.
+- **Strategy Caps:** Limit the total active capital allocated to a single trading strategy (e.g., CME Basis, Market-Making).
+- **Geographic Caps:** Control regional exposure to exchanges or jurisdictions with correlated risk.
+- **Liquidity Floors:** Require every Series to keep a minimum percentage of unallocated BTC to ensure redemption capacity even under stress.
+
+In practice, this means Nexio’s system constantly tracks how capital is distributed across borrowers, strategies, and regions, automatically halting new draws or reallocations if any threshold is approached.
+
+Below is an example to help illustrate this.
+
+<Expandable title="Example: Concentration Limits In Action">
+  If total active Series capital equals 1,000 BTC, then:
+
+  - A single borrower might be capped at 150 BTC total exposure.
+  - A single strategy (e.g., Market-Making) may not exceed 40% of total deployed capital (≈ 400 BTC).
+  - At least 10% of capital (≈ 100 BTC) must remain liquid to cover redemptions.
+
+  This layered structure keeps Series utilization diversified and ensures lenders can redeem even if one borrower, strategy, or region experiences stress.
+</Expandable>

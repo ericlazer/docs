@@ -1,0 +1,36 @@
+---
+title: "Strategy 2: Delta-Neutral Funding"
+---
+
+The Delta-Neutral Funding strategy captures the funding-rate differential between long and short perpetual futures positions across exchanges. A perpetual future refers to a type of futures contract with no expiry, such as an indefinite 3x long BTC position.
+
+This strategy is designed to generate steady BTC-denominated yield from market imbalances, not from directional bets on Bitcoin’s price.
+
+On Nexio, this strategy is for **Tier 1 and Tier 2 borrowers**, who can benefit from funding payments that occur between traders taking opposing positions on perpetual swaps
+
+Because funding rates fluctuate based on market sentiment (positive when longs dominate, negative when shorts dominate), borrowers can **earn the funding payments** by holding offsetting positions — one long, one short — that neutralize price risk.
+
+### **Example: 0.03% funding rate**
+
+Assume BTC trades at \$100,000, and a perpetual futures contract on Exchange A pays a +0.03% hourly funding rate to short positions.
+
+The following could occur:
+
+1. The borrower **buys BTC spot** on Exchange B.
+2. The borrower **shorts BTC perpetual futures** on Exchange A, hedging the price exposure.
+
+The position is **delta-neutral**, meaning BTC price movements cancel out between the two legs.
+
+For instance, if BTC’s price rises to \$105,000, the borrower’s spot position gains \$5,000, while the short futures position loses \$5,000 (netting zero directional P&L).
+
+Meanwhile, the borrower earns the 0.03% hourly funding paid by overleveraged long traders on Exchange A.
+
+### **Why It Works**
+
+Perpetual futures markets are dominated by speculative traders, often creating funding-rate imbalances. When sentiment is bullish, funding becomes positive and shorts get paid; when bearish, longs get paid.
+
+Borrowers on Nexio position themselves on the paying side to harvest these imbalances continuously, while keeping market exposure hedged.
+
+For lenders, this strategy offers higher yield potential than CME Basis Series and fully collateralized exposure with real-time monitoring of borrower positions
+
+---

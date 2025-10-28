@@ -1,0 +1,35 @@
+---
+title: "What is Nexio?"
+---
+
+Nexio turns Bitcoin into productive, fixed-income capital. It is a Bitcoin-anchored credit protocol that enables transparent, \*\*fixed-rate BTC lending between verified institutions. \*\*
+
+Bitcoin’s market cap now exceeds \$2 trillion, yet most of it remains idle or deployed through unregulated lending desks where collateral can be reused and risk is hidden. Despite Bitcoin’s maturity as an asset, it still lacks institutional-grade infrastructure for predictable yield, enforceable lending, and transparent credit operations.
+
+Nexio solves this gap by providing BTC treasuries with predictable, fixed-rate income and trading firms with efficient, compliance-ready BTC credit. Every deposit, draw, and coupon payment is recorded on-chain, creating a verifiable audit trail and real-time transparency into how capital moves.
+
+### Existing Limitations
+
+Existing BTC lending markets rely on custodial desks and opaque terms, leaving lenders exposed to counterparty risk and inconsistent yields. Nexio eliminates these inefficiencies through on-chain transparency, programmable vaults, and tokenized access to diversified strategies.
+
+The table below highlights Nexio's key advantages:
+
+| Existing BTC Lending Limitations          | Nexio Advantages                                                          |
+| ----------------------------------------- | ------------------------------------------------------------------------- |
+| Centralized custody and counterparty risk | Non-custodial design using Taproot- and MPC-secured vaults                |
+| One-size-fits-all lending products        | Modular Series offering tailored risk and duration profiles               |
+| Illiquid positions with fixed lockups     | Tokenized receipts (uBTC / yBTC) enable transferability and composability |
+| Manual tracking of loans and repayments   | Automated accounting and yield distribution through smart contracts       |
+| Limited diversification across strategies | Master Vault provides blended exposure across all Series                  |
+
+### Architecture
+
+At a high level, Nexio connects users, programmable vaults, and Bitcoin’s base layer through a coordinated three-tier system. These include:
+
+1. **User Layer:** Lenders and borrowers interact with Nexio through BTC deposits, redemptions, and loan repayments. Lenders deposit BTC into individual Series or the Master Vault, which are secured by Taproot- and MPC-based custody. Each Series executes a distinct yield strategy, while the Master Vault aggregates their performance.
+2. **Protocol Layer:** The core logic of Nexio. Series contracts define individual yield strategies with fixed terms and ring-fenced risk. The Master Vault aggregates performance across all Series to issue yBTC, while Network Validators coordinate deposits, redemptions, and yield distribution with on-chain verifiability.
+3. **Infrastructure Layer:** The foundation securing all activity. Taproot vaults enable native Bitcoin custody with programmable spending conditions. The Bitcoin network anchors final settlement, while the Nexio Coordination Layer links protocol logic to custody, orchestrating proofs, validations, and data flow across the system.
+
+The following helps illustrate this:
+
+![Screenshot 2025-10-23 at 4.22.53 PM.png](/images/Screenshot2025-10-23at4.22.53PM.png)

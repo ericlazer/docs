@@ -1,0 +1,69 @@
+---
+title: "System Architecture"
+---
+
+Nexio operates through three coordinated layers:
+
+1. **User Layer**: dfd
+2. **Protocol Layer**:
+3. **Infrastructure Layer**: 
+
+<img
+  src="/images/Screenshot2025-10-27at8.50.37PM.png"
+  alt="Screenshot 2025-10-27 at 8.50.37 PM.png"
+  style={{ width:"59%" }}
+/>
+
+Together, these layers connect institutional lenders and borrowers with Bitcoin-native custody, ensuring every credit event is transparent, verifiable, and legally enforceable.
+
+### **1. User Layer**
+
+The user layer represents Nexio’s institutional users who \__\_. This layer defines who interacts with Nexio and how capital flows in and out of the system.
+
+- \*\*Lenders (BTC Treasuries, Funds): \*\*These parties deposit BTC into Series or the Master Vault to earn fixed-rate, BTC-denominated returns. Their deposits remain secured in Bitcoin custody and represented on-chain through uBTC or yBTC receipts.
+- \*\*Borrowers (KYC/KYB-Verified Desks): \*\*Institutional trading firms, market makers, or hedge funds that borrow BTC against collateral under signed legal agreements. Each borrower operates within predefined risk tiers and can only draw from Series for which they are approved.
+
+### **2. Protocol Layer**
+
+This is Nexio’s core logic layer, running the credit logic such as handling deposits, loan approvals, covenant monitoring, and yield distribution.
+
+There are 3 relevant components:
+
+- \*\*Series (Fixed-Term Pools): \*\*Independent credit pools with defined coupons, tenors, and borrowers. Each Series is isolated, fully auditable, and issues uBTC.
+- \*\*Master Vault (Delegated Aggregator): \*\*Aggregates yield across multiple Series, allowing lenders to gain diversified exposure through a single deposit. It issues **yBTC**, which tracks the blended value of various Series positions.
+- \*\*Network Validators: \*\*Operators and validators monitor, verify, and process Bitcoin-side activity (via the Operator Queue), ensuring every mint, burn, and repayment corresponds to confirmed Bitcoin transactions.
+
+### **3. Infrastructure Layer**
+
+This layer anchors the entire system to Bitcoin’s security model, guaranteeing that all BTC remains native, auditable, and cryptographically tied to verified Bitcoin transactions.
+
+This layer includes:
+
+- \*\*Bitcoin Taproot Vaults: \*\*Each Series or the Master Vault has its own dedicated Taproot address controlled by threshold Schnorr signatures.
+- \*\*Bitcoin Network: \*\*Serves as the source of truth for all custody and settlement events. Minting and burning on Nexio occur only after confirmed Bitcoin transactions.
+- \*\*Nexio Coordination Layer: \*\*The coordination framework connecting Bitcoin custody with on-chain smart contracts through the Operator Queue, ensuring state synchronization and proof-gated operations.
+
+### **Flow Overview**
+
+We’ll cover this in greater depth in the following two pages (Borrower Flow & Lender Flow)
+
+![Screenshot 2025-10-28 at 11.50.12 AM.png](/images/Screenshot2025-10-28at11.50.12AM.png)
+
+When BTC is deposited, it’s confirmed on Bitcoin, verified by the Operator Queue, and mirrored on-chain through uBTC or yBTC issuance. Borrowers draw BTC directly from vaults via permissioned Series contracts, while coupons, repayments, and covenant updates flow back through the same verified loop.
+
+No on-chain event occurs without a confirmed Bitcoin transaction, and no BTC exits custody without a corresponding burn. This architecture keeps every Series fully collateralized, continuously reconciled, and provably backed 1:1 by Bitcoin in Taproot vaults.
+
+<img
+  src="/images/Screenshot2025-10-24at2.28.17PM.png"
+  alt="Screenshot 2025-10-24 at 2.28.17 PM.png"
+  title="Screenshot 2025-10-24 at 2.28.17 PM.png"
+  style={{ width:"67%" }}
+/>
+
+This looks as follows:
+
+1. BTC deposits enter a Taproot vault and confirm on Bitcoin.
+2. The Operator Queue validates the transaction and submits proof to the smart contract layer.
+3. Smart contracts mint uBTC (Series receipts) or yBTC (Master Vault receipts).
+4. Borrowers draw from approved Series; coupons and repayments return in BTC.
+5. At Series maturity, uBTC or yBTC is burned before BTC is released back to lenders.

@@ -1,0 +1,50 @@
+---
+title: "Borrower Flow"
+description: "Description of your new file."
+---
+
+Nexio borrowers include institutional trading firms, market makers, arbitrage desks, and more seeking fixed-rate BTC-denominated credit for short- and medium-term strategies. These borrowers are KYC/KYB-verified entities that already operate under regulatory oversight and manage large, hedged positions across exchanges.
+
+Although some traditional BTC lending markets exist, they entail borrowing USD or stablecoins and converting to BTC. This introduces FOREX friction, timing risk, and rate volatility. Nexio provides native, fixed-rate BTC loans that operate under enforceable legal agreements, transparent collateral policies, and continuous on-chain monitoring.
+
+Each borrower operates within predefined credit tiers (Tier 1–3), determining their collateral ratios, reporting cadence, and borrowing limits. Borrowers don’t create Series; they draw BTC from Series that match their approved risk tier and trading strategy.
+
+Benefits include:
+
+- **BTC stays on Bitcoin**: custody and settlement never leave the Bitcoin network.
+- **Institutional-grade trust**: Every Series is governed by legal agreements (Master Loan, Pledge, Term Sheet) and KYC/KYB verification.
+- **Predictable, fixed-rate structure**: Yields and borrowing costs are locked in from origination, not variable like DeFi.
+- **Transparent, auditable operations**: All utilization, collateral, and covenant data are visible on chain.
+- **Compliant, scalable infrastructure**: Bridging regulated credit standards with on-chain automation.
+
+Now let's take at how this looks in practice.
+
+### **Step-by-Step Process**
+
+The following shows the example flow, with an example at the end to help solidify.
+
+1. **Verification: **Borrowers complete institutional onboarding (KYC/KYB), sign the Master Loan Agreement, and are assigned a credit tier (1 to 3) based on collateral quality and reporting cadence.
+2. **Proposal Submission: **A borrower submits a draw request referencing an active Series compatible with their tier and strategy.
+3. **Risk Validation:** The Operator Queue checks that the proposal complies with all Series rules — utilization caps, collateral thresholds, and concentration limits — before authorizing.
+4. **BTC Disbursement:** Once validated, Nexio’s signers co-authorize a Bitcoin transaction from the Series’ Taproot vault to the borrower’s registered Bitcoin address.
+   - This BTC remains **native and fully usable** on the Bitcoin network.
+   - Borrowers can deploy funds for approved trading or hedging activities.
+   - These addresses are **whitelisted and monitored**, ensuring all activity remains within Nexio’s enforceable perimeter.
+5. **Coupon Payments & Repayment:** Borrowers pay coupons and repay principal per the Series schedule. All transactions are recorded on-chain, updating Series utilization, covenant status, and lender dashboards in real time.
+
+<Expandable title="Example: Borrowing 2 BTC from a 10 BTC Series">
+  Suppose a verified **Tier 1 borrower** applies to draw **2 BTC** from a **90-day Series** offering a **fixed 7% coupon**. The Series contains **10 BTC** total from multiple lenders.
+
+  1. **Verification:**\
+     The borrower pledges approved collateral and passes all covenant and risk-tier checks.
+  2. **Proposal Submission:**\
+     A draw request is submitted through Nexio’s Operator Queue.
+  3. **Risk Validation:**\
+     The Operator Queue confirms the request respects Series rules — utilization limits, collateral ratios, and concentration caps.
+  4. **BTC Disbursement:**\
+     Once validated, the signers co-authorize a Bitcoin transaction sending **2 BTC** from the Series Taproot vault to the borrower’s registered Bitcoin address.\
+     The borrower now holds native BTC they can deploy for approved hedged trading strategies while remaining under on-chain monitoring.
+  5. \*\*Coupon Payments & Repayment: \*\*Throughout the term, the borrower pays monthly coupons back to the vault. At maturity, they repay the 2 BTC principal plus interest, increasing the total vault balance. The additional yield is reflected in the Series NAV and benefits all lenders holding uBTC.
+</Expandable>
+
+### 
