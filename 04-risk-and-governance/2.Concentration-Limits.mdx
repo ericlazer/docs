@@ -20,14 +20,14 @@ These include:
 
 In practice, this means Nexio’s system constantly tracks how capital is distributed across borrowers, strategies, and regions, automatically halting new draws or reallocations if any threshold is approached.
 
-Below is an example to help illustrate this.
+## Example: Classification Limits
 
-<Expandable title="Example: Concentration Limits In Action">
-  If total active Series capital equals 1,000 BTC, then:
+Assume an active Series has 1,000 BTC total.
 
-  - A single borrower might be capped at 150 BTC total exposure.
-  - A single strategy (e.g., Market-Making) may not exceed 40% of total deployed capital (≈ 400 BTC).
-  - At least 10% of capital (≈ 100 BTC) must remain liquid to cover redemptions.
+Concentration limits would
 
-  This layered structure keeps Series utilization diversified and ensures lenders can redeem even if one borrower, strategy, or region experiences stress.
-</Expandable>
+- **Single-borrower exposure** is capped so that no borrower can control a disproportionate share of any Series, maintaining counterparty diversification.
+- **Per-strategy allocation** is limited to prevent one trading approach from dominating total deployed capital, reducing the impact of strategy-specific shocks.
+- **Liquidity reserves** are required to keep a portion of Series capital unallocated, ensuring lenders can redeem even under adverse market conditions.
+
+This layered structure keeps Series utilization diversified and ensures lenders can redeem even if one borrower, strategy, or region experiences stress.

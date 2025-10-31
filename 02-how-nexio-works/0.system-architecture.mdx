@@ -4,15 +4,19 @@ title: "System Architecture"
 
 Nexio operates through three coordinated layers:
 
-1. **User Layer**: dfd
-2. **Protocol Layer**:
-3. **Infrastructure Layer**: 
+1. **User Layer:** Connects institutional lenders and borrowers participating in BTC credit markets.
+2. **Protocol Layer:** Executes lending, borrowing, and yield logic through Series, the Master Vault, and validators.
+3. **Infrastructure Layer:** Anchors the entire system to Bitcoin’s custody, security, and transaction finality.
 
 <img
   src="/images/Screenshot2025-10-27at8.50.37PM.png"
   alt="Screenshot 2025-10-27 at 8.50.37 PM.png"
   style={{ width:"59%" }}
 />
+
+When BTC is deposited, it’s confirmed on the Bitcoin network (Infra Layer) which is verified by the Operator Queue (Infra Layer). This then enables the corresponding issuance of either uBTC or yBTC (Protocol Layer).
+
+Borrowers may then draw BTC directly from vaults via permissioned Series contracts, while coupons, repayments, and covenant updates flow back through the same verified loop.
 
 Together, these layers connect institutional lenders and borrowers with Bitcoin-native custody, ensuring every credit event is transparent, verifiable, and legally enforceable.
 
@@ -22,6 +26,10 @@ The user layer represents Nexio’s institutional users who \__\_. This layer de
 
 - \*\*Lenders (BTC Treasuries, Funds): \*\*These parties deposit BTC into Series or the Master Vault to earn fixed-rate, BTC-denominated returns. Their deposits remain secured in Bitcoin custody and represented on-chain through uBTC or yBTC receipts.
 - \*\*Borrowers (KYC/KYB-Verified Desks): \*\*Institutional trading firms, market makers, or hedge funds that borrow BTC against collateral under signed legal agreements. Each borrower operates within predefined risk tiers and can only draw from Series for which they are approved.
+
+When lenders or borrowers engage in a transaction on Nexio, this occurs via either a Series or the Master Vault (Protocol Layer) and first requires confirmation on the Bitcoin network (Infrastructure Layer).
+
+This is covered in greater depth in the Borrower Flow & Lender Flow sections.
 
 ### **2. Protocol Layer**
 
@@ -33,6 +41,8 @@ There are 3 relevant components:
 - \*\*Master Vault (Delegated Aggregator): \*\*Aggregates yield across multiple Series, allowing lenders to gain diversified exposure through a single deposit. It issues **yBTC**, which tracks the blended value of various Series positions.
 - \*\*Network Validators: \*\*Operators and validators monitor, verify, and process Bitcoin-side activity (via the Operator Queue), ensuring every mint, burn, and repayment corresponds to confirmed Bitcoin transactions.
 
+![Screenshot 2025-10-28 at 11.50.12 AM.png](/images/Screenshot2025-10-28at11.50.12AM.png)
+
 ### **3. Infrastructure Layer**
 
 This layer anchors the entire system to Bitcoin’s security model, guaranteeing that all BTC remains native, auditable, and cryptographically tied to verified Bitcoin transactions.
@@ -42,14 +52,6 @@ This layer includes:
 - \*\*Bitcoin Taproot Vaults: \*\*Each Series or the Master Vault has its own dedicated Taproot address controlled by threshold Schnorr signatures.
 - \*\*Bitcoin Network: \*\*Serves as the source of truth for all custody and settlement events. Minting and burning on Nexio occur only after confirmed Bitcoin transactions.
 - \*\*Nexio Coordination Layer: \*\*The coordination framework connecting Bitcoin custody with on-chain smart contracts through the Operator Queue, ensuring state synchronization and proof-gated operations.
-
-### **Flow Overview**
-
-We’ll cover this in greater depth in the following two pages (Borrower Flow & Lender Flow)
-
-![Screenshot 2025-10-28 at 11.50.12 AM.png](/images/Screenshot2025-10-28at11.50.12AM.png)
-
-When BTC is deposited, it’s confirmed on Bitcoin, verified by the Operator Queue, and mirrored on-chain through uBTC or yBTC issuance. Borrowers draw BTC directly from vaults via permissioned Series contracts, while coupons, repayments, and covenant updates flow back through the same verified loop.
 
 No on-chain event occurs without a confirmed Bitcoin transaction, and no BTC exits custody without a corresponding burn. This architecture keeps every Series fully collateralized, continuously reconciled, and provably backed 1:1 by Bitcoin in Taproot vaults.
 

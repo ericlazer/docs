@@ -49,7 +49,6 @@
             "group": "Core Features",
             "pages": [
               "03-core-features/architecture-overview",
-              "03-core-features/nexios-shared-sequencer",
               "03-core-features/move-executor-and-movevm",
               "03-core-features/mpc-tss-bridge",
               "03-core-features/fast-consensus-with-bitcoin-grade-security"

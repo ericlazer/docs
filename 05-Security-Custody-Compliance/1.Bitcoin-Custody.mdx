@@ -2,36 +2,43 @@
 title: "Bitcoin Custody"
 ---
 
-All BTC within Nexio stays in [**Taproot Vaults**](https://learnmeabitcoin.com/technical/upgrades/taproot/): specialized Bitcoin addresses controlled by **threshold-signature (Schnorr)** schemes, an advanced multi-party cryptographic (MPC) signing scheme.
+All BTC within Nexio is secured in **Taproot Vaults**: specialized Bitcoin addresses governed by **threshold Schnorr signatures**. This structure provides institutional-grade security and flexibility natively on Bitcoin, with no wrapped assets or off-chain custody.
 
-When a lender deposit, their BTC moves directly into a **Series vault** (if they select a strategy) or into the **Master Vault** (if they delegate). The BTC never leaves Bitcoin custody; what moves on-chain are proofs and mirrored tokens (uBTC or yBTC).
+When a lender deposits BTC, it moves directly into either a Series Vault or the Master Vault. Borrowers draw and repay within the same native Bitcoin environment, while lenders receive uBTC or yBTC to represent their verifiable on-chain position.
 
-This design eliminates single-point control: no individual or operator can move funds unilaterally. Every transaction requires multiple independent signers to co-authorize it (the Schnorr signature covered below), creating institutional-grade security directly on Bitcoin. Each Series is assigned its own dedicated vault, keeping capital isolated and preventing any cross-series exposure or rehypothecation.
+Each Nexio Vault is structured as a **Taproot tree** with three pre-defined spending paths:
 
-<Expandable title="How Taproot Vaults & MPC Encryption Work">
-  **Taproot Vaults**
+- **Normal Path:** Standard operations — borrower draws, lender redemptions — executed through authorized signers and verified by the Operator Queue.
+- **Reclaim Path:** Activates after a predefined timeout to let governance safely recover funds if operations halt or a borrower defaults.
+- **Emergency Path:** Enables all three operators (Custody, Validation, and Governance) to co-sign an emergency transaction that moves BTC to a secure recovery vault in case of systemic compromise.
 
-  Taproot is a Bitcoin upgrade that lets complex spending conditions be encoded compactly inside a single address. In Nexio’s case, each Series vault is a Taproot tree that includes multiple possible paths for spending BTC:
+This architecture delivers **cold-storage-grade safety** with **on-chain automation**.\
+On the blockchain, each vault appears as a simple single-sig address, while privately encoding multiple compliance and recovery conditions.
 
-  - **Normal Path:** Used for standard borrower draws or lender redemptions.
-  - **Reclaim Path:** Allows recovery after a defined timeout if operations halt.
-  - **Emergency Path:** Enables a 3-of-3 multisig to secure funds in case of infrastructure compromise.
-
-  **Schnorr Threshold Signatures**
-
-  Traditional Bitcoin multisig requires each signer to publish a separate signature, making transactions heavier and more traceable.
-
-  Schnorr signatures, introduced with Taproot, allow multiple parties to jointly produce one aggregated signature that looks identical to a single-signer transaction.
-</Expandable>
+Each Series is assigned its own Taproot Vault, keeping capital isolated and preventing any cross-Series exposure or rehypothecation.
 
 #### **Schnorr Signatures**
 
-Nexio’s custody layer combines Bitcoin-native cryptography with institutional control policies. Each vault operates like a multi-signature trust account, ensuring that BTC can only move when specific conditions are met.
+**Schnorr signatures**, introduced with Taproot, let multiple entities collaboratively produce a single aggregated signature that appears identical to a normal one. This makes Nexio’s multi-party authorization invisible to external observers while reducing fees and transaction size.
 
-![Screenshot 2025-10-24 at 8.51.21 PM.png](/images/Screenshot2025-10-24at8.51.21PM.png)
+It works as follows:
 
-To move funds, the 2-of-3 Schnorr signature must be signed. The three parties include:
+1. Each signer generates a private/public key pair. These keys are aggregated into one group public key.
+2. When spending BTC, each participant signs partially. These partial signatures are aggregated into one unified signature.
+3. Bitcoin validates it as a single-sig spend, making it impossible to distinguish from a normal wallet.
 
-- **Custody Operator:** an institutional key holder responsible for Bitcoin transaction management and vault integrity.
-- **???**: Validates that every transaction complies with Series parameters (e.g., borrower whitelisting, collateral ratios) before co-signing.
-- **????: **– held by Nexio’s governance or an independent auditor to enable recovery or dispute resolution in the rare case one operator is offline or compromised.
+This aggregation provides threshold logic.
+
+<img
+  src="/images/Screenshot2025-10-24at8.51.21PM.png"
+  alt="Screenshot 2025-10-24 at 8.51.21 PM.png"
+  style={{ width:"84%" }}
+/>
+
+To move BTC, Nexio requires **two out of three** designated operators to co-sign any transaction.
+
+The three parties include:
+
+- **Custody Operator:** Handles Bitcoin transaction construction, batching, and fee optimization.
+- **Validation Operator:** Confirms that proposed transactions comply with Series rules (whitelisted borrowers, collateral thresholds, covenant checks) before co-signing.
+- **Governance / Recovery Signer:** Maintained by Nexio governance or an independent auditor, enabling recovery or dispute resolution if one operator becomes unavailable.

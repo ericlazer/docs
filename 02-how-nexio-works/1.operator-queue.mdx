@@ -9,14 +9,19 @@ This ensures every uBTC or yBTC mint, burn, or redemption corresponds exactly to
 
 ## How The Operator Queue Works
 
-Nexio actions like the burning/minting of uBTC/yBTC rely upon verified Bitcoin transactions. The Operator Queue verifies these transactions and executes the corresponding action, as follows:
+Nexio actions, such as the burning/minting of uBTC/yBTC, rely on verified Bitcoin transactions. The Operator Queue verifies these transactions and executes the corresponding action, as follows:
 
 1. A BTC deposit or repayment occurs on Bitcoin.
 2. The Operator Queue detects and verifies the transaction (using Merkle proofs and confirmation depth).
 3. Once validated, it submits an attestation to Nexio’s on-chain contracts.
 4. Contracts then execute the corresponding action (mint, burn, or update Series accounting).
 
-**PROOF GATING GRAPHIC**
+<img
+  src="/images/Screenshot2025-10-29at11.32.28PM.png"
+  alt="Screenshot 2025-10-29 at 11.32.28 PM.png"
+  title="Screenshot 2025-10-29 at 11.32.28 PM.png"
+  style={{ width:"64%" }}
+/>
 
 ## Security Model
 
@@ -24,12 +29,12 @@ The Operator Queue requires multiple approved parties to co-sign attestations be
 
 All vault spends use Taproot key-path logic. This means that they appear as single-sig transactions but still enforce multisig verification under the hood. This keeps transactions small, private, and cost-efficient, while batching and dynamic fee management (RBF/CPFP) ensure confirmations finalize quickly.
 
-In the event of dishonest behavior, operators can be slashed or permanently excluded. 
+In the event of dishonest behavior, operators can be slashed or permanently excluded.
 
-## Example: Operator Queue 
+## Example: Operator Queue
 
-A lender deposits 5 BTC into a Series vault. 
+A lender deposits 5 BTC into a Series vault.
 
-The Series vault is a Taproot vault which exists on the Bitcoin network, meaning that the receipt of funds is public on the network. The Operator Queue confirms receipt and generates a proof, which is submitted to Nexio’s smart contract that in turn mints 5 uBTC to the lender’s address. 
+The Series vault is a Taproot vault which exists on the Bitcoin network, meaning that the receipt of funds is public on the network. The Operator Queue confirms receipt and generates a proof, which is submitted to Nexio’s smart contract that in turn mints 5 uBTC to the lender’s address.
 
 If the Bitcoin transaction is invalid or double-spent, no mint occurs.

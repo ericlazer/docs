@@ -2,27 +2,40 @@
 title: "Strategy 3: Market Making"
 ---
 
-The **Market-Making** **strategy** operates by providing BTC liquidity across exchanges and capturing the spread between buy and sell orders. When a borrower draws BTC from this Series on Nexio, they deploy it across trading venues to earn small, repeated profits from market activity (similar to how high-frequency trading firms operate in equities or FX).
+Borrowers in this Series execute the Market-Making strategy — a trading approach that earns yield by providing BTC liquidity across exchanges and capturing the spread between buy and sell orders.
 
-On Nexio, this strategy is used primarily by **Tier 2 and Tier 3 borrowers**, as market-making carries moderate operational and market risk compared to fully hedged strategies like CME Basis.
+When a borrower draws BTC from this Series on Nexio, they deploy it across trading venues to earn small, repeated profits from market activity — similar to how high-frequency trading firms operate in equities or FX.
 
-The strategy requires deep exchange connectivity and efficient risk management. Borrowers typically hedge inventory across venues to keep exposure neutral while continuously earning micro-returns on trading volume.
+<Expandable title="Market Making Explained">
+  For Market-making to occur, Market Makers quote both sides of the order book so other traders can buy or sell instantly. This means they both offer to buy an asset, as well as sell the asset, with profit coming from the spread (the small gap between bid and ask prices).
 
-### **Example: \$50 BTC spreads**
+  **Risk arises** when markets move faster than positions can be hedged, or when liquidity dries up during volatility.
 
-If BTC trades around **\$100,000**, a borrower might:
+  To manage this risk, professional firms use algorithms to rebalance exposure across different exchanges, adjust spreads dynamically, and hedge inventory using financial instruments.
+</Expandable>
 
-1. Place buy orders at **\$99,950** and sell orders at **\$100,050**.
-2. When both orders fill, the borrower earns **\$100 in spread profit** (\$50 per side).
-3. Repeating this process thousands of times per day generates steady BTC-denominated income.
-
-If market volatility spikes, the borrower widens spreads to maintain profitability while staying neutral in exposure. The borrower’s trading income (after fees and hedging costs) funds the fixed coupon owed to the Series vault, with any excess yield above the Series rate remaining with the borrower.
+The CME Basis and Delta-Neutral Funding strategies rely on hedged spreads, while Market-Making carries moderate operational and market risk, making it suitable for Tier 2 and Tier 3 borrowers with proven trading infrastructure and inventory management systems.
 
 ### **How It Works on Nexio**
 
-This might work the following way on Nexio:
+At a high level, the borrower earns from the **difference between bid and ask prices** on Bitcoin markets while maintaining neutral exposure through continuous hedging and inventory balancing.
 
-1. **Borrower Draws BTC: **The approved market-making firm borrows BTC from the Series vault under a fixed-rate, short-tenor Series (typically 30–90 days).
-2. **Deploys on Exchanges: **The borrower uses the BTC to provide liquidity across centralized and decentralized venues, earning spread income and maker rebates.
-3. **Periodic Coupons: **A share of earned BTC income flows back to the Series vault at scheduled intervals as coupon payments, which increase the uBTC share price for lenders.
-4. **Repayment and Settlement: **At Series maturity, the borrower repays principal plus any remaining BTC yield, verifiable through on-chain accounting and signed confirmations.
+For those borrowing BTC on Nexio, this might look as follows:
+
+- **Borrower Draws BTC:** The approved market-making firm borrows BTC from the Series vault under a fixed-rate, short-tenor Series (typically 30–90 days).
+- **Deploys on Exchanges:** The borrower posts buy and sell orders across centralized and decentralized venues, earning the bid–ask spread and maker rebates.
+- **Manages Exposure:** The borrower continuously hedges and rebalances inventory across venues to remain market-neutral.
+- **Pays Coupons and Settles:** Periodic BTC income flows back to the Series vault as coupon payments, and at maturity, the borrower repays principal plus remaining yield — all verifiable on-chain.
+
+### **Example: \$50 BTC spreads**
+
+Assume BTC trades around \$100,000.
+
+The borrower:
+
+- Places buy orders at \$99,950 and sell orders at \$100,050.
+- When both orders fill, the borrower earns \$100 in spread profit (\$50 per side).
+
+Repeating this thousands of times per day generates steady BTC-denominated income.
+
+If volatility increases, the borrower widens spreads to protect profitability while staying neutral in exposure. The trading income (after fees and hedging costs) funds the fixed coupon owed to the Series vault, with any excess yield retained by the borrower.

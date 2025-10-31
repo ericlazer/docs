@@ -2,40 +2,37 @@
 title: "Covenant Monitoring"
 ---
 
-**Covenants** refer to predefined performance and collateral rules that every borrower must follow. They define acceptable leverage, liquidity, reporting cadence, and drawdown limits, thereby providing lenders with continuous visibility into credit health.
-
-This automated covenant enforcement replaces manual reporting cycles common in OTC lending, ensuring lender protection, faster risk response, and verifiable audit trails on-chain.
-
-Nexio automates covenant enforcement on-chain through a monitoring layer that tracks borrower metrics in real time. Each Series encodes its covenant set in smart contracts, ensuring objective rule enforcement instead of manual oversight.
+Covenants are predefined financial and operational rules that every borrower must follow. They define leverage, liquidity, reporting cadence, and drawdown limits. These are all encoded on-chain and enforced automatically by Nexio’s monitoring system, replacing manual OTC reporting, giving lenders continuous visibility, faster risk response, and verifiable audit trails.
 
 ### **Covenant Types**
 
-Every borrower is bound by a tailored mix of financial and operational covenants designed to reflect its tier, strategy, and risk profile. These include:
+Each borrower is bound by a customized covenant set based on its Series term sheet, borrower tier, and strategy type. All parameters are approved by Nexio’s Risk and Governance Committee before activation.
+
+**Financial Covenants:**
 
 - **Liquidity Ratio:** Borrowers must maintain minimum cash or collateral buffers relative to outstanding BTC credit.
 - **Leverage Ratio:** Caps total exposure across venues to prevent over-leveraging.
 - **Drawdown Limits:** Flags when portfolio value falls below tolerance levels, triggering margin checks or partial liquidations.
+
+**Operational Covenants:**
+
 - **Reporting Cadence:** Defines how often borrowers must submit verified financial or position data.
+- **Venue Eligibility:** Restricts use of unapproved exchanges or counterparties to control venue risk.
 
-### **How Covenants Work**
+### How Covenant Enforcement Works
 
-Covenant enforcement on Nexio is automatic.
+Nexio’s monitoring engine continuously compares borrower metrics against their Series’ covenant parameters and enforces rules without manual input.
 
-The monitoring engine continuously ingests borrower data, compares it against predefined thresholds, and responds immediately when something drifts outside the acceptable range.
+1. **Breach Detected:** The engine identifies when a borrower exceeds a covenant limit.
+2. **Warning or Soft Halt:** A breach triggers a warning and pauses new draws until metrics return to compliance.
+3. **Hard Halt and Recovery:** If unresolved within the defined cure period, the system freezes further activity and initiates collateral recovery.
 
-Under the hood, this looks as follows:
+All events, from breach to cure or liquidation, are logged on-chain and reflected in Series dashboards for full auditability.
 
-1. **Tracking:** Nexio’s engine tracks live metrics for each borrower against the Series covenant set.
-2. **Warnings or Soft Halts:** A warning or soft halt is triggered when limits are breached.
-3. **Hard Halt:** If the issue persists beyond the defined cure period, a hard halt initiates collateral recovery and freezes further draws.
-4. **Publishing:** All breaches, cures, and recoveries are published on-chain and visible in Series dashboards.
+### Example: Leverage Breach
 
-Below is an example to help illustrate this:
+If a borrower’s permitted leverage cap is 1.3× and exposure rises to 1.5×, Nexio immediately issues a warning and pauses draws.
 
-<Expandable title="Example: Covenants In Action">
-  If a borrower’s permitted leverage cap is 1.3× and Nexio’s monitoring engine detects exposure rising to 1.5×, the system immediately issues a warning and pauses new draws from that Series.
+If leverage normalizes within the 48-hour cure window, operations resume automatically. If not, the system escalates to a hard halt and triggers collateral liquidation.
 
-  If the borrower restores leverage below the limit within the 48-hour cure window, operations resume automatically. If not, the system escalates to a hard halt, triggering partial or full liquidation of collateral.
-
-  Every step (from warning to cure outcome) is logged on-chain, creating an immutable audit trail for lenders and governance.
-</Expandable>
+Every step is immutable and visible to lenders through on-chain logs and Series-level monitoring dashboards.

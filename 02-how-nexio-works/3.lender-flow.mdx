@@ -3,28 +3,35 @@ title: "Lender Flow"
 description: "An overview of the flow that would occur when one lends on Nexio."
 ---
 
-Lending on Nexio is designed for institutions, funds, and high-net-worth BTC treasuries seeking predictable, fixed-rate yield without giving up Bitcoin custody.\
-Lenders don’t create Series themselves — they allocate BTC into pre-defined Series that have published term sheets, fixed coupons, and clear borrower eligibility.
+### Lender Flow
 
-Each Series functions like a structured loan fund for Bitcoin: lenders supply capital, verified borrowers draw under enforceable terms, and coupon payments flow back on schedule. All activity (e.g. deposits, coupons, or repayments) is visible on-chain.
+Lending on Nexio is designed for institutions, funds, and BTC treasuries seeking predictable, fixed-rate yield while keeping Bitcoin in native custody.\
+Lenders don’t create Series themselves, they allocate BTC into predefined Series that have published term sheets, fixed coupons, and verified borrower eligibility.
 
-### **Why lenders use Nexio instead of DeFi or OTC lending**
+Each Series operates like a structured loan fund for Bitcoin: lenders supply capital, verified borrowers draw under enforceable terms, and coupon payments flow back on schedule. All deposits, repayments, and yield accruals are visible on-chain in real time.
 
-Lending on Nexio has several advantages over traditional BTC lending, including:
+Although traditional BTC lending markets exist, they come with several limitations — variable rates, off-chain custody, and opaque counterparties. Nexio solves these challenges by combining Bitcoin-native custody with transparent on-chain credit operations, giving lenders predictable income and institutional-grade security.
 
-- **Predictable income:** Fixed-rate Series for consistent BTC-denominated returns.
-- **Institutional counterparties:** All borrowers are KYC/KYB verified and operate under enforceable legal frameworks.
-- **Custody on Bitcoin:** BTC never leaves the Bitcoin network or Nexio’s audited Taproot vaults.
-- **On-chain transparency:** Utilization, collateralization, and repayments are visible in real time.
+LENDER FLOW GRAPHIC
 
-Here's what this looks like in application.
+### **Step-by-Step Lending Flow**
 
-### **Step-by-Step Flow**
+There are 4 steps \___\_.
 
-| Step                | Description                                                                                                                                                                                                                    | Example                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| Review & Commit     | The lender selects a Series from the dashboard, reviews its term sheet, and commits BTC during the bookbuilding window. A Series activates once minimum fill is reached.                                                       | A lender selects a 90-day Series with a 7% coupon and commits 10 BTC,                         |
-| Deposit & Mint uBTC | The lender deposits BTC into the Series Taproot vault. Once confirmed on Bitcoin, Nexio’s Operator Queue validates the proof and mints uBTC, a receipt token representing proportional ownership of that Series.               | The deposit confirms, and uBTC mints to the lender’s wallet, representing their Series share. |
-| Accrue Yield        | As verified borrowers pay coupons into the vault, the Series NAV increases. uBTC reflects this growth, meaning the value per token rises over time. Lenders can track Series utilization and collateral health via dashboards. | As coupons are paid, the balance of the Series grows.                                         |
-| Redeem at Maturity  | When the Series matures (or after any lockup), lenders burn uBTC. The protocol verifies liquidity and signer authorization, then executes a Bitcoin transaction returning BTC principal plus earned yield.                     | At maturity, the lender burns their uBTC and receives BTC back to their registered address.   |
-|                     |                                                                                                                                                                                                                                |                                                                                               |
+The following illustrates this flow:
+
+\*\*1. Review & Commit: \*\*Lenders select a Series or the Master Vault and commit BTC during the bookbuilding window. If a Series is chosen, it activates once the minimum fill requirement is reached.
+
+\*\*2. Deposit BTC & Mint uBTC/yBTC: \*\*BTC is deposited into the respective Taproot vault. Once the transaction confirms on Bitcoin, the Operator Queue validates the proof and mints uBTC (for Series) or yBTC (for the Master Vault), representing the lender’s proportional ownership.
+
+\*\*3. Accrue Yield: \*\*As verified borrowers pay coupons into the vault, the Series NAV increases. This growth is reflected in uBTC or yBTC value, allowing lenders to monitor performance, utilization, and collateral health through on-chain dashboards.
+
+\*\*4. Redeem at Maturity: \*\*When the Series matures, lenders burn uBTC or yBTC to redeem BTC. The protocol validates liquidity and signer authorization before executing a Bitcoin transaction that returns the lender’s BTC principal plus accrued yield.
+
+### Example: Lending 10 BTC
+
+A BTC treasury commits 10 BTC into a 90-day Series offering a 7 % fixed coupon. After confirmation on Bitcoin, the Operator Queue verifies the deposit and mints 10 uBTC to the treasury’s wallet.
+
+Throughout the term, verified borrowers pay coupons back into the vault, and the uBTC value gradually increases.
+
+When the Series matures, the lender burns the 10 uBTC and receives a Bitcoin transaction returning their 10 BTC principal plus accrued interest.
