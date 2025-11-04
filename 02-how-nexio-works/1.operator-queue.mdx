@@ -1,6 +1,6 @@
 ---
 title: "Operator Queue"
-description: "Description of your new file."
+description: "The Operator Queue acts as the verification gateway between confirmed Bitcoin network transactions and Nexio smart contract execution. "
 ---
 
 The Operator Queue is Nexio’s coordination layer that validates Bitcoin-side activity before triggering on-chain events. It acts as the verification gateway between confirmed Bitcoin transactions and smart contract execution.
@@ -35,6 +35,6 @@ In the event of dishonest behavior, operators can be slashed or permanently excl
 
 A lender deposits 5 BTC into a Series vault.
 
-The Series vault is a Taproot vault which exists on the Bitcoin network, meaning that the receipt of funds is public on the network. The Operator Queue confirms receipt and generates a proof, which is submitted to Nexio’s smart contract that in turn mints 5 uBTC to the lender’s address.
+The Series vault is a Taproot vault on the Bitcoin network, meaning the receipt of funds is public. The Operator Queue confirms receipt and generates a proof, which is submitted to Nexio’s smart contract that, in turn, mints 5 uBTC to the lender’s address.
 
 If the Bitcoin transaction is invalid or double-spent, no mint occurs.

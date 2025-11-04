@@ -2,16 +2,16 @@
 title: "Strategy 1: CME-Basis"
 ---
 
-Borrowers in this Series execute the **CME Basis trade**: a market-neutral strategy designed to capture the small but consistent price premium between spot Bitcoin and regulated Bitcoin futures on the **Chicago Mercantile Exchange (CME)**.
+Borrowers in this Series execute the **CME Basis trade**: a market-neutral strategy designed to capture the small but consistent price premium between spot Bitcoin and regulated Bitcoin futures on the Chicago Mercantile Exchange (CME).
 
 The CME is the world’s largest regulated derivatives exchange, handling tens of billions in notional Bitcoin futures each month and serving as the primary venue for institutional BTC exposure.
 
 ### How The Strategy Works
 
-At a high-level, it works by buying BTC on the spot market and selling a corresponding futures contract that trades at a higher price. A futures contract is an agreement between two parties to buy or sell an asset at a fixed price on a specific future date.
+At a high level, it works by buying BTC on the spot market and selling a corresponding futures contract that trades at a higher price. A futures contract is an agreement between two parties to buy or sell an asset at a fixed price on a specific future date.
 
 <Expandable title="Futures Explained">
-  **The Buyer** of a futures contract agrees to pay that price later, while **the Seller **of the future agrees to deliver (or cash-settle) the asset at that price.
+  **The Buyer** of a futures contract agrees to pay that price later, while \*\*the Seller \*\*of the future agrees to deliver (or cash-settle) the asset at that price.
 
   Futures exist so traders can hedge or speculate on price movements without holding the asset itself. On the CME, all contracts are cash-settled in USD, and positions are guaranteed by the exchange through margin and collateral systems.
 
@@ -20,18 +20,18 @@ At a high-level, it works by buying BTC on the spot market and selling a corresp
 
 For those borrowing BTC on Nexio, this might look as follows:
 
-1. **Borrow BTC & Buy BTC on Spot Market: **The borrower borrows BTC on Nexio and purchases Bitcoin at the current market price.
-2. **Sell CME Futures (Forward Contract): **The borrower simultaneously sells a CME Bitcoin futures contract that trades slightly above the current spot price. This locks in a known sale price for a future date.
-3. **Hold Until Expiry: **Over time, the futures price and the spot price naturally converge as expiry approaches because, on the settlement date, the futures contract must match the real market price of Bitcoin to close out positions accurately.
-4. **Settle the Trade: **When the contract expires, the borrower delivers the BTC into the futures contract and realizes the locked-in spread as profit. Because they hold equal and opposite long/short positions, Bitcoin’s price movement during the period does not affect the outcome.
+1. **Borrow BTC & Buy BTC on Spot Market:** The borrower borrows BTC on Nexio and purchases Bitcoin at the current market price.
+2. **Sell CME Futures (Forward Contract):** The borrower simultaneously sells a CME Bitcoin futures contract that trades slightly above the current spot price. This locks in a known sale price for a future date.
+3. **Hold Until Expiry:** Over time, the futures price and the spot price naturally converge as expiry approaches because, on the settlement date, the futures contract must match the real market price of Bitcoin to close out positions accurately.
+4. **Settle the Trade:** When the contract expires, the borrower delivers the BTC into the futures contract and realizes the locked-in spread as profit. Because they hold equal and opposite long/short positions, Bitcoin’s price movement during the period does not affect the outcome.
 
 ### **Example: 3-Month CME Futures**
 
-Assume spot BTC trades at \$100,000 and the 3-month CME future trades at \$106,000. This price premium is common because CME futures reflect the cost of capital and institutional demand for regulated exposure.
+Assume spot BTC trades at **\$100,000** and the **3-month CME future trades at \$106,000**. This price premium is standard as CME futures reflect the cost of capital and institutional demand for regulated exposure.
 
 In this situation, a borrower can:
 
 1. Buy 1 BTC on the spot market.
 2. Sell 1 CME futures contract at \$106,000.
 
-When the contract expires, the futures price converges with spot. The borrower delivers the BTC against the futures position and keeps the \$6,000 premium, equivalent to roughly 6% annualized yield.
+When the contract expires, the futures price converges with the spot price. The borrower delivers the BTC against the futures position and keeps the \$6,000 premium, equivalent to roughly 6% annualized yield.

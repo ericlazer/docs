@@ -1,11 +1,10 @@
 ---
 title: "4.2 Concentration Limits"
-description: "Description of your new file."
 ---
 
 Concentration limits refer to the guardrails Nexio enforces to prevent overexposure to any single borrower, strategy, or geography.
 
-For instance, if one trading firm borrowed across several Series or if most Series funded the same strategy, a market shock affecting that firm or strategy could impact the whole platform — concentration limits prevent that.
+For instance, if one trading firm borrowed across several Series or if most Series funded the same strategy, a market shock affecting that firm or strategy could impact the whole platform. Concentration limits prevent that.
 
 ### **How Concentration Limits Work**
 
@@ -13,7 +12,7 @@ Nexio applies multiple independent concentration layers, each continuously monit
 
 These include:
 
-- **Borrower Caps:** Restrict the maximum share of any Series a single borrower can hold.
+- **Borrower Caps:** Restrict the maximum share of any Series that a single borrower can hold.
 - **Strategy Caps:** Limit the total active capital allocated to a single trading strategy (e.g., CME Basis, Market-Making).
 - **Geographic Caps:** Control regional exposure to exchanges or jurisdictions with correlated risk.
 - **Liquidity Floors:** Require every Series to keep a minimum percentage of unallocated BTC to ensure redemption capacity even under stress.
@@ -26,8 +25,8 @@ Assume an active Series has 1,000 BTC total.
 
 Concentration limits would
 
-- **Single-borrower exposure** is capped so that no borrower can control a disproportionate share of any Series, maintaining counterparty diversification.
-- **Per-strategy allocation** is limited to prevent one trading approach from dominating total deployed capital, reducing the impact of strategy-specific shocks.
+- **Single-borrower exposure** is capped to prevent any borrower from controlling a disproportionate share of any Series, thereby maintaining counterparty diversification.
+- **Per-strategy allocation** is limited to prevent any single trading approach from dominating total deployed capital, thereby reducing the impact of strategy-specific shocks.
 - **Liquidity reserves** are required to keep a portion of Series capital unallocated, ensuring lenders can redeem even under adverse market conditions.
 
 This layered structure keeps Series utilization diversified and ensures lenders can redeem even if one borrower, strategy, or region experiences stress.

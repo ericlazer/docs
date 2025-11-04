@@ -22,9 +22,9 @@ This process enforces deterministic reconciliation between Bitcoin custody and o
 
 There are 3 key steps:
 
-1. **Deposit Proof: **When a lender sends BTC to a Series vault, the Operator Queue waits for the configured confirmation threshold (e.g., 3 blocks). Once verified, a proof is submitted to the contract, which mints the corresponding uBTC.
+1. \*\*Deposit Proof: \*\*When a lender sends BTC to a Series vault, the Operator Queue waits for the configured confirmation threshold (e.g., 3 blocks). Once verified, a proof is submitted to the contract, which mints the corresponding uBTC.
 2. **Burn Verification:** When a lender redeems BTC, uBTC is burned first on Nexio’s on-chain layer. The Operator Queue validates this burn event before releasing the signed PSBT to return Bitcoin from the vault.
-3. **Continuous Reconciliation:** Every mint, burn, or redemption updates the vault’s `backingSats` and `uBTC supply` values, keeping the two ledgers perfectly aligned.
+3. **Continuous Reconciliation:** Every mint, burn, or redemption updates the vault’s values to keep the two ledgers perfectly aligned.
 
 Below is an example to help illustrate this.
 
@@ -34,8 +34,8 @@ Below is an example to help illustrate this.
 
 Imagine a lender deposits **2 BTC** into a 90-day Series vault.
 
-- After 3 confirmations on Bitcoin, the Operator Queue receives proof of the deposit.
+- After 3 confirmations on the Bitcoin Network (each confirmation is ~10 minutes), the Operator Queue receives proof of the deposit.
 - The system validates the input, address, and amount, then mints uBTC at the current BTC/uBTC price.
-- If the lender later redeems, their uBTC are first burned on-chain, and only then does the system co-sign a PSBT to release their 2 BTC (plus accrued yield).
+- If the lender later redeems, their uBTC are first burned on-chain, and only then is the system co-signed to release their 2 BTC (plus accrued yield).
 
 This ensures that the uBTC supply never exceeds the BTC verifiably held in custody.

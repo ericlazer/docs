@@ -5,16 +5,17 @@ title: "System Architecture"
 Nexio operates through three coordinated layers:
 
 1. **User Layer:** Connects institutional lenders and borrowers participating in BTC credit markets.
-2. **Protocol Layer:** Executes lending, borrowing, and yield logic through Series, the Master Vault, and validators.
+2. **Protocol Layer:** Executes lending, borrowing, and yield logic through Series, the Master Vault, and Network Validators.
 3. **Infrastructure Layer:** Anchors the entire system to Bitcoin’s custody, security, and transaction finality.
 
 <img
-  src="/images/Screenshot2025-10-27at8.50.37PM.png"
-  alt="Screenshot 2025-10-27 at 8.50.37 PM.png"
-  style={{ width:"59%" }}
+  src="/images/telegram-cloud-document-5-6073381359122914117.jpg"
+  alt="telegram-cloud-document-5-6073381359122914117.jpg"
+  title="telegram-cloud-document-5-6073381359122914117.jpg"
+  style={{ width:"60%" }}
 />
 
-When BTC is deposited, it’s confirmed on the Bitcoin network (Infra Layer) which is verified by the Operator Queue (Infra Layer). This then enables the corresponding issuance of either uBTC or yBTC (Protocol Layer).
+When BTC is deposited, it’s confirmed on the Bitcoin network (Infra Layer), which is verified by the Operator Queue (Infra Layer). This then enables the corresponding issuance of either uBTC or yBTC (Protocol Layer).
 
 Borrowers may then draw BTC directly from vaults via permissioned Series contracts, while coupons, repayments, and covenant updates flow back through the same verified loop.
 
@@ -35,7 +36,7 @@ This is covered in greater depth in the Borrower Flow & Lender Flow sections.
 
 This is Nexio’s core logic layer, running the credit logic such as handling deposits, loan approvals, covenant monitoring, and yield distribution.
 
-There are 3 relevant components:
+There are **three** relevant components:
 
 - \*\*Series (Fixed-Term Pools): \*\*Independent credit pools with defined coupons, tenors, and borrowers. Each Series is isolated, fully auditable, and issues uBTC.
 - \*\*Master Vault (Delegated Aggregator): \*\*Aggregates yield across multiple Series, allowing lenders to gain diversified exposure through a single deposit. It issues **yBTC**, which tracks the blended value of various Series positions.

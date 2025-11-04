@@ -25,7 +25,7 @@ When lenders deposit BTC into a Series, their funds are used only within that Se
 
 When BTC is deposited into a Series, the depositor receives **uBTC**, an on-chain receipt that represents proportional ownership in that Series and its yield. This can be thought of as like a Certificate of Deposit (CD).
 
-The uBTC balance increases in value as the Series earns yield, and it is burned at redemption to release BTC from the vault. Because uBTC minting and burning are linked to verified Bitcoin transactions, the supply of uBTC always matches the BTC actually held in custody.
+The Series’ value increases as borrowers pay coupons, which raises the redemption value of each uBTC token. Because uBTC minting and burning are linked to verified Bitcoin transactions, the uBTC supply always matches the BTC actually held in custody.
 
 <Expandable title="Example: Lending 10 BTC into a Series">
   Suppose a lender deposits 10 BTC into a Series offering a 7% fixed coupon over 90 days.
@@ -37,15 +37,15 @@ The uBTC balance increases in value as the Series earns yield, and it is burned 
   At maturity, the lender burns their uBTC on chain, and Nexio’s vault releases the corresponding 103 BTC directly back to their registered Bitcoin address.
 </Expandable>
 
-The left side illustrates this:
+The left side of the graphic below illustrates this:
 
-![Screenshot 2025-10-23 at 4.06.55 PM.png](/images/Screenshot2025-10-23at4.06.55PM.png)
+![telegram-cloud-document-5-6073381359122914118.jpg](/images/telegram-cloud-document-5-6073381359122914118.jpg)
 
 ### 3. **Master Vault and yBTC**
 
 The Master Vault acts as a meta-layer that automatically allocates pooled BTC across multiple Series. Rather than lending or borrowing to an individual Series, participants can deposit once into the Master Vault and receive yBTC.
 
-Each Series deploys its allocated BTC into its respective strategy and, upon completion, returns the principal plus yield to the Master Vault. The vault aggregates these returns and updates the value of yBTC accordingly. As yields from the underlying Series accrue, yBTC’s redemption value automatically increases, giving holders diversified exposure without the need to manage multiple positions.
+Each Series allocates its BTC to its respective strategy and, upon completion, returns the principal plus yield to the Master Vault. The vault aggregates these returns and updates the yBTC value accordingly. As yields on the underlying Series accrue, yBTC’s redemption value automatically increases, providing holders with diversified exposure without the need to manage multiple positions.
 
 Below is an example to help illustrate this:
 
@@ -59,27 +59,29 @@ And an illustration as well:
 
 ### **4. Vaults and Custody**
 
-All BTC remains secured within **Taproot Vaults** on the Bitcoin network, which refer to specialized Bitcoin addresses that enforce programmable spending conditions. Each Series has its own Taproot Vault, which function like segregated custodial trust accounts that hold client assets separately.
+All BTC remains secured within **Taproot Vaults** on the Bitcoin network, which refer to specialized Bitcoin addresses that enforce programmable spending conditions. Each Series has its own Taproot Vault, functioning like a segregated on-chain account holding BTC for that Series alone.
 
 They're controlled by threshold-signature schemes, ensuring that no single operator can move funds unilaterally.
 
-As each Series has its own dedicated vault, all collateral and activity is segregated from other Series or the Master Vault. Each vault also encodes reclaim and emergency paths, which are time-locked backup routes that allow funds to be safely recovered if operators or infrastructure fail.
+As each Series has its own dedicated vault, all collateral and activity are segregated from other Series or the Master Vault. Each vault encodes predefined recovery and emergency paths, allowing governance to safely reclaim funds if operations halt or infrastructure fails.
 
 ### **5. Legal Layer**
 
 There are three types of signed, enforceable contracts that back every borrower and Series:
 
 - **The Master Loan Agreement (MLA):** The MLA is a standing contract between Nexio and each approved borrower. It defines the legal framework for all future lending activity — including repayment obligations, event-of-default rules, and dispute resolution.
-- **The Pledge Agreement:** This agreement defines the borrower’s collateral obligations. It specifies what assets are pledged, how they are held in custody, and the process for liquidation or recovery if a default occurs.
-- **Series Term Sheets:** The Term Sheet applies to one specific Series. It lists the coupon rate, duration, collateral requirements, and covenants that govern that particular BTC lending program.
+- **The Pledge Agreement:** This agreement defines the borrower’s collateral obligations. It specifies which assets are pledged, how they are held in custody, and the process for liquidation or recovery in the event of a default.
+- **Series Term Sheets:** The Term Sheet applies to one specific Series. It lists the coupon rate, duration, collateral requirements, and covenants governing the particular BTC lending program.
 
-The hash of each respective document is stored on-chain, meaning that anyone can verify that a loan is operating under approved legal terms.
+The hash of each document is stored on-chain, allowing anyone to verify that a loan is operating under approved legal terms.
 
 ### **How It All Fits Together**
 
-- The **vault** is the safe that holds the BTC.
-- The **Series** is the specific loan or investment program.
-- The **uBTC** is your proof of deposit into that Series.
-- The **Master Vault** combines multiple Series like an index fund.
-- The **yBTC** is your diversified share of that fund.
-- The **legal layer** defines everyone’s rights and obligations.
+Together, these components form Nexio’s credit stack:
+
+- **Vaults** hold the BTC.
+- **Series** define individual loan programs with fixed terms and borrowers.
+- **uBTC** represents ownership in a single Series.
+- **The Master Vault** aggregates all Series like an index fund.
+- **yBTC** represents diversified exposure across Series.
+- **The Legal Layer** anchors each relationship in enforceable agreements.

@@ -5,15 +5,18 @@ description: "Description of your new file."
 
 On Nexio, minting and burning mechanisms apply to **uBTC** and **yBTC**, which represent tokenized claims on Bitcoin held in Taproot vaults. Every change in token supply corresponds directly to a verified Bitcoin transaction, ensuring that the total value on-chain always matches the Bitcoin ledger.
 
-This design guarantees that supply and custody remain synchronized — eliminating any risk of “synthetic” issuance, maintaining continuous solvency, and enabling full public auditability.
+This design guarantees that supply and custody remain synchronized. This eliminates any risk of “synthetic” issuance, maintaining continuous solvency, and enabling full public auditability.
 
 ### **How Minting Works**
 
 When BTC is deposited into a Series or the Master Vault:
 
-1. 
+1. **Deposit Confirmation:**\
+   BTC enters the vault and reaches the required Bitcoin block confirmations (typically 3–6).
+2. **Proof Submission: **A deposit proof containing the transaction ID, Merkle inclusion data, and recipient metadata is submitted to the **Operator Queue**, which verifies that the correct vault received the BTC.
+3. **Validation & Minting: **Once verified, the smart contract mints uBTC (for Series) or yBTC (for the Master Vault) to the depositor’s on-chain address. These tokens represent proportional ownership of the vault’s underlying BTC.
 
-**_Example_: **_A lender deposits 1 BTC into a Series with a 10 BTC total vault. Once confirmed, the contract mints uBTC to the lender’s wallet representing a 10% share of that Series._
+**_Example_**: A lender deposits 1 BTC into a Series with a total vault of 10 BTC. After confirmation, the Operator Queue validates the proof and the contract mints uBTC equal to a 10% Series share.
 
 ### **How Burning Works**
 
@@ -23,4 +26,4 @@ When BTC is redeemed from a Series or the Master Vault:
 2. **Token Burn:** uBTC or yBTC is burned first, reducing total supply before any BTC movement.
 3. **Validation & Release:** The Operator Queue checks vault liquidity and compliance, then signers co-authorize a Bitcoin transaction returning BTC to the lender’s registered address.
 
-**_Example_**_: A lender burns uBTC representing 0.5 BTC of Series ownership. After validation, signers execute a PSBT returning 0.5 BTC + accrued interest directly on Bitcoin. The Series uBTC supply decreases accordingly, preserving 1:1 correspondence with custody._
+**_Example_**_: _A lender burns uBTC representing 0.5 BTC of Series ownership. After validation, the signers co-sign a PSBT that releases 0.5 BTC + accrued yield directly on the Bitcoin network. The Series’ total uBTC supply decreases proportionally, preserving 1:1 backing between tokens and custody.

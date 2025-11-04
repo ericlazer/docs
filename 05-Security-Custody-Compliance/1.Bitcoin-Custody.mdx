@@ -1,5 +1,6 @@
 ---
 title: "Bitcoin Custody"
+description: "NOTES:  - need to confirm the 2 of 3 signatures at the bottom"
 ---
 
 All BTC within Nexio is secured in **Taproot Vaults**: specialized Bitcoin addresses governed by **threshold Schnorr signatures**. This structure provides institutional-grade security and flexibility natively on Bitcoin, with no wrapped assets or off-chain custody.
@@ -8,12 +9,13 @@ When a lender deposits BTC, it moves directly into either a Series Vault or the 
 
 Each Nexio Vault is structured as a **Taproot tree** with three pre-defined spending paths:
 
-- **Normal Path:** Standard operations — borrower draws, lender redemptions — executed through authorized signers and verified by the Operator Queue.
-- **Reclaim Path:** Activates after a predefined timeout to let governance safely recover funds if operations halt or a borrower defaults.
+- **Normal Path:** Standard operations (e.g., borrower draws or lender redemptions) executed through authorized signers and verified by the Operator Queue.
+- **Reclaim Path: **Allows governance to safely recover funds if operations halt or a borrower defaults.
 - **Emergency Path:** Enables all three operators (Custody, Validation, and Governance) to co-sign an emergency transaction that moves BTC to a secure recovery vault in case of systemic compromise.
 
-This architecture delivers **cold-storage-grade safety** with **on-chain automation**.\
-On the blockchain, each vault appears as a simple single-sig address, while privately encoding multiple compliance and recovery conditions.
+This architecture delivers cold-storage-grade safety with on-chain automation.
+
+Each vault spends via the Taproot key-path, appearing as a simple single-sig address on-chain.
 
 Each Series is assigned its own Taproot Vault, keeping capital isolated and preventing any cross-Series exposure or rehypothecation.
 
@@ -25,7 +27,7 @@ It works as follows:
 
 1. Each signer generates a private/public key pair. These keys are aggregated into one group public key.
 2. When spending BTC, each participant signs partially. These partial signatures are aggregated into one unified signature.
-3. Bitcoin validates it as a single-sig spend, making it impossible to distinguish from a normal wallet.
+3. Bitcoin validates it as a single-sig spend, making it indistinguishable from a normal wallet.
 
 This aggregation provides threshold logic.
 
