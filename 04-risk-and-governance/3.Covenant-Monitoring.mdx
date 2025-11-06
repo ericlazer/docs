@@ -2,7 +2,7 @@
 title: "Covenant Monitoring"
 ---
 
-Covenants are predefined financial and operational rules that every borrower must follow. They define leverage, liquidity, reporting cadence, and drawdown limits. These are all encoded on-chain and enforced automatically by Nexio’s monitoring system, replacing manual OTC reporting, giving lenders continuous visibility, faster risk response, and verifiable audit trails.
+Covenants are predefined financial and operational rules that every borrower must follow. They define leverage, liquidity, reporting cadence, and drawdown limits. Enforcement occurs through the Operator Queue and Series smart contracts, ensuring covenant checks are proof-gated to Bitcoin-confirmed events.
 
 ### **Covenant Types**
 
@@ -18,7 +18,7 @@ There are two types of covenants:
 
 **2) Operational Covenants:**
 
-- **Reporting Cadence:** Defines how often borrowers must submit verified financial or position data.
+- **Reporting Cadence:** Defines how often borrowers must submit verified position and balance data.
 - **Venue Eligibility:** Restricts use of unapproved exchanges or counterparties to control venue risk.
 
 ### How Covenant Enforcement Works

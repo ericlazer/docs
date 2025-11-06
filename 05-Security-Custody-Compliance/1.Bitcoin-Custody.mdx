@@ -7,10 +7,10 @@ All BTC within Nexio is secured in **Taproot Vaults**: specialized Bitcoin addre
 
 When a lender deposits BTC, it moves directly into either a Series Vault or the Master Vault. Borrowers draw and repay within the same native Bitcoin environment, while lenders receive uBTC or yBTC to represent their verifiable on-chain position.
 
-Each Nexio Vault is structured as a **Taproot tree** with three pre-defined spending paths:
+Each Nexio Vault implements a Taproot tree containing three predefined spending conditions, each representing a separate operational path. These include:
 
 - **Normal Path:** Standard operations (e.g., borrower draws or lender redemptions) executed through authorized signers and verified by the Operator Queue.
-- **Reclaim Path: **Allows governance to safely recover funds if operations halt or a borrower defaults.
+- \*\*Reclaim Path: \*\*Allows governance to recover funds if operations halt or a borrower defaults safely.
 - **Emergency Path:** Enables all three operators (Custody, Validation, and Governance) to co-sign an emergency transaction that moves BTC to a secure recovery vault in case of systemic compromise.
 
 This architecture delivers cold-storage-grade safety with on-chain automation.

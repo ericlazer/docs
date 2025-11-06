@@ -14,26 +14,28 @@ Although some traditional BTC lending markets exist, they have several challenge
 
 Borrowers leveraging Nexio gain direct, fixed-rate BTC credit without leaving the Bitcoin network. By operating through verified Series and smart-contract enforcement, they eliminate FX friction, custody risk, and rate volatility inherent in traditional BTC lending.
 
+**Each borrower operates through their own dedicated Taproot vault and Series**, while approved lenders can allocate capital across multiple Series to diversify exposure.
+
 ### **Step-by-Step Flow**
 
 There are **five steps** in Nexio’s borrower process, from onboarding to repayment, with each step enforced through on-chain verification and governance logic.
 
-![telegram-cloud-document-5-6073381359122914120.jpg](/images/telegram-cloud-document-5-6073381359122914120.jpg)
+![telegram-cloud-document-5-6079906256259127613.jpg](/images/telegram-cloud-document-5-6079906256259127613.jpg)
 
 The following illustrates this flow:
 
 1. **Verification:** Borrowers complete institutional onboarding, sign the Master Loan Agreement, and are assigned a credit tier (1 to 3) based on factors such as collateral quality and reporting cadence.
-2. **Proposal Submission:** A borrower submits a draw request referencing an active Series compatible with their tier and strategy.
+2. **Proposal Submission:** A borrower submits a draw request for their dedicated Series (each Series corresponds to one borrower) compatible with their tier and strategy.
 3. **Risk Validation:** The Operator Queue checks that the proposal complies with all Series rules (e.g. utilization caps and collateral thresholds) before authorizing.
-4. **BTC Disbursement:** Once validated, Nexio’s signers co-authorize a Bitcoin transaction from the Series’ Taproot vault to the borrower’s registered Bitcoin address. This BTC remains native and fully usable on the Bitcoin network, and the addresses are whitelisted and monitored to ensure compliance.
+4. **BTC Disbursement:** Once validated, Nexio’s signer quorum co-authorizes a Bitcoin transaction from the Series’ Taproot vault to the borrower’s registered Bitcoin address. This BTC remains native and fully usable on the Bitcoin network, and the addresses are whitelisted and monitored to ensure compliance.
 5. **Coupon Payments & Repayment:** Borrowers pay coupons and repay principal per the Series schedule. All transactions are recorded on-chain, updating Series utilization, covenant status, and lender dashboards in real time.
 
 ## Example: Borrower Flow
 
 Consider a Tier 1 borrower drawing 2 BTC from a 90-day Series offering a fixed 7 % coupon.
 
-Once their collateral and credit tier are verified, the Operator Queue validates the draw request against Series parameters such as utilization limits, collateral ratios, and concentration caps.
+Once their collateral and credit tier are verified, the Operator Queue validates the draw request against Series parameters, including utilization limits, collateral ratios, and concentration caps.
 
 After approval, the system’s multi-signer quorum co-authorizes a Bitcoin transaction, sending 2 BTC directly from the Series Taproot vault to the borrower’s whitelisted Bitcoin address. The borrower can now deploy this BTC for approved hedged trading strategies, while the vault continuously tracks exposure and covenant status on-chain.
 
-Throughout the loan term, coupon payments flow back to the vault at predefined intervals, automatically updating the Series NAV and uBTC valuation. At maturity, repayment of the principal plus interest restores the vault’s balance and finalizes yield distribution to lenders.
+Throughout the loan term, coupon payments flow back to the vault at predefined intervals, automatically updating the Series NAV and uBTC valuation. At maturity, repayment of principal and coupons restores the Series vault balance and finalizes yield distribution to uBTC holders.

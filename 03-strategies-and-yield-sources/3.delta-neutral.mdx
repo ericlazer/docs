@@ -2,33 +2,34 @@
 title: "Strategy 2: Delta-Neutral Funding"
 ---
 
-Borrowers in this Series execute the **Delta-Neutral Funding** strategy — a market-neutral approach that earns yield from the **funding-rate differential** between long and short **perpetual futures** across exchanges.
+Borrowers in this Series execute the **Delta-Neutral Funding** strategy: a market-neutral approach that earns yield from the funding-rate differential between long and short perpetual futures across exchanges.
 
-A **perpetual future** is a type of futures contract with **no expiry date**. Traders pay or receive a small **funding fee** every few hours to keep the contract price aligned with Bitcoin’s real spot price.
+**A perpetual future** is a type of futures contract with no expiry date. Traders pay or receive a small funding fee every few hours to keep the contract price aligned with Bitcoin’s real spot price.
 
-This strategy captures those periodic funding payments — not price movements — to generate **steady BTC-denominated yield** from market imbalances.
+This strategy captures those periodic funding payments (not price movements) to generate a steady BTC-denominated yield from market imbalances.
 
 ## How the Strategy Works
 
-At a high level, it captures periodic funding payments that flow between traders taking opposite sides of perpetual futures. Funding rates fluctuate with market sentiment: positive when longs dominate, negative when shorts dominate.
+The strategy captures periodic funding payments that flow between long and short traders on perpetual futures exchanges. These payments occur every few hours and are calculated as a percentage of the contract’s notional value.
 
 <Expandable title="Funding Rates Explained">
   Funding payments are periodic transfers between traders on perpetual futures exchanges. They exist to keep the perpetual contract’s price aligned with the real Bitcoin spot price.
 
-  If the perpetual price is above spot, long traders pay shorts a small fee (a positive funding rate) to discourage excessive long positions.\
-  If the perpetual price is below spot, shorts pay longs (a negative funding rate) to reduce selling pressure.
+  If the perpetual price is **above spot**, long traders pay shorts a small fee (a positive funding rate) to discourage excessive long positions.
 
-  These payments occur periodically and are calculated as a percentage of the contract’s notional value.
+  If the perpetual price is **below spot**, shorts pay longs (a negative funding rate) to reduce selling pressure.
 
-  Because these transfers happen continuously and are guaranteed by the exchange, traders holding the receiving side of the funding rate can earn steady BTC yield without taking price risk.
+  These payments occur periodically and are calculated as a percentage of the contract’s notional value. These transfers are enforced by the exchange’s matching engine, ensuring they occur automatically and reliably.
+
+  The realized spread flows back into the borrower’s Series vault, increasing its NAV and the uBTC value held by lenders.
 </Expandable>
 
 For those borrowing BTC on Nexio, this might look as follows:
 
-1. **Borrow BTC & Buy BTC on Spot Market: **The borrower borrows BTC on Nexio and purchases Bitcoin on the spot market, holding a long BTC position.
-2. **Short Perpetual Futures: **The borrower simultaneously opens a short position in a BTC perpetual futures contract on an exchange where funding rates are positive, meaning longs are paying shorts.
-3. **Hold the Hedge: **As BTC’s price moves, gains and losses on the spot and futures positions cancel out. The trade remains delta-neutral — immune to directional price swings.
-4. **Collect Funding Payments: **The borrower earns the recurring funding payments paid by long traders on that exchange, which accumulate as BTC yield over time.
+1. **Borrow BTC & Buy BTC on Spot Market:** The borrower borrows BTC on Nexio and holds it as their spot position, forming the base of the trade.
+2. \*\*Short Perpetual Futures: \*\*The borrower simultaneously opens a short position in a BTC perpetual futures contract on an exchange with favorable funding rates, meaning longs pay shorts.
+3. **Hold the Hedge:** As BTC’s price moves, gains and losses on the spot and futures positions cancel out. The trade remains delta-neutral, meaning immune to directional price swings.
+4. **Collect Funding Payments:** The borrower earns recurring funding payments from long traders on that exchange, which accumulate as BTC yield over time.
 
 ### **Example: 0.03% funding rate**
 
@@ -42,5 +43,5 @@ The borrower:
 If BTC’s price rises to \$105,000, the spot position gains \$5,000 while the short futures loses \$5,000, resulting in no net directional profit or loss.\
 Meanwhile, the borrower continuously earns the 0.03% hourly funding from long traders on Exchange A.
 
-For lenders, Delta-Neutral Funding Series provide predictable, BTC-denominated coupons backed by this funding-rate spread.\
+For lenders, the Delta-Neutral Funding Series provides predictable, BTC-denominated coupons backed by this funding-rate spread.\
 Borrowers are Tier 1 and Tier 2 trading firms with exchange access, proven hedging systems, and strict collateralization, ensuring BTC-backed coupons remain verifiable and transparent on-chain throughout the Series term.

@@ -1,8 +1,6 @@
 ---
-title: "Core Concepts"
+title: "Key Concepts"
 ---
-
-## Core Concepts
 
 Nexio bridges traditional credit systems with Bitcoin’s security model. To understand how it works, we’ll cover the building blocks below before going into greater depth in subsequent sections.
 
@@ -10,27 +8,27 @@ Nexio bridges traditional credit systems with Bitcoin’s security model. To und
 
 A **Series** is a ring-fenced BTC lending pool with fixed terms, similar to a fixed-term fund in traditional finance.
 
-When lenders deposit BTC into a Series, that BTC is used only for one specific lending strategy. Each Series has its own vault, interest rate, duration, and risk limits. For example, one Series might focus on a 90-day fixed-rate loan to trading firms engaged in market-making.
+Each Series corresponds to one borrower and is backed by its own Taproot vault. Multiple lenders can deposit into a Series once it opens for participation, but the BTC in that Series is used only for that borrower’s strategy and cannot be mixed elsewhere.
 
 Each Series has:
 
 - A defined strategy (e.g., CME basis, delta-neutral, market-making)
 - A fixed interest rate and duration
-- Named, **KYC/KYB-verified borrowers**
+- Named, KYC/KYB-verified borrowers
 - On-chain visibility into utilization, collateralization, and covenant status
 
 When lenders deposit BTC into a Series, their funds are used only within that Series. No cross-mixing or rehypothecation occurs.
 
 ### **2. uBTC (Series Token)**
 
-When BTC is deposited into a Series, the depositor receives **uBTC**, an on-chain receipt that represents proportional ownership in that Series and its yield. This can be thought of as like a Certificate of Deposit (CD).
+When BTC is deposited into a Series, the depositor receives **uBTC**, an on-chain receipt that represents proportional ownership in that Series and its yield. uBTC functions like a Bitcoin-denominated **certificate of deposit (CD)**: its redemption value increases automatically as the borrower pays coupons.
 
 The Series’ value increases as borrowers pay coupons, which raises the redemption value of each uBTC token. Because uBTC minting and burning are linked to verified Bitcoin transactions, the uBTC supply always matches the BTC actually held in custody.
 
 <Expandable title="Example: Lending 10 BTC into a Series">
   Suppose a lender deposits 10 BTC into a Series offering a 7% fixed coupon over 90 days.
 
-  Upon confirmation of the Bitcoin transaction, Nexio mints **uBTC** representing that lender’s proportional share of the Series. If the total Series pool is 100 BTC, the lender’s uBTC represents 10% ownership (10 BTC of the 100 BTC).
+  Upon confirmation of the Bitcoin transaction and validation by the Operator Queue, Nexio mints **uBTC** representing that lender’s proportional share of the Series. If the total Series pool is 100 BTC, the lender’s uBTC represents 10% ownership (10 BTC of the 100 BTC).
 
   Borrowers pay interest into the Series, causing its balance to grow, for instance, from 100 BTC to 103 BTC. The uBTC share price automatically reflects this increase.
 
@@ -39,31 +37,36 @@ The Series’ value increases as borrowers pay coupons, which raises the redempt
 
 The left side of the graphic below illustrates this:
 
-![telegram-cloud-document-5-6073381359122914118.jpg](/images/telegram-cloud-document-5-6073381359122914118.jpg)
+![telegram-cloud-document-5-6079906256259127612.jpg](/images/telegram-cloud-document-5-6079906256259127612.jpg)
+
+_\*Example figures_
 
 ### 3. **Master Vault and yBTC**
 
 The Master Vault acts as a meta-layer that automatically allocates pooled BTC across multiple Series. Rather than lending or borrowing to an individual Series, participants can deposit once into the Master Vault and receive yBTC.
 
-Each Series allocates its BTC to its respective strategy and, upon completion, returns the principal plus yield to the Master Vault. The vault aggregates these returns and updates the yBTC value accordingly. As yields on the underlying Series accrue, yBTC’s redemption value automatically increases, providing holders with diversified exposure without the need to manage multiple positions.
+The Master Vault aggregates these returns and updates the yBTC value accordingly. As yields accrue across the underlying Series, yBTC’s redemption value automatically increases, giving holders diversified BTC yield exposure without managing individual Series. 
 
 Below is an example to help illustrate this:
 
-<Expandable title="Example: Lending 10 BTC into the Master Vault">
-  
+<Expandable title="Content">
+  A lender deposits 10 BTC into a 90-day Series offering a 7 % fixed coupon.
+
+  If the total Series holds 100 BTC, the lender owns 10 %. 
+
+  When the borrower repays, the Series balance grows (e.g., from 100 → 103 BTC), and the uBTC share price adjusts accordingly.
+
+  At maturity, the lender burns their uBTC on-chain, and the vault releases the corresponding BTC directly to their registered Bitcoin address.
 </Expandable>
 
-And an illustration as well:
-
-![Screenshot 2025-10-23 at 4.07.57 PM.png](/images/Screenshot2025-10-23at4.07.57PM.png)
 
 ### **4. Vaults and Custody**
 
-All BTC remains secured within **Taproot Vaults** on the Bitcoin network, which refer to specialized Bitcoin addresses that enforce programmable spending conditions. Each Series has its own Taproot Vault, functioning like a segregated on-chain account holding BTC for that Series alone.
+All BTC remains secured within **Taproot Vaults** on the Bitcoin network, which refer to specialized Bitcoin addresses that enforce programmable spending conditions. Each Series has its own Taproot Vault, functioning like a segregated on-chain account holding BTC for that Series alone. Each Series also has its own legal agreements and borrower-specific covenants.
 
-They're controlled by threshold-signature schemes, ensuring that no single operator can move funds unilaterally.
+The vaults are controlled by threshold-signature schemes, ensuring that no single operator can move funds unilaterally.
 
-As each Series has its own dedicated vault, all collateral and activity are segregated from other Series or the Master Vault. Each vault encodes predefined recovery and emergency paths, allowing governance to safely reclaim funds if operations halt or infrastructure fails.
+As each Series has its own dedicated vault, all collateral and activity are segregated from other Series or the Master Vault. Each vault encodes predefined recovery and emergency paths, allowing governance to reclaim funds if operations halt or infrastructure fails safely.
 
 ### **5. Legal Layer**
 
@@ -80,7 +83,7 @@ The hash of each document is stored on-chain, allowing anyone to verify that a l
 Together, these components form Nexio’s credit stack:
 
 - **Vaults** hold the BTC.
-- **Series** define individual loan programs with fixed terms and borrowers.
+- **Series** define individual loan programs.
 - **uBTC** represents ownership in a single Series.
 - **The Master Vault** aggregates all Series like an index fund.
 - **yBTC** represents diversified exposure across Series.
