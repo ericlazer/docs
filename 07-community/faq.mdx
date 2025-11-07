@@ -4,7 +4,7 @@ title: "FAQ"
 
 ### **1. What is Nexio? Is it similar to DeFi lending?**
 
-Nexio is a Bitcoin-based credit platform that lets verified institutions lend and borrow BTC at fixed rates. 
+Nexio is a Bitcoin-based credit platform that lets verified institutions lend and borrow BTC at fixed rates.
 
 All loan terms, payments, and accounting happen on-chain, giving participants full transparency into how BTC moves and earns yield.
 
@@ -15,11 +15,15 @@ Nexio differs from DeFi lending in a few key ways:
 - **Bitcoin network:** All BTC stays in Taproot Vaults on the Bitcoin network.
 - **Legal enforceability:** Each loan is backed by signed agreements, not anonymous smart contracts.
 
-### **3. What is a Series or the Master Vault?**
+### **2. What is a Series or the Master Vault?**
 
 A Series is a ring-fenced, fixed-term BTC credit pool with its own borrower set, coupon rate, and maturity date. Each Series operates independently (similar to a bond issuance) so its risk and yield are isolated from others. Lenders choose a Series based on duration and return preferences, earning a predictable BTC-denominated yield until maturity.
 
+Borrowers have their own dedicated Series (1 Series per borrower).
+
 The **Master Vault** serves lenders who prefer automated diversification instead of selecting individual Series. It aggregates BTC across multiple active Series, giving single, blended exposure to Nexio’s overall credit portfolio while keeping all funds secured in Taproot Vaults.
+
+![telegram-cloud-document-5-6084844691260447126.jpg](/images/telegram-cloud-document-5-6084844691260447126.jpg)
 
 ### **3. What are uBTC and yBTC?**
 
@@ -30,7 +34,12 @@ Depositors in the **Master Vault** receive **yBTC**, a yield-bearing token that 
 
 Both uBTC and yBTC are fully backed 1:1 by BTC held in Taproot Vaults, ensuring transparent, verifiable custody on the Bitcoin network.
 
-![Screenshot 2025-10-27 at 8.33.01 PM.png](/images/Screenshot2025-10-27at8.33.01PM.png)
+<img
+  src="/images/telegram-cloud-document-5-6084844691260447130.jpg"
+  alt="telegram-cloud-document-5-6084844691260447130.jpg"
+  title="telegram-cloud-document-5-6084844691260447130.jpg"
+  style={{ width:"89%" }}
+/>
 
 ### **4. Who can lend or borrow on Nexio?**
 
@@ -38,7 +47,7 @@ Both uBTC and yBTC are fully backed 1:1 by BTC held in Taproot Vaults, ensuring 
 
 **Borrowers** are KYC/KYB-verified trading desks, market makers, or arbitrage firms that pass eligibility and collateral checks.
 
-Both sides operate under enforceable agreements and continuous monitoring. 
+Both sides operate under enforceable agreements and continuous monitoring.
 
 Retail participation may be introduced in the future through regulated partners or managed vaults.
 
@@ -46,11 +55,11 @@ Retail participation may be introduced in the future through regulated partners 
 
 Custody is fully **Bitcoin-native**: all BTC remains on the Bitcoin network inside Taproot Vaults, and all vault balances and signer actions are independently verifiable on-chain.
 
-Each vault uses threshold Schnorr signatures distributed across several independent operators, ensuring that no single entity can ever move funds on its own.
+Each vault uses a 2-of-3 threshold Schnorr signature scheme shared between Custody, Validation, and Governance operators.
 
 Every Series has its own dedicated vault, isolating capital and preventing any cross-series exposure. Routine vault actions (such as borrower draws or coupon payments) are executed through multi-party co-signing.
 
-Transactions use Taproot key-path spends, which compress multi-signature logic into a single, standard Bitcoin transaction for efficiency and privacy. 
+Transactions use Taproot key-path spends, which compress multi-signature logic into a single, standard Bitcoin transaction for efficiency and privacy.
 
 ### **6. What is Proof Gating?**
 
@@ -77,24 +86,18 @@ Each borrower operates under a fixed-term loan agreement with strict collateral 
 
 If a borrower fails to meet payment terms or violates a Series covenant, that Series automatically enters liquidation mode.
 
-Collateral is priced, sold, or transferred in accordance with predefined recovery rules, ensuring losses are minimized and contained within the Series.
+Collateral is priced, sold, or transferred in accordance with predefined recovery rules, thereby minimizing losses and containing them within the Series.
 
 The Operator Queue oversees the process, validating every liquidation event and updating Series balances in real time. All recovery actions, shortfalls, and repayment metrics are recorded on-chain, providing full visibility to governance participants, auditors, and lenders.
 
-### **9. How can developers integrate Nexio data?**
-
-Developers can connect via REST or WebSocket APIs to read vault data, event logs, and Series metrics.
-
-SDKs (TypeScript and Python) are in development for streamlined integration with dashboards, accounting systems, and custody platforms.
-
-### **10. How is compliance enforced?**
+### **9. How is compliance enforced?**
 
 Every participant passes KYC/KYB and AML checks before transacting.\
 Withdrawals require a compliance attestation from a registered handler.
 
 Each Series stores hashed legal agreements (Loan, Pledge, Term Sheet) in contract metadata to ensure verifiable legal linkage.
 
-### **11. What networks does Nexio support?**
+### **10. What networks does Nexio support?**
 
 Custody remains on Bitcoin, while uBTC and yBTC exist as ERC-20 tokens on Ethereum, with plans to expand to other networks.
 

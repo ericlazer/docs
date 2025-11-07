@@ -11,9 +11,9 @@ This design guarantees that supply and custody remain synchronized. This elimina
 
 When BTC is deposited into a Series or the Master Vault:
 
-1. Deposit Confirmation: BTC enters the vault and reaches the required Bitcoin block confirmations (typically 3–6).
+1. **Deposit Confirmation:** BTC enters the vault and reaches the required Bitcoin block confirmations (typically 3–6).
 2. **Proof Submission:** A deposit proof containing the transaction ID, Merkle inclusion data, and recipient metadata is submitted to the **Operator Queue**, which verifies that the correct vault received the BTC.
-3. **Validation & Minting: **Once verified, the Operator Queue triggers proof-gated minting, and the smart contract issues uBTC (for Series) or yBTC (for the Master Vault) to the depositor’s on-chain address. All corresponding Bitcoin custody remains under a 2-of-3 Schnorr signer quorum.
+3. **Validation & Minting:** Once verified, the Operator Queue triggers proof-gated minting, and the smart contract issues uBTC (for Series) or yBTC (for the Master Vault) to the depositor’s on-chain address. All corresponding Bitcoin custody remains under a 2-of-3 Schnorr signer quorum.
 
 **_Example_**: A lender deposits 1 BTC into a Series with a total vault of 10 BTC. After confirmation, the Operator Queue validates the proof and the contract mints uBTC equal to a 10% Series share.
 
@@ -23,6 +23,6 @@ When BTC is redeemed from a Series or the Master Vault:
 
 1. **Burn Request:** The lender initiates redemption by submitting an on-chain burn request.
 2. **Token Burn:** uBTC or yBTC is burned first, reducing total supply before any BTC movement.
-3. **Validation & Release: **The Operator Queue validates vault liquidity and compliance, then triggers a proof-gated release: Nexio’s 2-of-3 signer quorum co-authorizes a Bitcoin transaction that returns BTC to the lender’s registered address.
+3. **Validation & Release:** The Operator Queue validates vault liquidity and compliance, then triggers a proof-gated release: Nexio’s 2-of-3 signer quorum co-authorizes a Bitcoin transaction that returns BTC to the lender’s registered address.
 
 **_Example_**: A lender burns uBTC representing 0.5 BTC of Series ownership. After validation, the signers co-sign a PSBT that releases 0.5 BTC + accrued yield directly on the Bitcoin network. The Series’ total uBTC supply decreases proportionally, preserving 1:1 backing between tokens and custody.

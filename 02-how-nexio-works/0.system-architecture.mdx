@@ -9,10 +9,10 @@ Nexio operates through three coordinated layers:
 3. **Infrastructure Layer:** Anchors the entire system to Bitcoin’s custody, security, and transaction finality.
 
 <img
-  src="/images/telegram-cloud-document-5-6079906256259127615.jpg"
-  alt="telegram-cloud-document-5-6079906256259127615.jpg"
-  title="telegram-cloud-document-5-6079906256259127615.jpg"
-  style={{ width:"74%" }}
+  src="/images/telegram-cloud-document-5-6084844691260447129.jpg"
+  alt="telegram-cloud-document-5-6084844691260447129.jpg"
+  title="telegram-cloud-document-5-6084844691260447129.jpg"
+  style={{ width:"80%" }}
 />
 
 When BTC is deposited, it’s confirmed on the Bitcoin network (Infrastructure Layer). The Operator Queue (Protocol Layer) verifies the transaction and triggers the corresponding issuance of either uBTC or yBTC.
@@ -46,7 +46,11 @@ There are four relevant components:
 - **Operator Queue:** Middleware that ingests Bitcoin transaction proofs and sequences mint/burn actions on-chain.
 - **Network Validators:** Independent operators that verify Bitcoin-side data and approve actions through the Operator Queue.
 
-![Screenshot 2025-11-06 at 5.17.39 PM.png](/images/Screenshot2025-11-06at5.17.39PM.png)
+<img
+  src="/images/telegram-cloud-document-5-6084844691260447130.jpg"
+  alt="telegram-cloud-document-5-6084844691260447130.jpg"
+  style={{ width:"90%" }}
+/>
 
 ### **3. Infrastructure Layer**
 
@@ -61,10 +65,10 @@ This layer includes:
 No on-chain event occurs without a confirmed Bitcoin transaction, and no BTC exits custody without a corresponding burn. This architecture keeps every Series fully collateralized, continuously reconciled, and provably backed 1:1 by Bitcoin in Taproot vaults.
 
 <img
-  src="/images/Screenshot2025-10-24at2.28.17PM.png"
-  alt="Screenshot 2025-10-24 at 2.28.17 PM.png"
-  title="Screenshot 2025-10-24 at 2.28.17 PM.png"
-  style={{ width:"67%" }}
+  src="/images/telegram-cloud-document-5-6084844691260447134.jpg"
+  alt="telegram-cloud-document-5-6084844691260447134.jpg"
+  title="telegram-cloud-document-5-6084844691260447134.jpg"
+  style={{ width:"64%" }}
 />
 
 This looks as follows:

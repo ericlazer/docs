@@ -1,6 +1,5 @@
 ---
 title: "Bitcoin Custody"
-description: "NOTES:  - need to confirm the 2 of 3 signatures at the bottom"
 ---
 
 All BTC within Nexio is secured in **Taproot Vaults**: specialized Bitcoin addresses governed by **threshold Schnorr signatures**. This structure provides institutional-grade security and flexibility natively on Bitcoin, with no wrapped assets or off-chain custody.
@@ -10,7 +9,7 @@ When a lender deposits BTC, it moves directly into either a Series Vault or the 
 Each Nexio Vault implements a Taproot tree containing three predefined spending conditions, each representing a separate operational path. These include:
 
 - **Normal Path:** Standard operations (e.g., borrower draws or lender redemptions) executed through authorized signers and verified by the Operator Queue.
-- \*\*Reclaim Path: \*\*Allows governance to recover funds if operations halt or a borrower defaults safely.
+- **Reclaim Path:** Allows governance to recover funds if operations halt or a borrower defaults safely.
 - **Emergency Path:** Enables all three operators (Custody, Validation, and Governance) to co-sign an emergency transaction that moves BTC to a secure recovery vault in case of systemic compromise.
 
 This architecture delivers cold-storage-grade safety with on-chain automation.
@@ -31,16 +30,6 @@ It works as follows:
 
 This aggregation provides threshold logic.
 
-<img
-  src="/images/Screenshot2025-10-24at8.51.21PM.png"
-  alt="Screenshot 2025-10-24 at 8.51.21 PM.png"
-  style={{ width:"84%" }}
-/>
-
 To move BTC, Nexio requires **two out of three** designated operators to co-sign any transaction.
 
-The three parties include:
-
-- **Custody Operator:** Handles Bitcoin transaction construction, batching, and fee optimization.
-- **Validation Operator:** Confirms that proposed transactions comply with Series rules (whitelisted borrowers, collateral thresholds, covenant checks) before co-signing.
-- **Governance / Recovery Signer:** Maintained by Nexio governance or an independent auditor, enabling recovery or dispute resolution if one operator becomes unavailable.
+![telegram-cloud-document-5-6084844691260447132.jpg](/images/telegram-cloud-document-5-6084844691260447132.jpg)
