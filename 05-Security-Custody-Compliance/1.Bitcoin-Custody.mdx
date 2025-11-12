@@ -4,6 +4,13 @@ title: "Bitcoin Custody"
 
 All BTC within Nexio is secured in **Taproot Vaults**: specialized Bitcoin addresses governed by **threshold Schnorr signatures**. This structure provides institutional-grade security and flexibility natively on Bitcoin, with no wrapped assets or off-chain custody.
 
+<img
+  src="/images/Nexio-7thGraphic-BitcoinSignature.jpg"
+  alt="Nexio 7th Graphic Bitcoin Signature Jp"
+  title="Nexio 7th Graphic Bitcoin Signature Jp"
+  style={{ width:"93%" }}
+/>
+
 When a lender deposits BTC, it moves directly into either a Series Vault or the Master Vault. Borrowers draw and repay within the same native Bitcoin environment, while lenders receive uBTC or yBTC to represent their verifiable on-chain position.
 
 Each Nexio Vault implements a Taproot tree containing three predefined spending conditions, each representing a separate operational path. These include:
@@ -28,13 +35,4 @@ It works as follows:
 2. When spending BTC, each participant signs partially. These partial signatures are aggregated into one unified signature.
 3. Bitcoin validates it as a single-sig spend, making it indistinguishable from a normal wallet.
 
-This aggregation provides threshold logic.
-
-To move BTC, Nexio requires **two out of three** designated operators to co-sign any transaction.
-
-<img
-  src="/images/Nexio-7thGraphic-BitcoinSignature.jpg"
-  alt="Nexio 7th Graphic Bitcoin Signature Jp"
-  title="Nexio 7th Graphic Bitcoin Signature Jp"
-  style={{ width:"93%" }}
-/>
+This aggregation provides threshold logic. To move BTC, Nexio requires **two out of three** designated operators to co-sign any transaction.
