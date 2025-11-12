@@ -55,7 +55,9 @@ This layer includes:
 - **Bitcoin Network:** Serves as the source of truth for all custody and settlement events. Minting and burning on Nexio occur only after confirmed Bitcoin transactions.
 - **Nexio Coordination Layer:** The coordination framework connecting Bitcoin custody with on-chain smart contracts through the Operator Queue, ensuring state synchronization and proof-gated operations.
 
-No on-chain event occurs without a confirmed Bitcoin transaction, and no BTC exits custody without a corresponding burn. This architecture keeps every Series fully collateralized, continuously reconciled, and provably backed 1:1 by Bitcoin in Taproot vaults.
+No on-chain event occurs without a confirmed Bitcoin transaction, and all BTC movements remain verifiable through the Operator Queue. Each Series is funded directly by lender deposits into its dedicated Taproot vault and stays continuously reconciled against the Bitcoin ledger.
+
+Once a borrower draws funds, exposure is secured through off-chain legal agreements and credit covenants rather than on-chain collateral alone. This ensures that whether funds remain in custody or are deployed by the borrower, every position is still governed, auditable, and legally enforceable under Nexio’s credit framework.
 
 This looks as follows:
 
