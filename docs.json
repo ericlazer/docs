@@ -77,11 +77,14 @@
             ]
           },
           {
-            "group": "Developer & Integration Guide",
-            "pages": [
-              "06-Developer-and-Integration-Guide/0.Developer-Overview"
-            ]
-          }
+  "group": "Developer & Integration Guide",
+  "pages": [
+    "06-Developer-and-Integration-Guide/0.Developer-Overview",
+    "06-Developer-and-Integration-Guide/1.APIs-and-Events",
+    "06-Developer-and-Integration-Guide/2.Smart-Contract-Interfaces",
+    "06-Developer-and-Integration-Guide/3.Example-Integrations"
+          ]
+        }
         ]
       }
     ],
