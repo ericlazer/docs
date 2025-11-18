@@ -11,14 +11,14 @@ This design guarantees that supply and custody remain synchronized. This elimina
 
 When BTC is deposited into a Series or the Master Vault:
 
-1. **Bitcoin Transaction: **A BTC transaction is created and broadcast to the Bitcoin network, sending funds to the designated Taproot vault associated with the Series or the Master Vault.
+1. **Bitcoin Transaction:** A BTC transaction is created and broadcast to the Bitcoin network, sending funds to the designated Taproot vault associated with the Series or the Master Vault.
 1. **Block Confirmation:** The transaction reaches the required number of Bitcoin block confirmations (typically 3–6). This establishes finality and signals that the vault has provably received the BTC.
 1. **Proof Construction:** Nexio’s Operator Queue assembles a cryptographic proof containing the transaction ID, Merkle inclusion data, destination vault metadata, and policy confirmation parameters.
 
    This step binds the incoming Bitcoin transaction to the correct Series or Master Vault.
 1. **Proof Submission:** The constructed proof is submitted to Nexio’s on-chain Operator contract. The Queue verifies that: a) the transaction is valid, b) the correct Taproot vault received the BTC, and c) policy parameters (confirmations, vault ID, recipient metadata) are satisfied.
 1. **On-Chain Minting Action:** After the proof is verified, the Operator Queue triggers the corresponding on-chain action: a) uBTC is minted when BTC enters a Series vault, b) yBTC is minted when BTC enters the Master Vault, and c) All issuance follows deterministic share math and remains anchored to the confirmed Bitcoin balance.
-1. **Continuous Reconciliation: **Vault accounting updates automatically. The total supply of uBTC/yBTC and the vault’s backing value remain in continuous sync with the provable Bitcoin ledger. Dashboards update series-level metrics (utilization, collateral, liquidity) in real time.
+1. **Continuous Reconciliation:** Vault accounting updates automatically. The total supply of uBTC/yBTC and the vault’s backing value remain in continuous sync with the provable Bitcoin ledger. Dashboards update series-level metrics (utilization, collateral, liquidity) in real time.
 
 **_Example_**: A lender deposits 1 BTC into a Series with a total vault of 10 BTC. After confirmation, the Operator Queue validates the proof and the contract mints uBTC equal to a 10% Series share.
 
