@@ -10,7 +10,7 @@ This gives all stakeholders continuous visibility into Series health, utilizatio
 
 To achieve this level of transparency, Nexio integrates several layers of verifiable record-keeping:
 
-- **Public Audit Metrics:** Dashboards and APIs publish live Series data such as utilization, collateral ratios, covenant timers, and liquidity reserves. All metrics are generated from on-chain events emitted by the vault contracts, eliminating the risk of manual or off-chain manipulation.
+- **Public Audit Metrics:** Dashboards and APIs publish live Series data such as utilization, collateral ratios, covenant timers, and liquidity reserves. All metrics are generated from on-chain events, removing reliance on manual or off-chain reporting.
 - **Event-Based Ledger:** Every mint, burn, coupon payment, and repayment emits a unique event hash. These immutable records allow any third party (auditor, custodian, or regulator) to reconstruct complete Series histories without needing internal system access.
 - **Legal Document Hashing:** Hashes of the Master Loan Agreement, Pledge Agreement, and Series Term Sheet are embedded directly in contract metadata. This creates a provable link between on-chain activity and its governing legal framework.
 - **Continuous Verification:** Auditors or custodians can use Nexio’s read-only APIs to verify that balances, uBTC/yBTC supplies, and vault states match the underlying Bitcoin custody — ensuring full reconciliation between legal and technical layers.

@@ -60,7 +60,7 @@ This layer anchors the entire system to Bitcoin’s security model, guaranteeing
 
 This layer includes:
 
-- **Bitcoin Taproot Vaults:** Each Series and the Master Vault operate their own Taproot vaults, secured by a 2-of-3 Schnorr threshold signature (Custody Operator, Validation Operator, Governance/Recovery Signer).
+- **Bitcoin Taproot Vaults:** Each Series and the Master Vault operate their own Taproot vaults, secured by an m-of-n Schnorr threshold signature (Custody Operator, Validation Operator, Governance/Recovery Signer).
 - **Bitcoin Network:** Serves as the source of truth for all custody and settlement events. Minting and burning on Nexio occur only after confirmed Bitcoin transactions.
 - **Nexio Coordination Layer:** The coordination framework connecting Bitcoin custody with on-chain smart contracts through the Operator Queue, ensuring state synchronization and proof-gated operations.
 
