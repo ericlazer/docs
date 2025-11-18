@@ -1,0 +1,77 @@
+---
+title: "System Architecture"
+---
+
+Nexio operates through three coordinated layers:
+
+1. **User Layer:** Connects institutional lenders and borrowers participating in BTC credit markets.
+2. **Protocol Layer:** Executes lending, borrowing, and yield logic through Series, the Master Vault, and Network Validators.
+3. **Infrastructure Layer:** Anchors the entire system to Bitcoin’s custody, security, and transaction finality.
+
+<img
+  src="/images/4thgraphic_ecosystem.jpg"
+  alt="4thgraphic Ecosystem Jp"
+  title="4thgraphic Ecosystem Jp"
+  style={{ width:"84%" }}
+/>
+
+When BTC is deposited, it’s confirmed on the Bitcoin network (Infrastructure Layer). The Operator Queue (Protocol Layer) verifies the transaction and triggers the corresponding issuance of either uBTC or yBTC.
+
+Borrowers may then draw BTC directly from vaults via permissioned Series contracts, while coupons, repayments, and covenant updates flow back through the same verified loop.
+
+Together, these layers connect institutional lenders and borrowers with Bitcoin-native custody, ensuring every credit event is transparent, verifiable, and legally enforceable.
+
+### **1. User Layer**
+
+Represents the external participants who supply or utilize BTC capital.
+
+This includes three primary groups:
+
+- **Retail Users:** Individuals accessing BTC yield or exposure through integrated platforms.
+- **Treasuries:** Corporate or protocol treasuries seeking fixed-rate BTC income.
+- **Funds / Institutional Lenders:** Professional allocators deploying BTC into Series or the Master Vault.
+
+These users deposit BTC into Series or the Master Vault to earn fixed-rate, BTC-denominated returns. Borrowers (KYC/KYB-verified trading desks, market makers, or hedge funds) operate within predefined risk tiers and can only draw from the Series tied to their own Taproot vault.
+
+This is covered in greater depth in the Borrower Flow & Lender Flow sections.
+
+### **2. Protocol Layer**
+
+This is Nexio’s core logic layer, which runs credit functions such as deposit handling, loan approvals, covenant monitoring, and yield distribution.
+
+There are four relevant components:
+
+- **Series (Fixed-Term Programs):** Independent credit programs, each tied to a single borrower and vault. Issues uBTC. Each Series corresponds to one borrower and one Taproot vault.
+- **Master Vault (Delegated Aggregator):** Allocates BTC across multiple Series and issues yBTC, tracking their blended value.
+- **Operator Queue:** Middleware that ingests Bitcoin transaction proofs and sequences mint/burn actions on-chain.
+- **Network Validators:** Independent operators that verify Bitcoin-side data and approve actions through the Operator Queue.
+
+Below is an illustration of how the Master Vault and Series interact.
+
+<img
+  src="/images/5thgraphic.jpg"
+  alt="5thgraphic Jp"
+  style={{ width:"89%" }}
+/>
+
+### **3. Infrastructure Layer**
+
+This layer anchors the entire system to Bitcoin’s security model, guaranteeing that all BTC remains native, auditable, and cryptographically tied to verified Bitcoin transactions.
+
+This layer includes:
+
+- **Bitcoin Taproot Vaults:** Each Series and the Master Vault operate their own Taproot vaults, secured by an m-of-n Schnorr threshold signature (Custody Operator, Validation Operator, Governance/Recovery Signer).
+- **Bitcoin Network:** Serves as the source of truth for all custody and settlement events. Minting and burning on Nexio occur only after confirmed Bitcoin transactions.
+- **Nexio Coordination Layer:** The coordination framework connecting Bitcoin custody with on-chain smart contracts through the Operator Queue, ensuring state synchronization and proof-gated operations.
+
+No on-chain event occurs without a confirmed Bitcoin transaction, and all BTC movements remain verifiable through the Operator Queue. Each Series is funded directly by lender deposits into its dedicated Taproot vault and stays continuously reconciled against the Bitcoin ledger.
+
+Once a borrower draws funds, exposure is secured through off-chain legal agreements and credit covenants rather than on-chain collateral alone. This ensures that whether funds remain in custody or are deployed by the borrower, every position is still governed, auditable, and legally enforceable under Nexio’s credit framework.
+
+This looks as follows:
+
+1. BTC deposits enter a Taproot vault and confirm on Bitcoin.
+2. The Operator Queue validates the transaction and submits proof to the smart contract layer.
+3. Smart contracts mint uBTC (Series receipts) or yBTC (Master Vault receipts).
+4. Borrowers draw from approved Series; coupons and repayments return in BTC.
+5. At Series maturity, uBTC or yBTC is burned before BTC is released back to lenders.

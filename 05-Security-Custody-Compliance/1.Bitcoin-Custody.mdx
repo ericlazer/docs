@@ -1,0 +1,56 @@
+---
+title: "Bitcoin Custody"
+---
+
+There are two primary methods of custoding BTC:
+
+1. **Native Bitcoin custody (default):** Every Series holds BTC in a dedicated Taproot Vault using threshold Schnorr signatures. The vault looks like a single-sig on-chain but requires an m-of-n operator quorum to move funds (Custody, Validation, Governance). This structure prevents rehypothecation and keeps each Series isolated. uBTC receipts are minted/burned only after the Bitcoin transaction is proof-gated (confirmed on the BTC network), keeping token supply 1:1 with coins verifiably in custody.
+2. **Prime-custodian flow (optional):** If a borrower or lender prefers a qualified custodian (e.g., BitGo), Nexio supports a segregated, whitelisted sub-account model. Deposits, draws, and repayments still route through the Series’ control logic and execute only after on-chain compliance attestations and proof-gated events, preserving the same no-rehypothecation and ring-fencing guarantees.
+
+<img
+  src="/images/Nexio-7thGraphic-BitcoinSignature2.jpg"
+  alt="Nexio 7th Graphic Bitcoin Signature2 Jp"
+  title="Nexio 7th Graphic Bitcoin Signature2 Jp"
+  style={{ width:"96%" }}
+/>
+
+### Model 1: Native Bitcoin Custody
+
+BTC within Nexio is secureProgrammatic diversification via the Master Vault across vetted borrowers and strategies.
+
+d in **Taproot Vaults**: specialized Bitcoin addresses governed by **threshold Schnorr signatures**. This structure provides institutional-grade security and flexibility natively on Bitcoin, with no wrapped assets or off-chain custody.
+
+When a lender deposits BTC, it moves directly into either a Series Vault or the Master Vault. Borrowers draw and repay within the same native Bitcoin environment, while lenders receive uBTC or yBTC to represent their verifiable on-chain position.
+
+Each Nexio Vault implements a Taproot tree containing three predefined spending conditions, each representing a separate operational path. These include:
+
+- **Normal Path:** Standard operations (e.g., borrower draws or lender redemptions) executed through authorized signers and verified by the Operator Queue.
+- **Reclaim Path:** Allows governance to recover funds if operations halt or a borrower defaults safely.
+- **Emergency Path:** Enables all three operators (Custody, Validation, and Governance) to co-sign an emergency transaction that moves BTC to a secure recovery vault in case of systemic compromise.
+
+This architecture delivers cold-storage-grade safety with on-chain automation. Each Series is assigned its own Taproot Vault, keeping capital isolated and preventing any cross-Series exposure or rehypothecation.
+
+### 2. Prime-Custodian Flow
+
+If a lender or borrower prefers a regulated custodian, Nexio supports a segregated, whitelisted sub-account model:
+
+- BTC is held in a qualified custodian’s segregated account
+- Sub-accounts are mapped 1:1 to Series
+- Draws, deposits, and repayments still route through Series logic
+- The Operator Queue still verifies all Bitcoin transactions
+- uBTC/yBTC only mint/burn after proof-gated confirmation
+- Same no-rehypothecation and ring-fencing guarantees apply
+
+This model allows regulated institutions to use Nexio while maintaining existing custody relationships.
+
+## **Schnorr Signatures**
+
+**Schnorr signatures**, introduced with Taproot, let multiple entities collaboratively produce a single aggregated signature that appears identical to a normal one. This makes Nexio’s multi-party authorization invisible to external observers while reducing fees and transaction size.
+
+It works as follows:
+
+1. Each signer generates a private/public key pair. These keys are aggregated into one group public key.
+2. When spending BTC, each participant signs partially. These partial signatures are aggregated into one unified signature.
+3. Bitcoin validates it as a single-sig spend, making it indistinguishable from a normal wallet.
+
+This aggregation provides threshold logic. To move BTC, Nexio requires **m-of-n** designated operators to co-sign any transaction.

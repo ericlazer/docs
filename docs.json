@@ -1,132 +1,130 @@
 {
-    "$schema": "https://mintlify.com/docs.json",
-    "theme": "maple",
-    "name": "Nexio Docs",
-    "logo": {
-        "light": "/logo/light.svg",
-        "dark": "/logo/dark.svg",
-        "href": "https://www.nexio.xyz/"
-    },
-    "colors": {
-        "primary": "#FC5C21",
-        "light": "#FC5C21",
-        "dark": "#073252"
-    },
-    "background": {
-        "color": {
-            "light": "#288DFE",
-            "dark": "#073252"
-        }
-    },
-    "style": {
-      "css": "style.css"
-    },
-    "appearance": {
-        "strict": true,
-        "default": "light"
-    },
-
-
-    "favicon": "/images/favicon.svg",
-    "navigation": {
-        "tabs": [
-            {
-                "tab": "Docs",
-                "groups": [
-                    {
-                        "group": "Introduction",
-                        "pages": [
-                            "01-introduction/what-is-nexio",
-                            "01-introduction/vision-and-mission"
-                        ]
-                    },
-                    {
-                        "group": "The Problem and Solution",
-                        "pages": [
-                            "02-the-problem-and-solution/bitcoin-defi-limitations",
-                            "02-the-problem-and-solution/nexios-approach-to-solving-bitcoin-defi"
-                        ]
-                    },
-                    {
-                        "group": "Core Features",
-                        "pages": [
-                            "03-core-features/architecture-overview",
-                            "03-core-features/nexios-shared-sequencer",
-                            "03-core-features/move-executor-and-movevm",
-                            "03-core-features/mpc-tss-bridge",
-                            "03-core-features/fast-consensus-with-bitcoin-grade-security"
-                        ]
-                    },
-                    {
-                        "group": "Deep Dive",
-                        "pages": [
-                            {
-                                "group": "Decentralized Cross-Chain Operations",
-                                "pages": [
-                                    "04-deep-dive/decentralized-cross-chain-operations/introduction",
-                                    "04-deep-dive/decentralized-cross-chain-operations/threshold-based-security-m-of-n",
-                                    "04-deep-dive/decentralized-cross-chain-operations/deposits",
-                                    "04-deep-dive/decentralized-cross-chain-operations/withdrawals"
-                                ]
-                            },
-                            "04-deep-dive/utxo-indexer"
-                            
-                        ]
-                    },
-                    {
-                        "group": "Build on Nexio",
-                        "pages": [
-                            "05-build-on-nexio/use-cases",
-                            "05-build-on-nexio/developer-tools-coming-soon"
-                        ]
-                    },
-                    {
-                        "group": "Community",
-                        "pages": [
-                            "06-community/community-links",
-                            "06-community/faq"
-                        ]
-                    }
-                ]
-            }
-        ],
-        "global": {
-            "anchors": [
-                {
-                    "anchor": "Twitter",
-                    "href": "https://x.com/buildnexio",
-                    "icon": "twitter"
-                },
-                {
-                    "anchor": "Discord",
-                    "href": "https://discord.gg/nexio",
-                    "icon": "discord"
-                },
-                {
-                    "anchor": "Website",
-                    "href": "https://www.nexio.xyz/",
-                    "icon": "globe"
-                },
-                {
-                    "anchor": "Blog",
-                    "href": "https://www.nexio.xyz/blog",
-                    "icon": "newspaper"
-                }
-            ]
-        }
-    },
-    "navbar": {
-        "links": [
-            {
-                "label": "Support",
-                "href": "mailto:charlie@buildnexio.xyz"
-            }
-        ]
-    },
-    "footer": {
-        "socials": {
-            "x": "https://x.com/buildnexio",
-            "discord": "https://discord.gg/nexio"
-        }
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Nexio Docs",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.nexio.xyz/"
+  },
+  "colors": {
+    "primary": "#FC5C21",
+    "light": "#FC5C21",
+    "dark": "#073252"
+  },
+  "background": {
+    "color": {
+      "light": "#288DFE",
+      "dark": "#073252"
     }
+  },
+  "style": {
+    "css": "style.css"
+  },
+  "appearance": {
+    "strict": true,
+    "default": "light"
+  },
+  "favicon": "/images/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "01-Overview/1.what-is-nexio",
+              "01-Overview/2.Key-Concepts"
+            ]
+          },
+          {
+            "group": "How Nexio Works",
+            "pages": [
+              "02-how-nexio-works/0.system-architecture",
+              "02-how-nexio-works/1.operator-queue",
+              "02-how-nexio-works/2.borrower-flow",
+              "02-how-nexio-works/3.lender-flow",
+              "02-how-nexio-works/4.mint-and-burn-logic"
+            ]
+          },
+          {
+            "group": "Strategies & Yield Sources",
+            "pages": [
+              "03-strategies-and-yield-sources/1.strategy-overview",
+              "03-strategies-and-yield-sources/2.cme-basis",
+              "03-strategies-and-yield-sources/3.delta-neutral",
+              "03-strategies-and-yield-sources/4.market-making"
+            ]
+          },
+          {
+            "group": "Risk & Governance",
+            "pages": [
+              "04-risk-and-governance/1.Borrower-Tiers",
+              "04-risk-and-governance/2.Concentration-Limits",
+              "04-risk-and-governance/3.Covenant-Monitoring",
+              "04-risk-and-governance/4.Liquidation-and-Recovery",
+              "04-risk-and-governance/5.Circuit-Breakers"
+            ]
+          },
+          {
+            "group": "Security, Custody & Compliance",
+            "pages": [
+              "05-Security-Custody-Compliance/1.Bitcoin-Custody",
+              "05-Security-Custody-Compliance/2.Compliance-Controls",
+              "05-Security-Custody-Compliance/3.Auditability-and-Legal",
+              "05-Security-Custody-Compliance/4.Proof-Gating"
+            ]
+          },
+          {
+  "group": "Developer & Integration Guide",
+  "pages": [
+    "06-Developer-and-Integration-Guide/0.Developer-Overview",
+    "06-Developer-and-Integration-Guide/1.APIs-and-Events",
+    "06-Developer-and-Integration-Guide/2.Smart-Contract-Interfaces",
+    "06-Developer-and-Integration-Guide/3.Example-Integrations"
+          ]
+        }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Twitter",
+          "href": "https://x.com/buildnexio",
+          "icon": "twitter"
+        },
+        {
+          "anchor": "Discord",
+          "href": "https://discord.gg/nexio",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Website",
+          "href": "https://www.nexio.xyz/",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.nexio.xyz/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:charlie@buildnexio.xyz"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/buildnexio",
+      "discord": "https://discord.gg/nexio"
+    }
+  }
 }
