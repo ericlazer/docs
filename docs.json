@@ -32,39 +32,54 @@
         "tab": "Docs",
         "groups": [
           {
-            "group": "Introduction",
+            "group": "Overview",
             "pages": [
-              "01-introduction/what-is-nexio"
+              "01-Overview/1.what-is-nexio",
+              "01-Overview/2.Key-Concepts"
             ]
           },
           {
-            "group": "The Problem and Solution",
+            "group": "How Nexio Works",
             "pages": [
-              "02-the-problem-and-solution/bitcoin-defi-limitations",
-              "02-the-problem-and-solution/nexios-approach-to-solving-bitcoin-defi"
+              "02-how-nexio-works/0.system-architecture",
+              "02-how-nexio-works/1.operator-queue",
+              "02-how-nexio-works/2.borrower-flow",
+              "02-how-nexio-works/3.lender-flow",
+              "02-how-nexio-works/4.mint-and-burn-logic"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "Strategies & Yield Sources",
             "pages": [
-              "03-core-features/architecture-overview",
-              "03-core-features/move-executor-and-movevm",
-              "03-core-features/mpc-tss-bridge",
-              "03-core-features/fast-consensus-with-bitcoin-grade-security"
+              "03-strategies-and-yield-sources/1.strategy-overview",
+              "03-strategies-and-yield-sources/2.cme-basis",
+              "03-strategies-and-yield-sources/3.delta-neutral",
+              "03-strategies-and-yield-sources/4.market-making"
             ]
           },
           {
-            "group": "Build on Nexio",
+            "group": "Risk & Governance",
             "pages": [
-              "05-build-on-nexio/use-cases",
-              "05-build-on-nexio/developer-tools-coming-soon"
+              "04-risk-and-governance/1.Borrower-Tiers",
+              "04-risk-and-governance/2.Concentration-Limits",
+              "04-risk-and-governance/3.Covenant-Monitoring",
+              "04-risk-and-governance/4.Liquidation-and-Recovery",
+              "04-risk-and-governance/5.Circuit-Breakers"
             ]
           },
           {
-            "group": "Community",
+            "group": "Security, Custody & Compliance",
             "pages": [
-              "06-community/community-links",
-              "06-community/faq"
+              "05-Security-Custody-Compliance/1.Bitcoin-Custody",
+              "05-Security-Custody-Compliance/2.Compliance-Controls",
+              "05-Security-Custody-Compliance/3.Auditability-and-Legal",
+              "05-Security-Custody-Compliance/4.Proof-Gating"
+            ]
+          },
+          {
+            "group": "Developer & Integration Guide",
+            "pages": [
+              "06-Developer-and-Integration-Guide/0.Developer-Overview"
             ]
           }
         ]
