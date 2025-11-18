@@ -13,7 +13,7 @@ There are two types of covenants:
 **1) Financial Covenants:**
 
 - **Liquidity Ratio:** Borrowers must maintain minimum cash or collateral buffers relative to outstanding BTC credit.
-- **Leverage Ratio:** Caps total exposure across venues to prevent over-leveraging.
+- **Leverage Ratio:** Caps the size of a borrower’s positions across venues to prevent concentration risk or outsized directional exposure.
 - **Drawdown Limits:** Flags when portfolio value falls below tolerance levels, triggering margin checks or partial liquidations.
 
 **2) Operational Covenants:**
@@ -30,11 +30,3 @@ Nexio’s monitoring engine continuously compares borrower metrics against their
 3. **Hard Halt and Recovery:** If unresolved within the defined cure period, the system freezes further activity and initiates collateral recovery.
 
 All events, from breach to cure or liquidation, are logged on-chain and reflected in Series dashboards for full auditability.
-
-### Example: Leverage Breach
-
-If a borrower’s permitted leverage cap is 1.3× and exposure rises to 1.5×, Nexio immediately issues a warning and pauses draws.
-
-If leverage normalizes within the 48-hour cure window, operations resume automatically. If not, the system escalates to a hard halt and triggers collateral liquidation.
-
-Every step is immutable and visible to lenders through on-chain logs and Series-level monitoring dashboards.

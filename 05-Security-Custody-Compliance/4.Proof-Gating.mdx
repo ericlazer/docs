@@ -22,17 +22,17 @@ This process enforces deterministic reconciliation between Bitcoin custody and o
 
 There are 3 key steps:
 
-1. **Deposit Proof: **When a lender sends BTC to a Series vault, the Operator Queue waits for the configured confirmation threshold (e.g., 3 blocks). Once verified, a proof is submitted to the contract, which mints the corresponding uBTC.
+1. \*\*Deposit Proof: \*\*When a lender sends BTC to a Series vault, the Operator Queue waits for the configured confirmation threshold (e.g., 3 blocks). Once verified, a proof is submitted to the contract, which mints the corresponding uBTC.
 2. **Burn Verification:** When a lender redeems BTC, uBTC is burned first on Nexio’s on-chain layer. The Operator Queue validates this burn event before releasing the signed PSBT to return Bitcoin from the vault.
 3. **Continuous Reconciliation:** Every mint, burn, or redemption updates the vault’s values to keep the two ledgers perfectly aligned.
 
 Below is an example to help illustrate this.
 
 <img
-  src="/images/Nexio-9thGraphic.jpg"
-  alt="Nexio 9th Graphic Jp"
-  title="Nexio 9th Graphic Jp"
-  style={{ width:"79%" }}
+  src="/images/9thimage.jpg"
+  alt="9thimage Jp"
+  title="9thimage Jp"
+  style={{ width:"77%" }}
 />
 
 ### Example: Proof Gating

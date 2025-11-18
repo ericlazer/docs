@@ -12,13 +12,13 @@ This ensures every uBTC or yBTC mint, burn, or redemption corresponds exactly to
 Nexio actions, such as the burning/minting of uBTC/yBTC, rely on verified Bitcoin transactions. The Operator Queue verifies these transactions and executes the corresponding action, as follows:
 
 1. A BTC deposit or repayment occurs on Bitcoin.
-2. The Operator Queue (relayer network) continuously observes the Bitcoin mempool and confirmed blocks for vault-related transactions. 
+2. The Operator Queue (relayer network) continuously observes the Bitcoin mempool and confirmed blocks for vault-related transactions.
 3. After detecting a relevant deposit or repayment, it waits for the required number of Bitcoin confirmations before submitting attested transaction metadata on-chain.
-3. A 2-of-3 FROST signer quorum then co-signs the corresponding PSBT, authorizing the mint, burn, or Series accounting update. 
+3. A 2-of-3 FROST signer quorum then co-signs the corresponding PSBT, authorizing the mint, burn, or Series accounting update.
 
 This ensures that every on-chain state change precisely matches a verified Bitcoin transaction.
 
-![Nexio 9th Graphic Jp](/images/Nexio-9thGraphic.jpg)
+![9thimage Jp](/images/9thimage.jpg)
 
 ## Security Model
 
