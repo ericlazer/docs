@@ -75,7 +75,7 @@ That drop in probability of default directly lowers a borrower’s premiums.
 
 Below is a graph of Nexio's approximate probability of default rates given different credit scores.
 
-<img width="614" height="461" alt="image" src="https://gist.github.com/user-attachments/assets/54a6dc6c-fadf-4542-aecc-8545acb6d092" />
+<img width="614" height="461" alt="image" src="https://github.com/ericlazer/docs/blob/new-docs/images/1y%20pd%20curve.png" />
 
 
 ---
