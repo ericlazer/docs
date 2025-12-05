@@ -74,10 +74,10 @@
                         ]
                     },
                     {
-                        "group": "Build on Nexio",
+                        "group": "Community",
                         "pages": [
-                            "05-build-on-nexio/use-cases",
-                            "05-build-on-nexio/developer-tools-coming-soon"
+                            "06-community/community-links",
+                            "06-community/faq"
                         ]
                     }
                 ]
