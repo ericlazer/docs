@@ -42,10 +42,11 @@
             "group": "How Nexio Works",
             "pages": [
               "02-how-nexio-works/0.system-architecture",
-              "02-how-nexio-works/1.operator-queue",
-              "02-how-nexio-works/2.borrower-flow",
-              "02-how-nexio-works/3.lender-flow",
-              "02-how-nexio-works/4.mint-and-burn-logic"
+              "02-how-nexio-works/1.borrower-flow",
+              "02-how-nexio-works/2.lender-flow",
+              "02-how-nexio-works/3.borrower-lender-faq",
+              "02-how-nexio-works/4.mint-and-burn-logic",
+	            "02-how-nexio-works/5.operator-queue",
             ]
           },
           {
@@ -77,14 +78,12 @@
             ]
           },
           {
-  "group": "Developer & Integration Guide",
-  "pages": [
-    "06-Developer-and-Integration-Guide/0.Developer-Overview",
-    "06-Developer-and-Integration-Guide/1.APIs-and-Events",
-    "06-Developer-and-Integration-Guide/2.Smart-Contract-Interfaces",
-    "06-Developer-and-Integration-Guide/3.Example-Integrations"
-          ]
-        }
+            "group": "Community",
+            "pages": [
+              "07-community/community-links",
+              "07-community/faq"
+            ]
+          }
         ]
       }
     ],
