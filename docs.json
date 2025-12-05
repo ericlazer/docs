@@ -46,7 +46,7 @@
               "02-how-nexio-works/2.lender-flow",
               "02-how-nexio-works/3.borrower-lender-faq",
               "02-how-nexio-works/4.mint-and-burn-logic",
-	            "02-how-nexio-works/5.operator-queue",
+              "02-how-nexio-works/5.operator-queue"
             ]
           },
           {
