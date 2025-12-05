@@ -74,10 +74,18 @@
                         ]
                     },
                     {
+                        "group": "Developer & Integration Guide",
+                        "pages": [
+                            "06-developer-integration-guide/overview",
+                            "06-developer-integration-guide/getting-started",
+                            "06-developer-integration-guide/api-reference"
+                        ]
+                    },
+                    {
                         "group": "Community",
                         "pages": [
-                            "06-community/community-links",
-                            "06-community/faq"
+                            "07-community/community-links",
+                            "07-community/faq"
                         ]
                     }
                 ]
