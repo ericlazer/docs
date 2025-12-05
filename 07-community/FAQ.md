@@ -93,7 +93,7 @@ Conceptually:
 
 Below is a plot of the borrower's quoted rate given their collateral for various credit scores. It assumes a risk free rate of 3%.
 
-<img width="614" height="461" alt="image" src="https://gist.github.com/user-attachments/assets/c71058f1-a90a-4bda-9ff4-385dcc307f4c" />
+<img width="614" height="461" alt="image" src="https://github.com/ericlazer/docs/blob/new-docs/images/quoted%20vs.%20collaterall.png" />
 
 ---
 
