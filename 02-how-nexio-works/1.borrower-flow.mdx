@@ -26,17 +26,17 @@ There are **five steps** in Nexio’s borrower process, from onboarding to repay
 
 The following illustrates this flow:
 
-1. **Verification:** Borrowers complete institutional onboarding, sign the Master Loan Agreement, and are assigned a credit tier (1 to 3) based on factors such as collateral quality and reporting cadence.
-2. **Proposal Submission:** A borrower submits a draw request for their dedicated Series (each Series corresponds to one borrower) compatible with their tier and strategy.
+1. **Verification:** Borrowers complete institutional onboarding, sign the Master Loan Agreement, and are assigned a credit score (0 to 5) based on factors such as collateral quality and reporting cadence.
+2. **Proposal Submission:** A borrower submits a draw request for their dedicated Series (each Series corresponds to one borrower) compatible with their credit score and strategy.
 3. **Risk Validation:** The Operator Queue checks that the proposal complies with all Series rules (e.g. utilization caps and collateral thresholds) before authorizing.
 4. **BTC Disbursement:** Once validated, Nexio’s signer quorum co-authorizes a Bitcoin transaction from the Series’ Taproot vault to the borrower’s registered Bitcoin address. This BTC remains native and fully usable on the Bitcoin network, and the addresses are whitelisted and monitored to ensure compliance.
 5. **Coupon Payments & Repayment:** Borrowers pay coupons and repay principal per the Series schedule. All transactions are recorded on-chain, updating Series utilization, covenant status, and lender dashboards in real time.
 
 ## Example: Borrower Flow
 
-Consider a Tier 1 borrower drawing 2 BTC from a 90-day Series offering a fixed 7 % coupon.
+Consider a high-credit borrower (Score 4.5) drawing 2 BTC from a 90-day Series offering a fixed 7 % coupon.
 
-Once their collateral and credit tier are verified, the Operator Queue validates the draw request against Series parameters, including utilization limits, collateral ratios, and concentration caps.
+Once their collateral and credit score are verified, the Operator Queue validates the draw request against Series parameters, including utilization limits, collateral ratios, and concentration caps.
 
 After approval, the system’s multi-signer quorum co-authorizes a Bitcoin transaction, sending 2 BTC directly from the Series Taproot vault to the borrower’s whitelisted Bitcoin address. The borrower can now deploy this BTC for approved strategies, while the vault continuously tracks exposure and covenant status on-chain.
 
