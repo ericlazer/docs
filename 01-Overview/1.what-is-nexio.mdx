@@ -24,7 +24,7 @@ The table below highlights Nexio's key advantages:
 | Existing BTC Lending Solutions                | Nexio                                                                                                                                                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Opaque custody and commingled collateral      | Segregated Series-level custody. Each Series holds its own BTC, either in a Taproot vault with threshold authorization or in a segregated prime-custody sub-account. No rehypothecation. |
-| Generic, one-size-fits-all lending            | Borrower-specific Series with defined strategy, term, collateral tier, and covenants. One borrower, one vault, one set of fixed terms.                                                   |
+| Generic, one-size-fits-all lending            | Borrower-specific Series with defined strategy, term, collateral requirements, and covenants. One borrower, one vault, one set of fixed terms.                                                   |
 | Variable rates driven by exchange utilization | Fixed APR at draw, informed by strategy economics and credit spreads, so lenders and borrowers can plan in BTC with certainty.                                                           |
 | Limited secondary liquidity                   | uBTC receipts enable transferability and integration in secondary markets for hedging or early exits.                                                                                    |
 | Manual or delayed reporting                   | Real-time on-chain telemetry for utilization, collateral, coupon flows, and Series performance.                                                                                          |
@@ -43,7 +43,7 @@ We cover this further in **Section 5.1: Bitcoin Custody.**
 
 ### Architecture
 
-At a high level, Nexio connects users, programmable vaults, and Bitcoin’s base layer through a coordinated three-tier system.
+At a high level, Nexio connects users, programmable vaults, and Bitcoin’s base layer through a coordinated three-layer system.
 
 <img
   src="/images/4thgraphic_ecosystem.jpg"
