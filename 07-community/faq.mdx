@@ -105,7 +105,17 @@ Below is a plot of the borrower's quoted rate given their collateral for various
 
 ---
 
-### 5. What happens to a lender's BTC when deposited?
+### 5. What happens in the case of a default?
+
+A **default** occurs when a borrower fails to repay the vault’s outstanding BTC obligations (principal plus any accrued interest) under the vault’s terms.
+
+If a default is triggered, the borrower’s collateral that was posted before borrowing is used to compensate lenders. That collateral is distributed **pro-rata** across all lenders in the affected vault, based on each lender’s share of the vault’s outstanding lender claims at the time of default. For example, a lender who represents 10% of the funded exposure would receive 10% of the collateral distribution.
+
+If the collateral is insufficient to cover the full amount owed, lenders realize a loss **pro-rata**. Any remaining collateral (if any) is handled per the vault’s terms.
+
+---
+
+### 6. What happens to a lender's BTC when deposited?
 
 When a lender deposits BTC:
 
@@ -117,19 +127,19 @@ When a lender deposits BTC:
 
 ---
 
-### 6. Once BTC is lent out and paid back, will it be lent out again next time?
+### 7. Once BTC is lent out and paid back, will it be lent out again next time?
 
 Yes, the lender's **locked liquidity continues to be lent out repeatedly**, at updated interest rates for that borrower for each new loan.
 
 ---
 
-### 7. Does BTC collect compound interest?
+### 8. Does BTC collect compound interest?
 
 Yes, **staged liquidity will be brought into the vault creating compound interest** provided that the borrower increases amount they are lent each time they take out a loan.
 
 ---
 
-### 8. How does the queue work?
+### 9. How does the queue work?
 
 Vaults can be **capacity-constrained**:
 
