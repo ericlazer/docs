@@ -1,0 +1,29 @@
+---
+title: "Liquidations & Recovery"
+---
+
+Liquidations protect lenders when a borrower’s position breaches covenants or collateral thresholds.
+
+Instead of manual intervention or OTC resolution, the system executes predefined recovery logic directly on-chain. Each Series remains fully isolated, ensuring that no event in one Series impacts another.
+
+For instance, if a borrower fails to maintain collateralization requirements or misses a coupon payment, the Series’ liquidation module activates automatically—freezing borrower allocations, valuing collateral, and initiating recovery through approved exchange venues.
+
+### **How It Works**
+
+Each liquidation follows five standardized steps:
+
+1. **Trigger**: A covenant breach (e.g., under-collateralization, missed coupon, or hard-halt) activates the liquidation module for that Series.
+2. **Freeze and Price:** The borrower’s Series allocation is frozen. The pricing engine retrieves reference prices from approved exchanges to determine the collateral's market value.
+3. **Liquidate Collateral to BTC**: The collateral is liquidated and converted to BTC through whitelisted venues or counterparties. All proceeds are returned directly to the Series vault.
+4. **Record Recovery:** The vault updates Series metrics in real time to reflect recovered BTC and new collateral ratios.
+5. **Report and Audit:** Every liquidation event emits on-chain logs with timestamps and recovery ratios, allowing lenders, auditors, and governance to verify results in real time.
+
+The liquidation process is fully automated, verifiable on-chain, and designed to maintain solvency and transparency without human intervention.
+
+To see how this process functions in practice, consider the following example.
+
+### Example: BTC Liquidation
+
+Suppose a borrower’s collateral ratio falls below the required 120% threshold following a sharp market move. Nexio’s risk engine automatically freezes the borrower’s Series allocation, retrieves live pricing data from approved oracles, and liquidates collateral through whitelisted venues.
+
+Proceeds are returned directly to the Series vault, restoring compliance with Series parameters.

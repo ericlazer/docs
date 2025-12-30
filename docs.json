@@ -1,0 +1,124 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Nexio Docs",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.nexio.xyz/"
+  },
+  "colors": {
+    "primary": "#1A45ED",
+    "light": "#1A45ED",
+    "dark": "#0A0F29"
+  },
+  "background": {
+    "color": {
+      "light": "#EAE8E1",
+      "dark": "#0A0F29"
+    }
+  },
+  "style": {
+    "css": "style.css"
+  },
+  "appearance": {
+    "strict": true,
+    "default": "light"
+  },
+  "favicon": "/images/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "01-Overview/1.what-is-nexio",
+              "01-Overview/2.Key-Concepts"
+            ]
+          },
+          {
+            "group": "How Nexio Works",
+            "pages": [
+              "02-how-nexio-works/0.system-architecture",
+              "02-how-nexio-works/1.borrower-flow",
+              "02-how-nexio-works/2.lender-flow",
+              "02-how-nexio-works/3.borrower-lender-faq",
+              "02-how-nexio-works/4.mint-and-burn-logic",
+              "02-how-nexio-works/5.operator-queue"
+            ]
+          },
+          {
+            "group": "Strategies & Yield Sources",
+            "pages": [
+              "03-strategies-and-yield-sources/1.strategy-overview",
+              "03-strategies-and-yield-sources/2.cme-basis",
+              "03-strategies-and-yield-sources/3.delta-neutral",
+              "03-strategies-and-yield-sources/4.market-making"
+            ]
+          },
+          {
+            "group": "Risk & Governance",
+            "pages": [
+              "04-risk-and-governance/1.Credit-Scoring",
+              "04-risk-and-governance/2.Concentration-Limits",
+              "04-risk-and-governance/3.Covenant-Monitoring",
+              "04-risk-and-governance/4.Liquidation-and-Recovery",
+              "04-risk-and-governance/5.Circuit-Breakers"
+            ]
+          },
+          {
+            "group": "Security, Custody & Compliance",
+            "pages": [
+              "05-Security-Custody-Compliance/1.Bitcoin-Custody",
+              "05-Security-Custody-Compliance/2.Compliance-Controls",
+              "05-Security-Custody-Compliance/3.Auditability-and-Legal",
+              "05-Security-Custody-Compliance/4.Proof-Gating"
+            ]
+          },
+          {
+            "group": "Community",
+            "pages": [
+              "07-community/community-links",
+              "07-community/FAQ"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Twitter",
+          "href": "https://x.com/buildnexio",
+          "icon": "twitter"
+        },
+        {
+          "anchor": "Discord",
+          "href": "https://discord.gg/nexio",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Website",
+          "href": "https://www.nexio.xyz/",
+          "icon": "globe"
+        }
+      ]
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:charlie@buildnexio.xyz"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/buildnexio",
+      "discord": "https://discord.gg/nexio"
+    }
+  }
+}

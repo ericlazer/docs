@@ -1,0 +1,19 @@
+<svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three diamonds with exact spacing from website -->
+  <g transform="translate(8, 20)">
+    <!-- Diamond 1 - Dark for light mode -->
+    <rect x="-5" y="-5" width="10" height="10" fill="#0A0F29" transform="rotate(45 0 0)"/>
+    <!-- Diamond 2 - Dark -->
+    <rect x="-5" y="-5" width="10" height="10" fill="#0A0F29" transform="translate(20, 0) rotate(45 0 0)"/>
+    <!-- Diamond 3 - Blue -->
+    <rect x="-5" y="-5" width="10" height="10" fill="#1A45ED" transform="translate(40, 0) rotate(45 0 0)"/>
+  </g>
+
+  <!-- NEXIO text - Clash Display, bold, 24px, tracking-tight (-0.025em) -->
+  <text x="68" y="26"
+        font-family="'Clash Display', system-ui, sans-serif"
+        font-size="24"
+        font-weight="700"
+        letter-spacing="-0.025em"
+        fill="#0A0F29">NEXIO</text>
+</svg>

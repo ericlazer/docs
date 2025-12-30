@@ -1,0 +1,17 @@
+---
+title: "Compliance Controls"
+---
+
+Given that Nexio supports institutional borrowing and lending, strong compliance controls are necessary to meet top standards (something about top standards). Therefore, identity and compliance checks exist to gate capital flow.
+
+These include:
+
+- **KYC / KYB Verification:** All lenders, borrowers, and operators must complete KYC & KYB verification before engaging with any Series.
+- **AML / Sanctions Screening:** Transactions are screened against global anti-money laundering (AML) and sanctions databases to prevent prohibited transfers or the access of prohibited counterparties to Nexio’s system.
+- **Jurisdictional Whitelisting:** Series participation is gated by approved jurisdictions. For instance, sanctioned jurisdictions are restricted.
+- **Attestation and Audit Trails:** Before BTC exits a vault, a compliance handler must submit an on-chain attestation confirming that KYC, KYB, and AML checks are valid. These attestations, along with transaction proofs, create immutable audit trails visible to governance and regulators.
+- **Legal Document Hashing:** Each Series stores cryptographic hashes that enable verifiable legal traceability.
+
+For example, imagine a borrower repaying 5 BTC at Series maturity. Before the repayment is finalized, Nexio’s compliance layer automatically verifies the borrower’s KYC/KYB status, runs AML checks, and confirms the Series’ jurisdictional eligibility.
+
+A registered compliance handler then submits a cryptographic attestation confirming all checks have passed. Only after this attestation is validated does the Operator Queue release the Bitcoin transaction.

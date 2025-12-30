@@ -1,0 +1,43 @@
+---
+title: "Borrower Flow"
+description: "An overview of the flow that would occur whe one borrows on Nexio."
+---
+
+Nexio borrowers include institutional trading firms, market makers, arbitrage desks, and more seeking fixed-rate BTC-denominated credit for short- and medium-term strategies. These borrowers are KYC/KYB-verified entities that already operate under regulatory oversight and manage large, hedged positions across exchanges.
+
+Although some traditional BTC lending markets exist, they have several challenges, including:
+
+- **Off-chain custody:** Funds often leave Bitcoin and sit with centralized intermediaries.
+- **Unverified borrowers:** Counterparties are opaque, with limited KYC/KYB or legal enforcement.
+- **Variable, unpredictable rates:** Yields fluctuate with market conditions and platform risk.
+- **Regulatory uncertainty:** Many platforms lack standardized compliance or auditability.
+
+Borrowers leveraging Nexio gain direct, fixed-rate BTC credit without leaving the Bitcoin network (unless opting for an approved custodial setup). By operating through verified Series and smart-contract enforcement, they eliminate FX friction, custody risk, and rate volatility inherent in traditional BTC lending.
+
+**Each borrower operates through their own dedicated Taproot vault and Series**, while approved lenders can allocate capital across multiple Series to diversify exposure.
+
+Institutional participants may also choose to use an approved custodial provider for vault management if they prefer managed custody instead of direct Taproot interaction.
+
+### **Step-by-Step Flow**
+
+There are **five steps** in Nexio’s borrower process, from onboarding to repayment, with each step enforced through on-chain verification and governance logic.
+
+![3rdgraphic Jp](/images/3rdgraphic.jpg)
+
+The following illustrates this flow:
+
+1. **Verification:** Borrowers complete institutional onboarding, sign the Master Loan Agreement, and are assigned a credit score (0 to 5) based on factors such as collateral quality and reporting cadence.
+2. **Proposal Submission:** A borrower submits a draw request for their dedicated Series (each Series corresponds to one borrower) compatible with their credit score and strategy.
+3. **Risk Validation:** The Operator Queue checks that the proposal complies with all Series rules (e.g. utilization caps and collateral thresholds) before authorizing.
+4. **BTC Disbursement:** Once validated, Nexio’s signer quorum co-authorizes a Bitcoin transaction from the Series’ Taproot vault to the borrower’s registered Bitcoin address. This BTC remains native and fully usable on the Bitcoin network, and the addresses are whitelisted and monitored to ensure compliance.
+5. **Coupon Payments & Repayment:** Borrowers pay coupons and repay principal per the Series schedule. All transactions are recorded on-chain, updating Series utilization, covenant status, and lender dashboards in real time.
+
+## Example: Borrower Flow
+
+Consider a high-credit borrower (Score 4.5) drawing 2 BTC from a 90-day Series offering a fixed 7 % coupon.
+
+Once their collateral and credit score are verified, the Operator Queue validates the draw request against Series parameters, including utilization limits, collateral ratios, and concentration caps.
+
+After approval, the system’s multi-signer quorum co-authorizes a Bitcoin transaction, sending 2 BTC directly from the Series Taproot vault to the borrower’s whitelisted Bitcoin address. The borrower can now deploy this BTC for approved strategies, while the vault continuously tracks exposure and covenant status on-chain.
+
+Throughout the loan term, coupon payments flow back to the vault at predefined intervals, automatically updating the Series NAV and uBTC valuation. At maturity, repayment of principal and coupons restores the Series vault balance and finalizes yield distribution to uBTC holders.
