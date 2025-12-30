@@ -858,11 +858,17 @@ details summary, .accordion-trigger {
   color: rgba(10, 15, 41, 0.7) !important;
   transition: color 0.15s ease !important;
   line-height: 1.5 !important;
+  /* Remove bubble/pill styling */
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
 #sidebar a:hover,
 #sidebar-content a:hover {
   color: #0A0F29 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 #sidebar a[data-active="true"],
@@ -871,6 +877,8 @@ details summary, .accordion-trigger {
 #sidebar-content a.active {
   color: #0A0F29 !important;
   font-weight: 500 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Sidebar link text/spans */
