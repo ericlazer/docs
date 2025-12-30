@@ -1,37 +1,28 @@
-@font-face {
-  font-family: 'GT Pressura Extended';
-  src: url('https://kcowsbcdgosjqiridsbi.supabase.co/storage/v1/object/public/Assets//GT-Pressura-Extended-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'GT Pressura Extended';
-  src: url('https://kcowsbcdgosjqiridsbi.supabase.co/storage/v1/object/public/Assets//GT-Pressura-Extended-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Departure Mono';
-  src: url('https://kcowsbcdgosjqiridsbi.supabase.co/storage/v1/object/public/Assets//DepartureMono-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+/* Fonts from Fontshare */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
 
 :root {
-  --sidebar-text: #ffffff !important;
-  --text-default: #ffffff !important;
-  --text-md: #ffffff !important;
-  --text-sm: #ffffff !important;
-  --icon-default: #ffffff !important;
+  --bg-color: #EAE8E1;
+  --text-color: #0A0F29;
+  --primary: #1A45ED;
+  --stone: #C8C6C1;
+  --sidebar-text: #0A0F29 !important;
+  --text-default: #0A0F29 !important;
+  --text-md: #0A0F29 !important;
+  --text-sm: #0A0F29 !important;
+  --icon-default: #0A0F29 !important;
 }
 
 body {
     min-height: 100vh !important;
     width: 100% !important;
     position: relative !important;
-    font-family: 'GT Pressura Extended', sans-serif !important;
+    font-family: 'General Sans', system-ui, sans-serif !important;
+    background-color: #EAE8E1 !important;
+    color: #0A0F29 !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -42,14 +33,11 @@ body::before {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-image: url('https://mintlify.s3.us-west-1.amazonaws.com/nexio/images/bg-tile.svg') !important;
-  background-repeat: repeat !important;
-  background-size: 16px 16px !important;
-  background-position: center center !important;
-  opacity: 0.05 !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") !important;
+  opacity: 0.035 !important;
   z-index: -1 !important;
   pointer-events: none !important;
-
+  mix-blend-mode: overlay !important;
 }
 
 #navbar-transition, #navbar-transition-maple {
@@ -62,60 +50,72 @@ li a svg {
 } */
 
 .border-gray-950\/5 {
-  border-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(10, 15, 41, 0.15) !important;
 }
 
 .hover\:border-gray-950\/20:hover {
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  border-color: rgba(10, 15, 41, 0.3) !important;
 }
 
 .dark {
-  --sidebar-text: #ffffff !important;
-  --text-default: #ffffff !important;
-  --text-md: #ffffff !important;
-  --text-sm: #ffffff !important;
-  --icon-default: #ffffff !important;
+  --sidebar-text: #0A0F29 !important;
+  --text-default: #0A0F29 !important;
+  --text-md: #0A0F29 !important;
+  --text-sm: #0A0F29 !important;
+  --icon-default: #0A0F29 !important;
 }
 
-/* Base text styles */
-p, span, a {
-  color: #ffffff !important;
-  font-weight: normal !important;
-  letter-spacing: -0.03em !important;
-  transition: opacity 0.2s cubic-bezier(.39, .575, .565, 1) !important;
+/* Base text styles - scoped to content area only */
+#content-area p,
+.prose p,
+article p {
+  color: #0A0F29 !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.75 !important;
+  font-size: 1rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Content area spans only */
+#content-area span,
+.prose span,
+article span {
+  color: #0A0F29 !important;
+}
+
+/* Content area links only */
+#content-area a,
+.prose a,
+article a {
+  transition: all 0.2s cubic-bezier(.39, .575, .565, 1) !important;
 }
 
 /* Target headlessui dialogs with any ending character */
 [id^="headlessui-dialog-:r"] .bg-white {
-  background-color: #073252 !important;
+  background-color: #EAE8E1 !important;
 }
 
 [id^="headlessui-dialog-:r"] a {
-  color: #ffffff !important;
+  color: #0A0F29 !important;
 }
 
-[id^="headlessui-dialog-:r"] svg {  
-  fill: #ffffff !important;
-  color: #ffffff !important;
+[id^="headlessui-dialog-:r"] svg {
+  fill: #0A0F29 !important;
+  color: #0A0F29 !important;
 }
 
-/* Add hover state for links */
+/* Sidebar link hover states */
 #sidebar-content a span {
-  border-bottom: 1px solid transparent !important;
-  transition: border-color 0.2s cubic-bezier(.39, .575, .565, 1) !important;
+  border-bottom: none !important;
 }
 
-#sidebar-content a span:hover {
-  border-bottom: 1px solid #ffffff !important;
-}
-
-#sidebar a:not(#sidebar-content a):hover {
-  opacity: 0.75 !important;
-  transition: opacity 0.2s cubic-bezier(.39, .575, .565, 1) !important;
+#sidebar a:hover {
+  opacity: 1 !important;
 }
 
 #footer .bg-gray-400{
-  background-color: #ffffff !important; 
+  background-color: #0A0F29 !important;
 }
 
 #footer a{
@@ -125,103 +125,153 @@ p, span, a {
   opacity: 0.75 !important;
 }
 
-/* Heading styles */
+/* Heading styles - refined typography hierarchy */
 h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
-  font-family: 'GT Pressura Extended', sans-serif !important;
-  font-weight: bold !important;
-  letter-spacing: -0.025em !important;
+  color: #0A0F29 !important;
+  font-family: 'Clash Display', system-ui, sans-serif !important;
+  letter-spacing: -0.03em !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 h1 {
-  text-transform: uppercase !important;
-  font-family: 'Departure Mono', sans-serif !important;
-  line-height: 110% !important;
-  font-size: 2.25rem !important;
-  font-weight: 400 !important;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.035em !important;
+  margin-bottom: 1.5rem !important;
 }
 
 h2 {
-  font-size: 2rem !important;
-  font-weight: 400 !important;
+  font-size: 1.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
 }
 
 h2:not(.card h2) {
-  margin-top: 3rem !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
 h3 {
   font-size: 1.5rem !important;
-  font-weight: 400 !important;
-  margin-top: 2.5rem !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+h4 {
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h5 {
+  font-size: 1.125rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.015em !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h6 {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.01em !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 svg {
-  color: #ffffff !important;
-  /* fill: #ffffff !important; */
+  color: #0A0F29 !important;
 }
 
 /* Target specific Tailwind icon classes */
 .h-4.w-4.secondary-opacity,
 .h-4.w-4[class*="secondary-opacity"] {
-  background-color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
+  background-color: #0A0F29 !important;
+  fill: #0A0F29 !important;
+  stroke: #0A0F29 !important;
   opacity: 1 !important;
 }
 
 /* Override Tailwind hover states */
 .group:hover .h-4.w-4.secondary-opacity,
 .group:hover .h-4.w-4[class*="secondary-opacity"] {
-  background-color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
+  background-color: #0A0F29 !important;
+  fill: #0A0F29 !important;
+  stroke: #0A0F29 !important;
 }
 
 /* Card styles */
 .card.block {
-  border: 1px solid #073252 !important;
-  border-radius: 0.25rem !important;
-  color: #073252 !important;
-  transition: all .2s cubic-bezier(.39, .575, .565, 1) !important;
+  border: 1px solid rgba(10, 15, 41, 0.12) !important;
+  border-radius: 1.5rem !important;
+  color: #0A0F29 !important;
+  background-color: #EDEEF0 !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.06) !important;
 }
-.card svg{
-  color: #FC5C21 !important;
+
+.card svg {
+  color: #1A45ED !important;
 }
-/* Card headings */
+
+/* Card headings - refined typography */
 .card.block h1,
 .card.block h2,
 .card.block h3,
 .card.block h4,
 .card.block h5,
 .card.block h6 {
-  color: #FC5C21 !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.025em !important;  
+  color: #0A0F29 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.3 !important;
+  margin-top: 0 !important;
 }
 
 .card.block h2 {
-  font-size: 1.25rem !important ;
-  font-weight: 400 !important;
-  line-height: 120% !important;
+  font-size: 1.125rem !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+.card.block h3 {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
 }
 
 /* Card body text */
 .card.block p,
-.card.block span,
+.card.block span {
+  color: rgba(10, 15, 41, 0.7) !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+}
+
 .card.block a {
-  color: #073252 !important;
+  color: #1A45ED !important;
+  font-weight: 500 !important;
 }
 
-/* Add hover state for cards */
+/* Card hover state - subtle elevation */
 .card.block:hover {
-  background: none !important;
-  border-color: #ffffff !important;
+  background-color: #EDEEF0 !important;
+  border-color: rgba(10, 15, 41, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Add hover state for cards */
-.card.block:hover svg.lucide-arrow-up-right{
-  color: #ffffff !important;
+.card.block:hover svg.lucide-arrow-up-right {
+  color: #1A45ED !important;
   background-color: transparent !important;
 }
 
@@ -230,20 +280,27 @@ svg {
 .card.block:hover h3,
 .card.block:hover h4,
 .card.block:hover h5,
-.card.block:hover h6,
+.card.block:hover h6 {
+  color: #0A0F29 !important;
+}
+
 .card.block:hover p,
-.card.block:hover span,
+.card.block:hover span {
+  color: rgba(10, 15, 41, 0.8) !important;
+}
+
 .card.block:hover a {
-  color: #ffffff !important;
+  color: #1A45ED !important;
 }
 
 .card.block:hover svg {
-  background-color: #ffffff !important;
+  color: #1A45ED !important;
 }
 
 #content-area img {
-  border-radius: .25rem !important;
-  border: 1px solid #073252 !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(10, 15, 41, 0.12) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02) !important;
 }
 
 /* Update the Frame caption selector to be more specific */
@@ -251,49 +308,52 @@ svg {
 #content-area [data-caption],
 #content-area figcaption {
   font-style: italic !important;
-  color: #ffffff !important;
+  color: #0A0F29 !important;
   opacity: 0.75 !important;
 }
 
 /* Eyebrow text styles */
 .eyebrow {
     opacity: 0.5;
-    color:#ffffff;
+    color: #0A0F29;
     letter-spacing: 0;
     text-transform: lowercase;
     min-height: 1.2rem;
-    font-family: 'Departure Mono', sans-serif;
+    font-family: 'General Sans', system-ui, sans-serif;
     font-size: 1rem;
 }
 
 #search-bar-entry {
-    background: none !important;
-    border: 1px solid rgba(255, 255, 255, 1) !important;
-    border-radius: 0.25rem !important;
-    color: rgba(255, 255, 255, 0.5) !important;
+    background: rgba(237, 238, 240, 0.6) !important;
+    border: 1px solid rgba(10, 15, 41, 0.18) !important;
+    border-radius: 0.75rem !important;
+    color: rgba(10, 15, 41, 0.8) !important;
     transition: all .2s cubic-bezier(.39, .575, .565, 1) !important;
 }
 
-.border-gray-200\/70{
-  border-color: rgba(255, 255, 255, 1) !important;
+.border-gray-200\/70 {
+  border-color: rgba(10, 15, 41, 0.18) !important;
 }
 
 .border-l {
   border-left-width: 1.5px !important;
 }
 
-
 .border-primary {
-  border-color: #FC5C21 !important;
-}
-#search-bar-entry:hover {
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-color: #1A45ED !important;
 }
 
-/* Override text styles for specific Tailwind classes */
-.text-2xl,
+#search-bar-entry:hover {
+    border: 1px solid rgba(10, 15, 41, 0.3) !important;
+}
+
+/* Override text styles for specific Tailwind classes - keep reasonable sizes */
+.text-2xl {
+    font-size: 1.5rem !important;
+}
+
 .sm\:text-3xl {
-    font-size: 3rem !important; /* Adjust size as needed */
+    font-size: 1.875rem !important;
 }
 
 .text-gray-900 {
@@ -301,7 +361,7 @@ svg {
 }
 
 .dark\:text-gray-200 {
-    color: #ffffff !important; /* Customize gray-200 color for dark mode */
+    color: #0A0F29 !important;
 }
 
 .tracking-tight {
@@ -309,7 +369,7 @@ svg {
 }
 
 .font-semibold {
-    font-weight: 400 !important;
+    font-weight: 600 !important;
 }
 
 .inline-block {
@@ -317,21 +377,16 @@ svg {
 }
 
 
-.-ml-10 svg{
-  fill: #FC5C21 !important; 
+.-ml-10 svg {
+  fill: #1A45ED !important;
 }
 
 .rounded-md {
-  border-radius: .2rem !important;
+  border-radius: 0.5rem !important;
 }
 
-/* .zinc-box {
-  background-color: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 1) !important;
-} */
-
 .zinc-box:not(#navigation-items .zinc-box) {
-  border: 1px solid #073252 !important;
+  border: 1px solid rgba(10, 15, 41, 0.15) !important;
 }
 
 #navigation-items .zinc-box {
@@ -339,128 +394,291 @@ svg {
 }
 
 .rounded-xl {
-  border-radius: .25rem !important;
+  border-radius: 1.5rem !important;
 }
 
 .rounded-2xl {
-  border-radius: .25rem !important;
+  border-radius: 2rem !important;
 }
 
-button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]) {
+/* Button styling - clean, professional look */
+button, input:where([type=button]), input:where([type=reset]), input:where([type=submit]) {
   -webkit-appearance: button !important;
   background-color: transparent !important;
   background-image: none !important;
-  color: #073252 !important;
+  color: #0A0F29 !important;
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.2s cubic-bezier(.39, .575, .565, 1) !important;
 }
 
 button .dark\:text-gray-200 {
-  color: #ffffff !important; /* Override for buttons */
+  color: #0A0F29 !important;
 }
 
 #content-area button svg {
-  background-color: #ffffff !important;
+  color: #0A0F29 !important;
 }
+
+/* Primary button styling */
+.btn, [class*="btn-"] {
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Removed aggressive label/uppercase overrides - was breaking layouts */
 
 /* Fix for search bar button SVG */
 #search-bar-entry button svg {
   background-color: transparent !important;
 }
 
-.p-1 {
-  padding: 1px !important;
-}
+/* Removed .p-1 override - was breaking layouts */
 
+/* Strong/bold text styling */
 .prose :where(strong):not(:where([class~=not-prose],[class~=not-prose] *)) {
-  color: #ffffff !important;
+  color: #0A0F29 !important;
+  font-weight: 600 !important;
 }
+
+strong, b {
+  font-weight: 600 !important;
+  color: #0A0F29 !important;
+}
+
+/* Font weight utility classes */
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.font-medium {
+  font-weight: 500 !important;
+}
+
+.font-normal {
+  font-weight: 400 !important;
+}
+
+/* List styling - clean and readable */
 ul, ol {
- letter-spacing: -0.025em !important;
-}
-ul, ol, li::marker {
-  color: #ffffff !important;
-} 
-
-.prose ul>li:before {
-  background-color: #ffffff !important;
+  color: #0A0F29 !important;
+  line-height: 1.7 !important;
+  padding-left: 1.5rem !important;
+  list-style-position: outside !important;
 }
 
+li::marker {
+  color: #0A0F29 !important;
+}
+
+/* Prose list items - ensure proper spacing for bullets */
+.prose ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose li {
+  margin-bottom: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  position: relative !important;
+}
+
+/* Override Tailwind prose ::before bullets - use native list-style instead */
+.prose ul > li::before {
+  display: none !important;
+}
+
+.prose ol > li::before {
+  display: none !important;
+}
+
+/* Ensure list markers are visible */
+.prose ul > li {
+  list-style-type: disc !important;
+}
+
+.prose ol > li {
+  list-style-type: decimal !important;
+}
+
+/* Nested lists */
+.prose ul ul, .prose ol ol, .prose ul ol, .prose ol ul {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose ul ul > li {
+  list-style-type: circle !important;
+}
+
+.prose ul ul ul > li {
+  list-style-type: square !important;
+}
+
+/* Table styling - strong visible borders */
 table {
-  color: #ffffff !important;
+  color: #0A0F29 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.5rem 0 !important;
 }
 
 table th {
-  color: #ffffff !important;
+  color: #0A0F29 !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  padding: 0.75rem 1rem !important;
+  border-bottom: 2px solid #0A0F29 !important;
+  background-color: rgba(10, 15, 41, 0.03) !important;
+}
+
+table td {
+  color: #0A0F29 !important;
+  padding: 0.75rem 1rem !important;
+  border-bottom: 1px solid rgba(10, 15, 41, 0.2) !important;
+}
+
+table tr {
+  border-bottom: 1px solid rgba(10, 15, 41, 0.2) !important;
+}
+
+table tr:last-child td {
+  border-bottom: none !important;
+}
+
+table tbody tr:hover {
+  background-color: rgba(10, 15, 41, 0.02) !important;
+}
+
+/* Ensure prose tables also get proper styling */
+.prose table {
+  border: 1px solid rgba(10, 15, 41, 0.15) !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+}
+
+.prose thead {
+  background-color: rgba(10, 15, 41, 0.05) !important;
+}
+
+.prose th {
+  border-bottom: 2px solid rgba(10, 15, 41, 0.2) !important;
+  font-family: 'Clash Display', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  color: rgba(10, 15, 41, 0.8) !important;
+}
+
+.prose td {
+  border-bottom: 1px solid rgba(10, 15, 41, 0.12) !important;
+  font-size: 0.9375rem !important;
 }
 
 .border-standard {
-  border-color: #ffffff !important;
+  border-color: rgba(10, 15, 41, 0.2) !important;
 }
 
 .border-standard:hover {
-  border-color: #ffffff !important;
+  border-color: #1A45ED !important;
+}
+
+/* Horizontal rules and dividers */
+hr {
+  border-color: rgba(10, 15, 41, 0.15) !important;
+  border-top-width: 1px !important;
+}
+
+.prose hr {
+  border-color: rgba(10, 15, 41, 0.15) !important;
 }
 
 .bg-sky-50\/50 {
-  background-color: #FC5C21 !important;
+  background-color: rgba(26, 69, 237, 0.1) !important;
 }
 
 .bg-amber-50\/50 {
-  background-color: #FC5C21 !important;
+  background-color: rgba(26, 69, 237, 0.1) !important;
 }
 
 .bg-emerald-50\/50 {
-  background-color: #FC5C21 !important;
+  background-color: rgba(26, 69, 237, 0.1) !important;
 }
 
 .bg-zinc-50\/50 {
-  background-color: #FC5C21 !important;
+  background-color: rgba(26, 69, 237, 0.1) !important;
 }
 
-.p-2 {
-  padding: 0rem !important;
-}
+/* Removed .p-2 override - was breaking layouts */
 
 .bg-gray-50\/50 {
-  background-color: transparent !important;
+  background-color: rgba(237, 238, 240, 0.5) !important;
 }
+
 .bg-grid-neutral-200\/20 {
   background-image: none !important;
 }
 
 .bg-gray-500 {
-  background-color: #ffffff !important;
+  background-color: #C8C6C1 !important;
 }
 
 .w-full.rounded-xl.flex.bg-gray-50\/80 {
-  background-color: #ffffff !important;
+  background-color: rgba(237, 238, 240, 0.8) !important;
 }
 
-
 /* Fix for group flex items span */
-.group.flex.items-center.justify-between.pl-3.pr-6.space-x-1\.5 span, .group.flex.items-center.justify-between.pl-3.pr-6.space-x-1\.5 svg {
-  color: #073252 !important;
+.group.flex.items-center.justify-between.pl-3.pr-6.space-x-1\.5 span,
+.group.flex.items-center.justify-between.pl-3.pr-6.space-x-1\.5 svg {
+  color: #0A0F29 !important;
 }
 
 .bg-primary\/10 {
-  background-color: #ffffff25 !important;
+  background-color: rgba(26, 69, 237, 0.1) !important;
 }
 
 .border-black\/5 {
   border-color: rgba(0, 0, 0, 0) !important;
 }
 
+/* Blockquote styling - elegant pull quotes */
 .prose :where(blockquote):not(:where([class~=not-prose],[class~=not-prose] *)) {
-  border-color: #ffffff !important;
+  border-color: #1A45ED !important;
+  border-left-width: 3px !important;
 }
 
 blockquote {
-  border-left-width: 2px;
-  border-left-color: var(--white);
-  text-transform: uppercase;
-  padding: 0rem 1.5rem !important;
-  font-family: 'Departure Mono', sans-serif !important;
-  font-size: 1.75rem !important;
-  line-height: 130% !important;
+  border-left-width: 3px !important;
+  border-left-color: #1A45ED !important;
+  border-left-style: solid !important;
+  padding: 0.5rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  font-family: 'Clash Display', system-ui, sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: #0A0F29 !important;
+  font-style: normal !important;
+}
+
+blockquote p {
+  font-family: 'Clash Display', system-ui, sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0 !important;
 }
 
 /* blockquote .prose :where(p):not(:where([class~=not-prose],[class~=not-prose] *)) {
@@ -469,63 +687,614 @@ blockquote {
 } */
 
 .rounded-search {
-  border-radius: 0.25rem !important;
+  border-radius: 0.75rem !important;
 }
 
-.text-gray-950{
-  color: #ffffff !important;
+.text-gray-950 {
+  color: #0A0F29 !important;
 }
 
 .text-gray-700 {
-  color: #ffffff !important;
+  color: #0A0F29 !important;
 }
 
-.bg-gray-50{
-  background-color: #ffffff25 !important;
+.bg-gray-50 {
+  background-color: rgba(237, 238, 240, 0.5) !important;
 }
 
 .bg-gray-950\/5 {
-  background-color: #ffffff25 !important;
+  background-color: rgba(10, 15, 41, 0.05) !important;
 }
 
 .text-zinc-950\/70 {
-  color: #ffffff !important;
+  color: rgba(10, 15, 41, 0.7) !important;
 }
 
 .opacity-50 {
-  opacity: 1 !important;
+  opacity: 0.5 !important;
 }
 
 .focus\:border-slate-950:focus {
-  border-color: #ffffff75 !important;
+  border-color: #1A45ED !important;
 }
 
 ::placeholder {
-  color: #ffffff !important;
-  opacity: .5 !important; /* Firefox */
+  color: #0A0F29 !important;
+  opacity: 0.5 !important;
 }
 
-::-ms-input-placeholder { /* Edge 12 -18 */
-  color: #ffffff !important;
+::-ms-input-placeholder {
+  color: #0A0F29 !important;
 }
-
 
 .\[\&_mark_b\]\:text-primary mark b {
   --tw-text-opacity: 1;
-  color: #ffffff75;
+  color: #1A45ED;
 }
 
+/* Content links - refined styling */
 .prose :where(a):not(:where([class~=not-prose],[class~=not-prose] *)):not(.absolute *) {
-  border-bottom: 2px solid rgb(var(--primary-light));
-  transition: all .2s cubic-bezier(.39, .575, .565, 1) !important;
+  color: #1A45ED !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(26, 69, 237, 0.4) !important;
+  transition: all 0.2s cubic-bezier(.39, .575, .565, 1) !important;
 }
-
 
 .prose :where(a:hover):not(:where([class~=not-prose],[class~=not-prose] *)):not(.absolute *) {
-  border-bottom-width: 0px !important;
+  border-bottom-color: #1A45ED !important;
+  border-bottom-width: 2px !important;
 }
 
 
 .max-w-xl {
   max-width: 45rem !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EAE8E1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8C6C1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1A45ED;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid #1A45ED;
+  outline-offset: 4px;
+}
+
+/* Additional sidebar and navigation fixes */
+#sidebar-content {
+  background-color: transparent !important;
+}
+
+nav, #sidebar {
+  background-color: transparent !important;
+}
+
+/* Code blocks */
+pre {
+  background-color: rgba(10, 15, 41, 0.04) !important;
+  color: #0A0F29 !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(10, 15, 41, 0.1) !important;
+  padding: 1rem !important;
+}
+
+pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: rgba(10, 15, 41, 0.06) !important;
+  color: #0A0F29 !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.9em !important;
+  border: 1px solid rgba(10, 15, 41, 0.08) !important;
+}
+
+/* Callouts - Notes, Warnings, Tips, Info */
+[class*="callout"], .note, .warning, .tip, .info {
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(10, 15, 41, 0.12) !important;
+}
+
+/* Accordion styling */
+details, .accordion {
+  border: 1px solid rgba(10, 15, 41, 0.12) !important;
+  border-radius: 0.75rem !important;
+  background-color: rgba(237, 238, 240, 0.3) !important;
+}
+
+details summary, .accordion-trigger {
+  color: #0A0F29 !important;
+  font-weight: 500 !important;
+}
+
+/* Navigation active states */
+[data-active="true"], .active {
+  border-left-color: #1A45ED !important;
+}
+
+/* Sidebar - comprehensive styling */
+#sidebar, #sidebar-content, nav#sidebar {
+  font-family: 'General Sans', system-ui, sans-serif !important;
+}
+
+/* Sidebar section headers/group titles */
+#sidebar [class*="group"] > span,
+#sidebar [class*="heading"],
+.sidebar-group-heading,
+[class*="group-heading"] {
+  color: rgba(10, 15, 41, 0.6) !important;
+  font-weight: 500 !important;
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+/* Sidebar navigation links */
+#sidebar a,
+#sidebar-content a {
+  font-weight: 400 !important;
+  font-size: 0.875rem !important;
+  color: rgba(10, 15, 41, 0.7) !important;
+  transition: color 0.15s ease !important;
+  line-height: 1.5 !important;
+}
+
+#sidebar a:hover,
+#sidebar-content a:hover {
+  color: #0A0F29 !important;
+}
+
+#sidebar a[data-active="true"],
+#sidebar-content a[data-active="true"],
+#sidebar a.active,
+#sidebar-content a.active {
+  color: #0A0F29 !important;
+  font-weight: 500 !important;
+}
+
+/* Sidebar link text/spans */
+#sidebar a span,
+#sidebar-content a span {
+  font-size: 0.875rem !important;
+  font-weight: inherit !important;
+}
+
+/* Navigation group spacing */
+nav [role="group"] {
+  margin-bottom: 1.25rem !important;
+}
+
+/* Ensure all text inputs have visible borders */
+input[type="text"], input[type="email"], input[type="search"], textarea {
+  border: 1px solid rgba(10, 15, 41, 0.18) !important;
+  border-radius: 0.5rem !important;
+  background-color: rgba(237, 238, 240, 0.5) !important;
+  color: #0A0F29 !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus, textarea:focus {
+  border-color: #1A45ED !important;
+  outline: none !important;
+}
+
+/* ========================================
+   BOTTOM PAGINATION / NAVIGATION BAR
+   ======================================== */
+
+/* Main pagination container - remove white background */
+[class*="pagination"],
+.pagination,
+nav[aria-label*="pagination"],
+.page-navigation,
+#page-navigation {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 2rem 0 !important;
+  margin-top: 3rem !important;
+}
+
+/* Previous/Next navigation links */
+a[rel="prev"],
+a[rel="next"],
+[class*="prev-page"],
+[class*="next-page"],
+.prev-next-nav a,
+nav a[href*="prev"],
+nav a[href*="next"] {
+  background-color: transparent !important;
+  border: 1px solid rgba(10, 15, 41, 0.15) !important;
+  border-radius: 1rem !important;
+  padding: 1rem 1.5rem !important;
+  color: #0A0F29 !important;
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+a[rel="prev"]:hover,
+a[rel="next"]:hover,
+[class*="prev-page"]:hover,
+[class*="next-page"]:hover {
+  background-color: rgba(10, 15, 41, 0.03) !important;
+  border-color: rgba(10, 15, 41, 0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Pagination link titles */
+a[rel="prev"] span,
+a[rel="next"] span {
+  color: #0A0F29 !important;
+}
+
+/* Override any white backgrounds on pagination containers */
+.bg-white {
+  background-color: #EAE8E1 !important;
+}
+
+/* Specific fix for Mintlify pagination cards */
+.not-prose.my-6.flex.gap-2 > a,
+.not-prose.my-6.flex > a,
+[class*="CardLink"],
+a.group.flex.w-full {
+  background-color: transparent !important;
+  border: 1px solid rgba(10, 15, 41, 0.12) !important;
+  border-radius: 1rem !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.not-prose.my-6.flex.gap-2 > a:hover,
+.not-prose.my-6.flex > a:hover,
+[class*="CardLink"]:hover,
+a.group.flex.w-full:hover {
+  background-color: rgba(10, 15, 41, 0.03) !important;
+  border-color: rgba(10, 15, 41, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ========================================
+   TABLE OF CONTENTS (Right sidebar)
+   ======================================== */
+
+/* TOC container */
+#toc, .toc, [class*="table-of-contents"], nav[aria-label="Table of contents"] {
+  font-family: 'General Sans', system-ui, sans-serif !important;
+}
+
+/* TOC heading */
+#toc h2, #toc h3, #toc h4,
+.toc-heading {
+  color: rgba(10, 15, 41, 0.5) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* TOC links */
+#toc a, .toc a, [class*="table-of-contents"] a {
+  color: rgba(10, 15, 41, 0.6) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  transition: color 0.15s ease !important;
+  border-bottom: none !important;
+}
+
+#toc a:hover, .toc a:hover, [class*="table-of-contents"] a:hover {
+  color: #0A0F29 !important;
+}
+
+#toc a[data-active="true"], .toc a.active {
+  color: #1A45ED !important;
+  font-weight: 500 !important;
+}
+
+/* ========================================
+   SELECTION HIGHLIGHT
+   ======================================== */
+
+::selection {
+  background-color: rgba(26, 69, 237, 0.2) !important;
+  color: #0A0F29 !important;
+}
+
+::-moz-selection {
+  background-color: rgba(26, 69, 237, 0.2) !important;
+  color: #0A0F29 !important;
+}
+
+/* ========================================
+   TAB COMPONENTS
+   ======================================== */
+
+/* Tab list container */
+[role="tablist"], .tabs, .tab-list {
+  border-bottom: 1px solid rgba(10, 15, 41, 0.12) !important;
+  background-color: transparent !important;
+  gap: 0 !important;
+}
+
+/* Individual tabs */
+[role="tab"], .tab, button[role="tab"] {
+  background-color: transparent !important;
+  color: rgba(10, 15, 41, 0.6) !important;
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  padding: 0.75rem 1rem !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1px !important;
+  transition: all 0.2s ease !important;
+}
+
+[role="tab"]:hover, .tab:hover {
+  color: #0A0F29 !important;
+  background-color: rgba(10, 15, 41, 0.03) !important;
+}
+
+[role="tab"][aria-selected="true"],
+[role="tab"].active,
+.tab.active,
+[data-state="active"] {
+  color: #0A0F29 !important;
+  border-bottom-color: #1A45ED !important;
+  background-color: transparent !important;
+}
+
+/* Tab panels */
+[role="tabpanel"], .tab-panel, .tab-content {
+  padding-top: 1.5rem !important;
+}
+
+/* ========================================
+   BREADCRUMBS
+   ======================================== */
+
+nav[aria-label="Breadcrumb"],
+.breadcrumb,
+[class*="breadcrumb"] {
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-size: 0.8125rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+nav[aria-label="Breadcrumb"] a,
+.breadcrumb a {
+  color: rgba(10, 15, 41, 0.5) !important;
+  font-weight: 400 !important;
+  transition: color 0.15s ease !important;
+  border-bottom: none !important;
+}
+
+nav[aria-label="Breadcrumb"] a:hover,
+.breadcrumb a:hover {
+  color: #1A45ED !important;
+}
+
+nav[aria-label="Breadcrumb"] span,
+.breadcrumb span {
+  color: rgba(10, 15, 41, 0.4) !important;
+}
+
+/* Current breadcrumb */
+nav[aria-label="Breadcrumb"] [aria-current],
+.breadcrumb .current {
+  color: #0A0F29 !important;
+  font-weight: 500 !important;
+}
+
+/* ========================================
+   ENHANCED TRANSITIONS & POLISH
+   ======================================== */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Page content fade in */
+#content-area, main, article {
+  animation: fadeIn 0.3s ease-out !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced link hover effect */
+a {
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease !important;
+}
+
+/* Button hover lift effect */
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   BADGES & TAGS
+   ======================================== */
+
+.badge, [class*="badge"], .tag, [class*="tag"]:not(html):not(body):not(head):not(meta) {
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 0.25rem 0.625rem !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Primary badge */
+.badge-primary, .badge.primary {
+  background-color: rgba(26, 69, 237, 0.1) !important;
+  color: #1A45ED !important;
+}
+
+/* Success/New badge */
+.badge-success, .badge.success, .badge-new, .new {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+}
+
+/* Warning badge */
+.badge-warning, .badge.warning {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #D97706 !important;
+}
+
+/* ========================================
+   COPY BUTTON (Code blocks)
+   ======================================== */
+
+button[class*="copy"], .copy-button {
+  background-color: rgba(10, 15, 41, 0.06) !important;
+  border: 1px solid rgba(10, 15, 41, 0.1) !important;
+  border-radius: 0.375rem !important;
+  color: rgba(10, 15, 41, 0.6) !important;
+  padding: 0.375rem !important;
+  transition: all 0.2s ease !important;
+}
+
+button[class*="copy"]:hover, .copy-button:hover {
+  background-color: rgba(10, 15, 41, 0.1) !important;
+  color: #0A0F29 !important;
+}
+
+/* ========================================
+   STEPS / NUMBERED LISTS COMPONENT
+   ======================================== */
+
+.steps, [class*="steps"] {
+  counter-reset: step !important;
+}
+
+.steps > li, [class*="step-item"] {
+  position: relative !important;
+  padding-left: 2.5rem !important;
+}
+
+.steps > li::before, [class*="step-item"]::before {
+  content: counter(step) !important;
+  counter-increment: step !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  background-color: #1A45ED !important;
+  color: #fff !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  font-family: 'Clash Display', system-ui, sans-serif !important;
+}
+
+/* ========================================
+   API REFERENCE STYLING
+   ======================================== */
+
+.api-method, [class*="method-"] {
+  font-family: 'General Sans', system-ui, sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 600 !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+
+.method-get, [class*="method-get"] {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+}
+
+.method-post, [class*="method-post"] {
+  background-color: rgba(26, 69, 237, 0.1) !important;
+  color: #1A45ED !important;
+}
+
+.method-put, [class*="method-put"] {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #D97706 !important;
+}
+
+.method-delete, [class*="method-delete"] {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #DC2626 !important;
+}
+
+/* ========================================
+   PARAMETER TABLES (API Docs)
+   ======================================== */
+
+.param-table th, [class*="param"] th {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(10, 15, 41, 0.6) !important;
+}
+
+.param-name, [class*="param-name"] {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.875rem !important;
+  color: #0A0F29 !important;
+  font-weight: 500 !important;
+}
+
+.param-type, [class*="param-type"] {
+  font-size: 0.75rem !important;
+  color: rgba(10, 15, 41, 0.5) !important;
+}
+
+.param-required, [class*="required"] {
+  font-size: 0.6875rem !important;
+  color: #DC2626 !important;
+  font-weight: 500 !important;
 }
