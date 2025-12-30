@@ -8,14 +8,14 @@
     "href": "https://www.nexio.xyz/"
   },
   "colors": {
-    "primary": "#FC5C21",
-    "light": "#FC5C21",
-    "dark": "#073252"
+    "primary": "#1A45ED",
+    "light": "#1A45ED",
+    "dark": "#0A0F29"
   },
   "background": {
     "color": {
-      "light": "#288DFE",
-      "dark": "#073252"
+      "light": "#EAE8E1",
+      "dark": "#0A0F29"
     }
   },
   "style": {
@@ -103,11 +103,6 @@
           "anchor": "Website",
           "href": "https://www.nexio.xyz/",
           "icon": "globe"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://www.nexio.xyz/blog",
-          "icon": "newspaper"
         }
       ]
     }
