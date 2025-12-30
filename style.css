@@ -888,6 +888,21 @@ details summary, .accordion-trigger {
   font-weight: inherit !important;
 }
 
+/* Remove box wrappers from sidebar nav items */
+#sidebar .zinc-box,
+#sidebar-content .zinc-box,
+#sidebar div,
+#sidebar-content div,
+#sidebar li,
+#sidebar-content li,
+#sidebar ul,
+#sidebar-content ul {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* Navigation group spacing */
 nav [role="group"] {
   margin-bottom: 1.25rem !important;
