@@ -888,7 +888,7 @@ details summary, .accordion-trigger {
   font-weight: inherit !important;
 }
 
-/* Remove box wrappers from sidebar nav items */
+/* Remove box wrappers from sidebar nav items - comprehensive */
 #sidebar .zinc-box,
 #sidebar-content .zinc-box,
 #sidebar div,
@@ -896,11 +896,35 @@ details summary, .accordion-trigger {
 #sidebar li,
 #sidebar-content li,
 #sidebar ul,
-#sidebar-content ul {
+#sidebar-content ul,
+aside nav,
+aside nav *,
+aside ul,
+aside li,
+aside a,
+[class*="sidebar"] *,
+[class*="nav-group"] *,
+[class*="NavGroup"] *,
+nav[aria-label] li,
+nav[aria-label] a {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Extra specificity for stubborn Mintlify styles */
+aside nav a,
+aside nav li,
+aside [class*="group"] a,
+aside [class*="group"] li,
+aside [class*="group"] div {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 /* Navigation group spacing */
