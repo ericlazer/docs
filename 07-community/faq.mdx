@@ -1,150 +1,100 @@
 ---
-title: "Borrower and Lender FAQ"
+title: "FAQ"
 ---
 
-# 
+### **1. What is Nexio? Is it similar to DeFi lending?**
 
-### 1. What is Nexio in plain English?
+Nexio is a Bitcoin-based credit platform that lets verified institutions lend and borrow BTC at fixed rates.
 
-Nexio is a BTC lending platform that:
+All loan terms, payments, and accounting happen on-chain, giving participants full transparency into how BTC moves and earns yield.
 
-- Lets **institutional borrowers** get term BTC financing in dedicated "vaults".
-- Lets **BTC lenders** earn yield by funding those vaults, with clear, transparent risk metrics.
-- Uses a **credit-scoring model** and **risk-free benchmark** to quote borrower-specific interest rates, instead of a one-size-fits-all pool.
+Nexio differs from DeFi lending in a few key ways:
 
-It can be thought of as "BTC-denominated term loans."
+- **Verified participants:** Only KYC/KYB-approved institutions can lend or borrow.
+- **Fixed terms:** Each Series offers a defined duration and yield instead of variable rates.
+- **Bitcoin network:** All BTC stays in Taproot Vaults on the Bitcoin network.
+- **Legal enforceability:** Each loan is backed by signed agreements, not anonymous smart contracts.
 
----
+### **2. What is a Series or the Master Vault?**
 
-### 2. What actually determines the interest rate a borrower pays?
+A Series is a ring-fenced, fixed-term BTC credit pool with its own borrower set, coupon rate, and maturity date. Each Series operates independently (similar to a bond issuance) so its risk and yield are isolated from others. Lenders choose a Series based on duration and return preferences, earning a predictable BTC-denominated yield until maturity.
 
-Every borrower's rate is built from three main pieces:
+Borrowers have their own dedicated Series (1 Series per borrower).
 
-1. **The borrower's Nexio credit score (0–5)**
-   - 0 = very weak; 5 = very strong.
-   - The score summarizes many factors: business & financial strength, governance, compliance / AML, custody quality, and venue / jurisdiction quality.
-   - A higher score → lower estimated **probability of default** → lower premium over the risk-free rate.
-2. **The BTC "risk-free" benchmark rate**
+The **Master Vault** serves lenders who prefer automated diversification instead of selecting individual Series. It aggregates BTC across multiple active Series, giving single, blended exposure to Nexio’s overall credit portfolio while keeping all funds secured in Taproot Vaults.
 
-   Nexio estimates a BTC-denominated baseline rate by blending several low-risk yield sources:
-   - Ethereum staking yields (via liquid-staking tokens)
-   - Perpetual futures funding-rate capture (cash-and-carry trades)
-   - Tokenized T-bill / money-market yields (on-chain Treasuries)
+![telegram-cloud-document-5-6084844691260447126.jpg](/images/telegram-cloud-document-5-6084844691260447126.jpg)
 
-   These are treated as multiple "sensors" of the underlying BTC time-value of money and combined into a smooth daily series.
-3. **The borrower's BTC collateral structure**
-   - How much collateral a borrower posts determines a **loss given default**: "If the borrower defaults, what % of principal would lenders likely lose after BTC collateral and recoveries?"
-   - More BTC collateral → lower credit spread.
-   - Less or no BTC collateral → higher credit spread.
+### **3. What are uBTC and yBTC?**
 
-At a high level:
+When a lender deposits BTC into a **Series**, they receive **uBTC**: a tokenized receipt that represents their proportional ownership of that Series.
 
-> **Quoted rate ≈ BTC risk-free rate + probability of default × loss given default.**
+uBTC automatically reflects both principal and accrued yield, similar to a fixed-term note that increases in value until maturity.
 
-The full pricing formula also includes other terms for risk parameters.
+Depositors in the **Master Vault** receive **yBTC**, a yield-bearing token that tracks the blended performance of all active Series.
 
----
+Both uBTC and yBTC are fully backed 1:1 by BTC held in Taproot Vaults, ensuring transparent, verifiable custody on the Bitcoin network.
 
-### 3. What does the 0–5 credit score actually mean in terms of default probability?
+![5thgraphic Jp](/images/5thgraphic.jpg)
 
-Nexio maps each credit score to a **1-year probability of default**.
+### **4. Who can lend or borrow on Nexio?**
 
-A simplified example of that mapping (illustrative, not a legal quote):
+**Lenders** are verified institutions such as Bitcoin treasuries, funds, family offices, and corporate balance sheets.
 
-| Credit score | Approx. 1-yr PD |
-| ------------ | --------------- |
-| 0.0          | 44.26%          |
-| 0.5          | 31.75%          |
-| 1.0          | 21.42%          |
-| 1.5          | 13.77%          |
-| 2.0          | 8.56%           |
-| 2.5          | 5.20%           |
-| 3.0          | 3.11%           |
-| 3.5          | 1.85%           |
-| 4.0          | 1.09%           |
-| 4.5          | 0.64%           |
-| 5.0          | 0.38%           |
+**Borrowers** are KYC/KYB-verified trading desks, market makers, or arbitrage firms that pass eligibility and collateral checks.
 
-Interpretation:
+Both sides operate under enforceable agreements and continuous monitoring.
 
-- Moving from **2 → 3** cuts the estimated default risk by roughly **40%** (8.6% → 3.1%).
-- Moving from **3 → 4.5** roughly halves it again (3.1% → 0.6% range).
+Retail participation may be introduced in the future through regulated partners or managed vaults.
 
-That drop in probability of default directly lowers a borrower's premiums.
+### **5. How is BTC custody managed?**
 
-Below is a graph of Nexio's approximate probability of default rates given different credit scores.
+Custody is fully **Bitcoin-native**: all BTC remains on the Bitcoin network inside Taproot Vaults, and all vault balances and signer actions are independently verifiable on-chain.
 
-<img
-  width="614"
-  height="461"
-  alt="image"
-  src="/images/1y-pd-curve1.jpg"
-/>
+Each vault uses a 2-of-3 threshold Schnorr signature scheme shared between Custody, Validation, and Governance operators.
 
----
+Every Series has its own dedicated vault, isolating capital and preventing any cross-series exposure. Routine vault actions (such as borrower draws or coupon payments) are executed through multi-party co-signing.
 
-### 4. How does BTC collateral affect the rate a borrower is quoted?
+Transactions use Taproot key-path spends, which compress multi-signature logic into a single, standard Bitcoin transaction for efficiency and privacy.
 
-For a borrower, the key idea is:
+### **6. What is Proof Gating?**
 
-> **More BTC collateral → Smaller expected loss for lenders → Lower rate.**
+Every mint, burn, or redemption of uBTC/yBTC is executed only after a confirmed Bitcoin transaction proof is received.
 
-Conceptually:
+This ensures that the tokenized supply on Nexio always matches the verifiable BTC in custody. Nothing moves until Bitcoin confirms it.
 
-- If a borrower posts **little or no BTC**, lenders rely mostly on the borrower's credit quality and legal recovery. If loss give default is high (e.g. ~60%), then the premium over the risk-free rate is large.
-- If a borrower posts **meaningful BTC margin**, then even if the borrower defaults, a chunk of the loan can be repaid from that collateral. As loss given default shrinks, and the rate falls.
+### **7. How do BTC borrowers earn yield?**
 
-Below is a plot of the borrower's quoted rate given their collateral for various credit scores. It assumes a risk free rate of 3%.
+Borrowers use BTC from each Series to run institutional trading and liquidity strategies that generate predictable returns.
 
-<img
-  width="614"
-  height="461"
-  alt="image"
-  src="/images/quoted-vs-collaterall1.jpg"
-/>
+Three examples include:
 
----
+- **CME basis trading:** capturing the spread between Bitcoin spot and futures prices.\
+  Borrowers lock in this difference by buying spot BTC while shorting futures, earning the premium as futures converge to spot at expiry.
+- **Delta-neutral funding:** hedging market exposure while earning funding premiums.\
+  They maintain a neutral position (long and short BTC in equal amounts) so profits come from funding rate differentials rather than price moves.
+- **Market-making:** providing BTC liquidity across exchanges for trading fees and spreads.\
+  This involves quoting both buy and sell orders, earning small profits by selling slightly above and buying slightly below the market price.
 
-### 5. What happens in the case of a default?
+Each borrower operates under a fixed-term loan agreement with strict collateral and reporting requirements, and pays interest back to the Series vault at defined intervals.
 
-A **default** occurs when a borrower fails to repay the vault’s outstanding BTC obligations (principal plus any accrued interest) under the vault’s terms.
+### **8. What happens if a borrower defaults or breaches a covenant?**
 
-If a default is triggered, the borrower’s collateral that was posted before borrowing is used to compensate lenders. That collateral is distributed **pro-rata** across all lenders in the affected vault, based on each lender’s share of the vault’s outstanding lender claims at the time of default. For example, a lender who represents 10% of the funded exposure would receive 10% of the collateral distribution.
+If a borrower fails to meet payment terms or violates a Series covenant, that Series automatically enters liquidation mode.
 
-If the collateral is insufficient to cover the full amount owed, lenders realize a loss **pro-rata**. Any remaining collateral (if any) is handled per the vault’s terms.
+Collateral is priced, sold, or transferred in accordance with predefined recovery rules, thereby minimizing losses and containing them within the Series.
 
----
+The Operator Queue oversees the process, validating every liquidation event and updating Series balances in real time. All recovery actions, shortfalls, and repayment metrics are recorded on-chain, providing full visibility to governance participants, auditors, and lenders.
 
-### 6. What happens to a lender's BTC when deposited?
+### **9. How is compliance enforced?**
 
-When a lender deposits BTC:
+Every participant passes KYC/KYB and AML checks before transacting.\
+Withdrawals require a compliance attestation from a registered handler.
 
-1. It is wrapped as **uBTC (an ERC-20 on Ethereum)**. The lender can send uBTC into any borrower's vault they choose.
-2. Inside a borrower vault, the lender's uBTC sits in one of three **liquidity states**:
-   - **Locked** – actively lent to the borrower, earning interest.
-   - **Staged** – committed to this vault but not currently in use (e.g. interest paid by the borrower). It is "on deck" to be locked. A lender can always withdraw staged liquidity.
-   - **Queued** – not yet committed to this borrower at all, just waiting. A lender can always withdraw from the queue. Staged liquidity is locked before queued liquidity.
+Each Series stores hashed legal agreements (Loan, Pledge, Term Sheet) in contract metadata to ensure verifiable legal linkage.
 
----
+### **10. What networks does Nexio support?**
 
-### 7. Once BTC is lent out and paid back, will it be lent out again next time?
+Custody remains on Bitcoin, while uBTC and yBTC exist as ERC-20 tokens on Ethereum, with plans to expand to other networks.
 
-Yes, the lender's **locked liquidity continues to be lent out repeatedly**, at updated interest rates for that borrower for each new loan.
-
----
-
-### 8. Does BTC collect compound interest?
-
-Yes, **staged liquidity will be brought into the vault creating compound interest** provided that the borrower increases amount they are lent each time they take out a loan.
-
----
-
-### 9. How does the queue work?
-
-Vaults can be **capacity-constrained**:
-
-- Each borrower sets a **vault cap** (how much BTC they are willing to borrow in that epoch).
-- Once a vault is at cap, any new deposits go into the **queue**:
-  - A lender owns queued uBTC, but it is **not yet exposed to this borrower**.
-  - Queued uBTC can be withdrawn at any time.
-- As capacity opens up (the borrower raises cap or other lenders withdraw), the protocol pulls in queued liquidity and locks it on a first-come-first-serve basis.
+Mint/burn events are cryptographically tied to Bitcoin proofs, keeping supply consistent across networks.
