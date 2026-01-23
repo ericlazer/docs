@@ -10,9 +10,9 @@ This ensures every uBTC or yBTC mint, burn, or redemption corresponds exactly to
 
 ## How The Operator Queue Works
 
-Many borrowers and lenders choose to operate through approved custodians. 
+Many borrowers and lenders choose to operate through approved custodians.
 
-**The Operator Queue treats native Taproot vault flows and custodial flows identically: **deposits originate from (and redemptions return to) whitelisted custodian sub-accounts, and every transaction still passes through the same proof-gating and attestation checks. This preserves 1:1 backing, auditability, and deterministic mint/burn logic while allowing institutions to use their existing key-management and segregated cold-storage setups.
+\*\*The Operator Queue treats native Taproot vault flows and custodial flows identically: \*\*deposits originate from (and redemptions return to) whitelisted custodian sub-accounts, and every transaction still passes through the same proof-gating and attestation checks. This preserves 1:1 backing, auditability, and deterministic mint/burn logic while allowing institutions to use their existing key-management and segregated cold-storage setups.
 
 The Operator Queue verifies Nexio transactions (e.g. tge burning/minting of uBTC/yBTC) and executes the corresponding action, as follows:
 
@@ -23,7 +23,7 @@ The Operator Queue verifies Nexio transactions (e.g. tge burning/minting of uBTC
 
 This ensures that every on-chain state change precisely matches a verified Bitcoin transaction.
 
-![9thimage Jp](/images/9thimage.jpg)
+![9thimage Jp](/images/Capturadepantalla2026-01-21ala\(s\)2.19.49p.m..png)
 
 ## Security Model
 

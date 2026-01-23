@@ -27,6 +27,25 @@
   },
   "favicon": "/images/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Twitter",
+          "icon": "twitter",
+          "href": "https://x.com/buildnexio"
+        },
+        {
+          "anchor": "Discord",
+          "icon": "discord",
+          "href": "https://discord.gg/nexio"
+        },
+        {
+          "anchor": "Website",
+          "icon": "globe",
+          "href": "https://www.nexio.xyz/"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Docs",
@@ -44,7 +63,6 @@
               "02-how-nexio-works/0.system-architecture",
               "02-how-nexio-works/1.borrower-flow",
               "02-how-nexio-works/2.lender-flow",
-              "02-how-nexio-works/3.borrower-lender-faq",
               "02-how-nexio-works/4.mint-and-burn-logic",
               "02-how-nexio-works/5.operator-queue"
             ]
@@ -86,26 +104,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Twitter",
-          "href": "https://x.com/buildnexio",
-          "icon": "twitter"
-        },
-        {
-          "anchor": "Discord",
-          "href": "https://discord.gg/nexio",
-          "icon": "discord"
-        },
-        {
-          "anchor": "Website",
-          "href": "https://www.nexio.xyz/",
-          "icon": "globe"
-        }
-      ]
-    }
+    ]
   },
   "navbar": {
     "links": [
