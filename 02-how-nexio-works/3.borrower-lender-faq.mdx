@@ -95,26 +95,22 @@ Below is a plot of the borrower's quoted rate given their collateral for various
 
 When a lender deposits BTC:
 
-1. It is wrapped as **uBTC (an ERC-20 on Ethereum)**. The lender can send uBTC into any borrower’s vault they choose.
-2. Inside a borrower vault, the lender’s uBTC sits in one of three **liquidity states**:
-   - **Locked** – actively lent to the borrower, earning interest.
-   - **Staged** – committed to this vault but not currently in use (e.g., interest paid by the borrower). It is “on deck” to be locked. A lender can always withdraw staged liquidity.
-   - **Queued** – not yet committed to this borrower at all, just waiting. A lender can always withdraw from the queue. Staged liquidity is locked before queued liquidity.
+1. It is allocated to a specific borrower facility under Nexio’s operating and custody framework. The lender’s position is recorded within that borrower vault together with the applicable commercial terms.
+2. If the borrower draws on the facility, that BTC is lent out under the agreed fixed-term loan.
+3. If the borrower has not yet drawn the full facility, or once prior loans have been repaid, BTC can remain in the borrower vault pending withdrawal or commitment to a subsequent loan, depending on the lender’s election and the facility terms.
 
 ### 5. Once BTC is lent out and paid back, will it be lent out again next time?
 
-Yes, the lender’s **locked liquidity continues to be lent out repeatedly**, at updated interest rates for that borrower for each new loan.
+Potentially, yes. Once a loan is repaid, BTC that remains in the same borrower vault can be committed to a new fixed-term loan for that borrower, typically at updated terms for the next facility.
 
 ### 6. Does BTC collect compound interest?
 
-Yes, **staged liquidity will be brought into the vault, creating compound interest,** provided that the borrower increases the amount they are lent each time they take out a loan.
+Not automatically. BTC only compounds if interest or repaid principal remains in the borrower vault and is then committed to a subsequent loan, allowing returns to be earned again on a larger balance.
 
 ### 7. How does the queue work?
 
 Vaults can be **capacity-constrained**:
 
-- Each borrower sets a **vault cap** (the amount of BTC they are willing to borrow in that epoch).
-- Once a vault is at cap, any new deposits go into the **queue**:
-  - A lender owns queued uBTC, but it is **not yet exposed to this borrower**.
-  - Queued uBTC can be withdrawn at any time.
-- As capacity opens up (the borrower raises cap or other lenders withdraw), the protocol pulls liquidity from the queue and locks it on a first-come, first-served basis.
+- Each borrower sets a **vault cap** (the amount of BTC they are willing to borrow for a given funding period).
+- Once a vault is fully allocated, additional lender commitments are held pending available capacity.
+- If capacity opens up because the borrower increases the facility size or other lenders withdraw, Nexio allocates additional BTC on a first-come, first-served basis.
