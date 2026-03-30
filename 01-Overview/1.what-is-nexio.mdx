@@ -2,58 +2,63 @@
 title: "What is Nexio?"
 ---
 
-Nexio turns Bitcoin into productive, fixed-income capital by enabling verified institutions to lend and borrow BTC at transparent, fixed rates.
+Nexio is a lending platform that connects BTC lenders with institutional borrowers through fixed-term, fixed-rate credit arrangements.
 
-Bitcoin’s market cap now exceeds \$2 trillion, yet most of it remains idle or deployed through unregulated lending desks where collateral can be reused and risk is hidden. Despite Bitcoin’s maturity as an asset, it still lacks institutional-grade infrastructure for predictable yield, enforceable lending, and transparent credit operations.
+Bitcoin’s market cap now exceeds \$2 trillion, yet a large share of BTC remains idle or is deployed through opaque lending channels where terms can change quickly and borrower risk is difficult to assess. Nexio addresses that gap with a structured credit model built for institutions: lenders commit BTC into borrower-specific vaults, borrowers receive financing under negotiated legal agreements, and loans pay fixed interest with principal returned at maturity.
 
-Nexio solves this gap by providing BTC treasuries with predictable, fixed-rate income and trading firms with efficient, compliance-ready BTC credit. Every deposit, draw, and coupon payment is recorded on-chain, creating a verifiable audit trail and real-time transparency into how capital moves.
+Nexio connects lenders to institutional borrowers through enforceable legal agreements, trusted custody providers, and controlled operational workflows. Borrower payments are exposed on-chain for lenders to audit, and Nexio does not rehypothecate client funds.
 
 What this means:
 
-- **For lenders:** Earn a predictable, BTC-denominated yield secured through Bitcoin-native custody without rehypothecation. Credit exposure remains but is limited to known, KYC/KYB borrowers and is governed by on-chain covenants, segregated Series vaults, and signed legal agreements. Custody is distributed across threshold signers rather than centralized, meaning vault operations require multi-party authorization.
-- **For borrowers:** Access native BTC liquidity at fixed rates under clear legal agreements and transparent, on-chain covenant monitoring.
+- **For lenders:** Earn fixed, BTC-denominated income by lending to vetted institutional borrowers under clear legal terms. Each borrower vault has its own rate, duration, and credit profile, so lenders can choose the exposure that fits their risk appetite. Borrower payment activity is visible on-chain, giving lenders an auditable record of how obligations are being serviced.
+- **For borrowers:** Access BTC liquidity through structured loan facilities without needing to overcollateralize every position. Loans may be undercollateralized or fully uncollateralized, but borrowers remain contractually obligated to repay interest and principal under signed legal agreements.
 
-### **Gaps in Current Bitcoin Credit Infrastructure**
+### **How Nexio Works**
 
-To understand why Nexio’s model matters, it’s useful to contrast it with existing BTC lending infrastructure.
+Nexio organizes lending through borrower-specific vaults. Each vault corresponds to a single institutional borrower and a defined set of commercial terms.
 
-Existing BTC lending markets rely on variable-rate exchange margin and opaque CeFi desks, where terms change with utilization, collateral is often commingled or rehypothecated, and lenders have limited visibility into borrower risk. Nexio replaces this with a fixed-rate structure, ring-fenced Series, and custody models that meet institutional standards. BTC remains in segregated vaults with enforceable contracts, on-chain telemetry, and optional support for qualified custodians when preferred. Nexio’s design creates predictable, auditable, and budgetable BTC credit that institutions can rely on.
+Those terms typically include:
 
-The table below highlights Nexio's key advantages:
+- A fixed interest rate
+- A fixed loan duration
+- A defined repayment schedule
+- Legal agreements governing payment obligations, default handling, and lender protections
 
-| Existing BTC Lending Solutions                | Nexio                                                                                                                                                                                    |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Opaque custody and commingled collateral      | Segregated Series-level custody. Each Series holds its own BTC, either in a Taproot vault with threshold authorization or in a segregated prime-custody sub-account. No rehypothecation. |
-| Generic, one-size-fits-all lending            | Borrower-specific Series with defined strategy, term, collateral requirements, and covenants. One borrower, one vault, one set of fixed terms.                                           |
-| Variable rates driven by exchange utilization | Fixed APR at draw, informed by strategy economics and credit spreads, so lenders and borrowers can plan in BTC with certainty.                                                           |
-| Limited secondary liquidity                   | uBTC receipts enable transferability and integration in secondary markets for hedging or early exits.                                                                                    |
-| Manual or delayed reporting                   | Real-time on-chain telemetry for utilization, collateral, coupon flows, and Series performance.                                                                                          |
-| No structured diversification                 | Programmatic diversification via the Master Vault across vetted borrowers and strategies.                                                                                                |
+This structure gives lenders visibility into who they are lending to, how long capital will be locked, what return they should expect if the loan performs as agreed, and how borrower payments are made over the life of the facility.
 
-### Custody Models
+### **Why the Model Matters**
 
-Nexio supports two custody models.
+Traditional BTC lending often leaves lenders exposed to changing rates, unclear custody arrangements, rehypothecation risk, and limited transparency around the borrower. Nexio replaces that with a more structured model built around identified counterparties, fixed commercial terms, segregated borrower vaults, professional custody, and auditable payment flows.
 
-These include:
+The table below highlights Nexio's key differences:
 
-1. **Native Bitcoin custody (default):**  Every Series holds BTC in a dedicated Taproot Vault using threshold Schnorr signatures. The vault looks like a single-sig on-chain but requires an m-of-n operator quorum to move funds (Custody, Validation, Governance). This structure prevents rehypothecation and keeps each Series isolated. uBTC receipts are minted/burned only after the Bitcoin transaction is proof-gated (confirmed on the BTC network), keeping token supply 1:1 with coins verifiably in custody.
-2. **Prime-custodian flow (optional):** If a borrower or lender prefers a qualified custodian (e.g., BitGo), Nexio supports a segregated, whitelisted sub-account model. Deposits, draws, and repayments still route through the Series’ control logic and execute only after on-chain compliance attestations and proof-gated events, preserving the same no-rehypothecation and ring-fencing guarantees.
+| Existing BTC Lending Solutions                | Nexio                                                                                                                                     |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Opaque borrower exposure                      | Institutional borrowers are vetted before access is granted, and each vault is tied to a specific borrower and term sheet.                |
+| Commingled capital across many activities     | Borrower vaults are segregated so lenders can evaluate exposure on a borrower-by-borrower basis, without rehypothecation of funds.        |
+| Floating or unstable loan pricing             | Loans are issued at fixed interest rates, with principal due at maturity.                                                                 |
+| Heavy reliance on overcollateralization       | Nexio supports undercollateralized and, in some cases, uncollateralized lending backed by legal agreements and credit underwriting.       |
+| Informal operating processes                  | Lending activity is managed through documented workflows, institutional onboarding, enforceable borrower obligations, and transparent payment reporting. |
+| Weak custody controls                         | BTC is held through trusted custody arrangements, including qualified custodians such as BitGo where appropriate.                         |
+
+### Custody
+
+Custody is a core part of the Nexio model. Borrower vaults are administered through trusted custody arrangements designed to separate assets, control movements of BTC, prevent rehypothecation, and support institutional oversight.
+
+These arrangements can include:
+
+1. **Segregated borrower vaults:** Each borrower facility is structured as its own vault with its own terms, balances, and operational controls.
+2. **Qualified custodians:** Nexio can work with trusted custodians such as BitGo to hold BTC and support secure settlement, reporting, and asset segregation.
+3. **Controlled operations:** Deposits, draws, interest payments, and repayments follow managed operational processes. Nexio exposes borrower payment activity on-chain so lenders can independently audit loan servicing.
 
 We cover this further in **Section 5.1: Bitcoin Custody.**
 
 ### Architecture
 
-At a high level, Nexio connects users, programmable vaults, and Bitcoin’s base layer through a coordinated three-layer system.
-
-<img
-  src="/images/Capturadepantalla2026-01-21ala(s)2.18.10p.m.-1.png"
-  alt="4thgraphic Ecosystem Jp"
-  title="4thgraphic Ecosystem Jp"
-  style={{ width:"82%" }}
-/>
+At a high level, Nexio brings together lenders, borrower-specific vaults, and institutional custody through a coordinated three-layer operating model.
 
 These include:
 
-1. **User Layer:** Retail users, BTC treasuries, and institutional funds interact with Nexio through deposits, redemptions, and reporting interfaces. Deposits flow into individual Series or the Master Vault, both secured by Taproot-based custody. Each Series corresponds to a single borrower with its own dedicated Taproot vault, while the Master Vault allocates capital across multiple Series to provide diversified exposure.
-2. **Protocol Layer:** The core logic of Nexio. Series contracts define individual yield strategies with fixed terms and ring-fenced risk. The Master Vault allocates capital across borrower-specific Series and aggregates their performance, while Network Validators coordinate deposits, redemptions, and yield distribution with on-chain verifiability.
-3. **Infrastructure Layer:** The foundation securing all activity. Taproot vaults enable native Bitcoin custody with programmable spending conditions. The Bitcoin network anchors final settlement, while the Nexio Coordination Layer links protocol logic to custody, orchestrating proofs, validations, and data flow across the system.
+1. **Client Layer:** Lenders, BTC treasuries, and institutional allocators access Nexio through onboarding, reporting, and borrower vault selection. They choose among vaults based on borrower profile, interest rate, and duration.
+2. **Operations Layer:** Nexio manages underwriting, legal documentation, payment workflows, and borrower monitoring. This is where vault terms are defined, lenders are matched to facilities, and repayments are tracked through the life of each loan.
+3. **Custody Layer:** Trusted custodians and controlled settlement workflows hold and move BTC under approved operating procedures. This layer is designed to protect asset segregation and support secure loan funding and repayment.
