@@ -10,7 +10,7 @@ You will likely update `docs.json` every time you add a new page. Pages do not s
 
 ## Navigation syntax
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.md` in page names.
 
 <CodeGroup>
 
@@ -56,9 +56,9 @@ Our navigation syntax is recursive which means you can make nested navigation gr
 
 ## Folders
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+Simply put your Markdown files in folders and update the paths in `docs.json`.
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing a Markdown file called `your-page.md`.
 
 <Warning>
 
@@ -84,4 +84,4 @@ You cannot use `api` for the name of a folder unless you nest it inside another 
 
 ## Hidden Pages
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+Markdown files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.

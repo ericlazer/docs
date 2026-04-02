@@ -4,7 +4,7 @@ description: Reusable, custom snippets to keep content in sync
 icon: 'recycle'
 ---
 
-import SnippetIntro from '/snippets/snippet-intro.mdx';
+import SnippetIntro from '/snippets/snippet-intro.md';
 
 <SnippetIntro />
 
@@ -25,7 +25,7 @@ import SnippetIntro from '/snippets/snippet-intro.mdx';
    locations. Optionally, you can add variables that can be filled in via props
    when you import the snippet.
 
-```mdx snippets/my-snippet.mdx
+```mdx snippets/my-snippet.md
 Hello world! This is my content I want to reuse across pages. My keyword of the
 day is {word}.
 ```
@@ -37,13 +37,13 @@ day is {word}.
 
 2. Import the snippet into your destination file.
 
-```mdx destination-file.mdx
+```mdx destination-file.md
 ---
 title: My title
 description: My Description
 ---
 
-import MySnippet from '/snippets/path/to/my-snippet.mdx';
+import MySnippet from '/snippets/path/to/my-snippet.md';
 
 ## Header
 
@@ -56,7 +56,7 @@ Lorem impsum dolor sit amet.
 
 1. Export a variable from your snippet file:
 
-```mdx snippets/path/to/custom-variables.mdx
+```mdx snippets/path/to/custom-variables.md
 export const myName = 'my name';
 
 export const myObject = { fruit: 'strawberries' };
@@ -64,13 +64,13 @@ export const myObject = { fruit: 'strawberries' };
 
 2. Import the snippet from your destination file and use the variable:
 
-```mdx destination-file.mdx
+```mdx destination-file.md
 ---
 title: My title
 description: My Description
 ---
 
-import { myName, myObject } from '/snippets/path/to/custom-variables.mdx';
+import { myName, myObject } from '/snippets/path/to/custom-variables.md';
 
 Hello, my name is {myName} and I like {myObject.fruit}.
 ```
@@ -80,7 +80,7 @@ Hello, my name is {myName} and I like {myObject.fruit}.
 1. Inside your snippet file, create a component that takes in props by exporting
    your component in the form of an arrow function.
 
-```mdx snippets/custom-component.mdx
+```mdx snippets/custom-component.md
 export const MyComponent = ({ title }) => (
   <div>
     <h1>{title}</h1>
@@ -96,13 +96,13 @@ export const MyComponent = ({ title }) => (
 
 2. Import the snippet into your destination file and pass in the props
 
-```mdx destination-file.mdx
+```mdx destination-file.md
 ---
 title: My title
 description: My Description
 ---
 
-import { MyComponent } from '/snippets/custom-component.mdx';
+import { MyComponent } from '/snippets/custom-component.md';
 
 Lorem ipsum dolor sit amet.
 
