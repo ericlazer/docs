@@ -61,10 +61,9 @@
             "group": "How Nexio Works",
             "pages": [
               "02-how-nexio-works/0.system-architecture",
-              "02-how-nexio-works/1.borrower-flow",
-              "02-how-nexio-works/2.lender-flow",
-              "02-how-nexio-works/4.mint-and-burn-logic",
-              "02-how-nexio-works/5.operator-queue"
+              "02-how-nexio-works/1.borrower-overview",
+              "02-how-nexio-works/2.lender-overview",
+              "02-how-nexio-works/3.borrower-lender-faq"
             ]
           },
           {
@@ -81,9 +80,7 @@
             "pages": [
               "04-risk-and-governance/1.Credit-Scoring",
               "04-risk-and-governance/2.Concentration-Limits",
-              "04-risk-and-governance/3.Covenant-Monitoring",
-              "04-risk-and-governance/4.Liquidation-and-Recovery",
-              "04-risk-and-governance/5.Circuit-Breakers"
+              "04-risk-and-governance/3.Covenant-Monitoring"
             ]
           },
           {
@@ -91,15 +88,13 @@
             "pages": [
               "05-Security-Custody-Compliance/1.Bitcoin-Custody",
               "05-Security-Custody-Compliance/2.Compliance-Controls",
-              "05-Security-Custody-Compliance/3.Auditability-and-Legal",
-              "05-Security-Custody-Compliance/4.Proof-Gating"
+              "05-Security-Custody-Compliance/3.Auditability-and-Legal"
             ]
           },
           {
             "group": "Community",
             "pages": [
-              "07-community/community-links",
-              "07-community/faq"
+              "06-community/community-links"
             ]
           }
         ]
