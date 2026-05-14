@@ -5,10 +5,10 @@ title: "System Architecture"
 Nexio is organized as a three-layer BTC lending platform. These layers connect institutional lenders, borrower-specific credit facilities, and the custody and control processes that move BTC through the life of each loan.
 
 1. **Client Layer:** The institutions that supply or borrow BTC through Nexio.
-2. **Operations Layer:** The underwriting, facility structuring, servicing, monitoring, and reporting workflows that run the lending business.
+2. **Operations Layer:** The onboarding, facility coordination, servicing, monitoring, and reporting workflows that run the lending business.
 3. **Custody Layer:** The custody and settlement infrastructure that receives BTC, funds approved borrowers, processes repayments, and keeps balances reconciled.
 
-Together, these layers let lenders allocate BTC to defined borrower opportunities while Nexio manages credit selection, operational controls, and repayment tracking.
+Together, these layers let lenders allocate BTC to defined borrower opportunities while Nexio manages operational controls and repayment tracking.
 
 ### **1. Client Layer**
 
@@ -25,17 +25,17 @@ Each facility corresponds to one borrower and one defined set of commercial term
 
 ### **2. Operations Layer**
 
-The Operations Layer is the core of the platform. It is where Nexio originates, approves, and services each lending facility.
+The Operations Layer is the core of the platform. It is where Nexio coordinates and services each lending facility.
 
 This layer includes five main functions:
 
-- **Underwriting and onboarding:** Nexio completes KYC/KYB, credit review, compliance checks, and borrower approval before a facility is opened.
 - **Facility structuring:** Nexio defines the interest rate, facility size, duration, repayment schedule, permitted use of proceeds, and borrower-specific covenants.
+- **Onboarding and diligence coordination:** Nexio completes KYC/KYB, compliance checks, and the onboarding steps required before a facility is opened.
 - **Lender allocation:** BTC deposits are booked to the relevant borrower facility so exposure remains tied to the selected borrower rather than being mixed across unrelated programs.
 - **Servicing and monitoring:** Nexio tracks utilization, borrower reporting, coupon payments, covenant compliance, and concentration limits throughout the loan term.
 - **Legal and reporting workflow:** Every facility operates under legal agreements and reporting requirements that define payment obligations, default remedies, and lender protections.
 
-This is also the layer where Nexio applies its credit scoring framework, concentration limits, and covenant monitoring. In practice, lender protection comes from disciplined underwriting, legal structure, ongoing monitoring, and operational controls across the life of the facility.
+This is also the layer where Nexio applies concentration limits, covenant monitoring, and operational controls. In practice, lender protection comes from legal agreements, counterparty diligence, facility-specific covenants, monitoring, recovery rights, custody workflows, reporting, and operational controls across the life of the facility.
 
 ### **3. Custody Layer**
 
@@ -51,7 +51,7 @@ This layer typically includes:
 - **Repayment processing and reconciliation:** Coupon payments and principal repayments are received, matched to the correct facility, and reflected in Nexio's reporting.
 - **Auditability:** BTC movements can be reconciled against custody records, facility records, and lender reporting so stakeholders can verify how each facility is being serviced.
 
-The Custody Layer does not replace credit underwriting, but it provides the operational backbone that makes funding, repayment, and recordkeeping reliable.
+The Custody Layer does not replace counterparty diligence or legal review, but it provides the operational backbone that makes funding, repayment, and recordkeeping reliable.
 
 ### **How the Layers Work Together**
 

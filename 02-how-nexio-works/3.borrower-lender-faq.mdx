@@ -8,7 +8,8 @@ Nexio is a lending platform that matches BTC lenders with institutional borrower
 
 In practice, Nexio:
 
-- Onboards institutional borrowers once, then underwrites and monitors them through the life of the relationship.
+- Connects institutional lenders and borrowers around defined BTC credit facilities.
+- Coordinates onboarding, documentation, funding, repayment, and reporting.
 - Structures loans with fixed commercial terms and legal agreements.
 - Uses custody and controlled operations to manage funding, repayment, and reporting.
 - Gives lenders visibility into borrower-specific exposure rather than pooling everything together.
@@ -34,7 +35,6 @@ Nexio is built for undercollateralized and uncollateralized lending.
 
 That means lender protection comes primarily from:
 
-- Credit underwriting
 - Borrower selection
 - Covenant packages
 - Legal agreements
@@ -44,83 +44,7 @@ Some facilities may still include collateral, but it may not generally be provid
 
 ---
 
-### 4. What actually determines the interest rate a borrower pays?
-
-Every borrower’s rate is built from three main pieces:
-
-1. **The borrower’s Nexio credit score (0–5)**
-   - 0 = very weak; 5 = very strong.
-   - The score summarizes many factors: business & financial strength, governance, compliance / AML, custody quality, and venue/jurisdiction quality.
-   - A higher score → lower estimated **probability of default** → lower premium over the base rate.
-2. **The BTC base rate derived from futures market cost of carry**
-
-   Nexio backs out a BTC base rate from the Bitcoin futures market by looking at the implied cost of carry between spot BTC and futures prices.
-
-   In simple terms, this rate reflects the market-implied financing cost of holding BTC over time, as expressed through futures basis.
-3. **The borrower’s BTC collateral structure**
-   - How much collateral a borrower posts determines a **loss given default**: “If the borrower defaults, what % of principal would lenders likely lose after BTC collateral and recoveries?”
-   - More BTC collateral → lower credit spread.
-   - Less or no BTC collateral → higher credit spread.
-
-At a high level:
-
-> **Quoted rate ≈ BTC base rate + probability of default × loss given default.**
-
-The full pricing formula also includes other terms for risk parameters.
-
----
-
-### 5. What does the 0–5 credit score actually mean in terms of default probability?
-
-Nexio maps each credit score to a **1-year probability of default**.
-
-A simplified example of that mapping (illustrative, not a legal quote):
-
-| Credit score | Approx. 1-yr PD |
-| ------------ | --------------- |
-| 0.0          | 44.26%          |
-| 0.5          | 31.75%          |
-| 1.0          | 21.42%          |
-| 1.5          | 13.77%          |
-| 2.0          | 8.56%           |
-| 2.5          | 5.20%           |
-| 3.0          | 3.11%           |
-| 3.5          | 1.85%           |
-| 4.0          | 1.09%           |
-| 4.5          | 0.64%           |
-| 5.0          | 0.38%           |
-
-Interpretation:
-
-- Moving from **2 → 3** cuts the estimated default risk by roughly **40%** (8.6% → 3.1%).
-- Moving from **3 → 4.5** roughly halves it again (3.1% → 0.6% range).
-
-That drop in probability of default directly lowers a borrower’s premiums.
-
-Below is a graph of Nexio's approximate probability of default rates given different credit scores.
-
-![1Y Default Probability Curve](../nexio_score_pd_curve.svg)
-
----
-
-### 6. How does BTC collateral affect the rate a borrower is quoted?
-
-For a borrower, the key idea is:
-
-> **More BTC collateral → Smaller expected loss for lenders → Lower rate.**
-
-Conceptually:
-
-- If a borrower posts **little or no BTC**, lenders rely mostly on the borrower’s credit quality and legal recovery. If the loss given default is high (e.g., ~60%), then the premium over the base rate is large.
-- If a borrower posts **meaningful BTC margin**, then even if the borrower defaults, a chunk of the loan can be repaid from that collateral. As the loss given default shrinks, the rate falls.
-
-Below is a plot of the borrower's quoted rate given their collateral for various credit scores. It assumes a 3% BTC base rate derived from futures market cost of carry.
-
-![Quoted Rate vs Collateral](../collateral_rate_curves.svg)
-
----
-
-### 7. What happens if a borrower defaults?
+### 4. What happens if a borrower defaults?
 
 A default occurs when a borrower fails to meet its payment or other contractual obligations.
 
@@ -135,7 +59,7 @@ Losses, if any, are borne according to each lender's exposure to that facility.
 
 ---
 
-### 8. What happens to a lender’s BTC when deposited?
+### 5. What happens to a lender’s BTC when deposited?
 
 When a lender deposits BTC:
 
@@ -145,12 +69,12 @@ When a lender deposits BTC:
 
 ---
 
-### 9. Once BTC is lent out and paid back, will it be lent out again next time?
+### 6. Once BTC is lent out and paid back, will it be lent out again next time?
 
 Potentially, yes. Once a loan is repaid, BTC that remains in the same borrower vault can be committed to a new fixed-term loan for that borrower, typically at updated terms for the next facility.
 
 ---
 
-### 10. Does BTC collect compound interest?
+### 7. Does BTC collect compound interest?
 
 Not automatically. BTC only compounds if interest or repaid principal remains in the borrower vault and is then committed to a subsequent loan, allowing returns to be earned again on a larger balance.
