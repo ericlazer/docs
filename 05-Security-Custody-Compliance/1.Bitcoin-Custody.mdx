@@ -15,8 +15,7 @@ The goal is straightforward:
 - Support documented approval workflows
 - Reduce rehypothecation risk
 - Provide auditable records for lenders, borrowers, and counterparties
-
-In practice, this usually means Nexio coordinates with one or more regulated or otherwise approved custodians to manage deposit receipt, disbursement, repayment, and account reconciliation.
+In practice, this means Nexio coordinates with one or more regulated or otherwise approved custodians to manage deposit receipt, disbursement, repayment, and account reconciliation.
 
 ### How It Works
 
@@ -27,11 +26,13 @@ Nexio's custody process typically follows four steps:
 3. **Borrower funding:** Once the relevant legal, credit, and operational requirements are satisfied, BTC is disbursed to the borrower through approved settlement instructions.
 4. **Repayment and reconciliation:** Coupon payments and principal repayments are received, matched to the facility, and reflected in Nexio's reporting and oversight processes.
 
-### Key Custody Principles
+### Key Custody Controls
 
 - **Qualified custody:** Nexio can work with established custodians such as BitGo or other approved providers appropriate for institutional BTC settlement.
 - **Asset segregation:** Borrower and lender exposures are tracked through segregated account structures and internal controls rather than pooled informal balances.
 - **Controlled movement of funds:** BTC transfers are subject to documented approval, settlement, and reconciliation procedures.
+- **Instruction verification:** Funding and repayment instructions are checked against approved facility terms, counterparty records, and internal authorization workflows before BTC moves.
+- **Role separation:** Credit approval, operations, custody initiation, and reconciliation are separated across defined workflows so a single action does not control the entire transfer lifecycle.
 - **Operational oversight:** Custody activity is integrated with Nexio's onboarding, compliance, and reporting processes.
 - **Auditability:** Nexio maintains records that support lender reporting, internal monitoring, and counterparty verification.
 
