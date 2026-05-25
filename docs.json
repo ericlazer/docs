@@ -114,5 +114,31 @@
       "x": "https://x.com/buildnexio",
       "discord": "https://discord.gg/nexio"
     }
+  },
+  "contextual": {
+    "options": [
+      "assistant",
+      "grok",
+      "windsurf",
+      "chatgpt",
+      "vscode",
+      "mcp",
+      "aistudio",
+      "copy",
+      "claude",
+      "devin-mcp",
+      "add-mcp",
+      "devin",
+      "perplexity",
+      "view",
+      "cursor"
+    ],
+    "display": "header"
+  },
+  "markdown": {
+    "schema": true
+  },
+  "seo": {
+    "indexing": "all"
   }
 }
