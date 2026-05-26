@@ -117,28 +117,19 @@
   },
   "contextual": {
     "options": [
-      "assistant",
-      "grok",
-      "windsurf",
-      "chatgpt",
-      "vscode",
-      "mcp",
-      "aistudio",
       "copy",
-      "claude",
-      "devin-mcp",
-      "add-mcp",
-      "devin",
-      "perplexity",
       "view",
-      "cursor"
+      "chatgpt",
+      "claude",
+      "mcp",
+      "add-mcp",
+      "cursor",
+      "vscode"
     ],
     "display": "header"
   },
   "markdown": {
     "schema": true
   },
-  "seo": {
-    "indexing": "all"
-  }
+  "description": "Nexio Docs explain how Nexio connects BTC lenders with institutional borrowers through fixed-term, fixed-rate lending, borrower-specific vaults, legal agreements, custody controls, covenant monitoring, compliance workflows, and on-chain payment auditability."
 }
